@@ -64,6 +64,12 @@ module.exports = yeoman.Base.extend({
       name: 'travis',
       message: 'Would you like to enable HTMLProofer to validate your Jekyll output?',
       default: true
+    }, {
+      // Prompts the user for the URL of the project's GitHub repo.
+      type: 'String',
+      name: 'github_url',
+      message: 'What is the GitHub repository URL?',
+      required: 'false'
     }];
 
     return this.prompt(prompts).then(function (props) {
