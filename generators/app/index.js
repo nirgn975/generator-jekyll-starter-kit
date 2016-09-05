@@ -58,22 +58,6 @@ module.exports = yeoman.Base.extend({
       name: 'travis',
       message: 'Would you like to enable HTMLProofer to validate your Jekyll output?',
       default: true
-    }, {
-      // Prompts the user to choose his jekyll plugins.
-      type: 'checkbox',
-      name: 'plugins',
-      message: 'Do you need any of those jekyll plugins?',
-      choices: [
-        {
-        name: ' Paginate',
-        value: 'paginate',
-        checked: false
-        }, {
-        name: ' i18n',
-        value: 'i18n',
-        checked: false
-        }
-      ]
     }];
 
     return this.prompt(prompts).then(function (props) {
