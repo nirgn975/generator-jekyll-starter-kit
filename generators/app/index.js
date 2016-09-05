@@ -47,6 +47,12 @@ module.exports = yeoman.Base.extend({
         }
       ]
     }, {
+      // Prompts the user to decide if he want ES2015 support.
+      type: 'confirm',
+      name: 'es',
+      message: 'Would you like to write ES2015? (ES2015 will be support using Babel and will automatically transpiled to ES5 for wide browser support).',
+      default: true
+    }, {
       // Prompts the user to decide if he want offline support.
       type: 'confirm',
       name: 'sw',
