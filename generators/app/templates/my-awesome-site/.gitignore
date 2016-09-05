@@ -1,5 +1,14 @@
-node_modules
-coverage
+### Jekyll ###
+_site/
+.sass-cache/
+.jekyll-metadata
+Gemfile.lock
+
+
+### Sass ###
+.sass-cache/
+*.css.map
+
 
 ### OSX ###
 *.DS_Store
