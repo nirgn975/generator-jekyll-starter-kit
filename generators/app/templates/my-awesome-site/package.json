@@ -1,6 +1,6 @@
 
 {
-  "name": "my-awesome-site",
+  "name": "<%= project_name %>",
   "version": "0.0.0",
   "description": "Your site description.",
   "main": "gulpfile.js",
@@ -8,7 +8,7 @@
     "gulp": "gulp",
     "gulp deploy": "gulp deploy"
   },
-  "author": "Nir Galon",
+  "author": "<%= github_username %>",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.14.0",
@@ -24,6 +24,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nirgn975/resume.git"
+    "url": "<%= github_url %>"
   }
 }

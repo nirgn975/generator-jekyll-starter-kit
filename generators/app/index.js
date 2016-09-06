@@ -11,6 +11,24 @@ module.exports = yeoman.Base.extend({
     ));
 
     var prompts = [{
+      // Prompts the user for the project name.
+      type: 'String',
+      name: 'project_name',
+      message: 'What will be your project name?',
+      required: 'false'
+    }, {
+      // Prompts the user for the URL of the project's GitHub repo.
+      type: 'String',
+      name: 'github_url',
+      message: 'What is the GitHub repository URL?',
+      required: 'false'
+    }, {
+      // Prompts the user for his GitHub username.
+      type: 'String',
+      name: 'github_username',
+      message: 'What is your GitHub username?',
+      required: 'false'
+    }, {
       // Prompts the user to pick a templating engine.
       type: 'list',
       name: 'html',
@@ -64,12 +82,6 @@ module.exports = yeoman.Base.extend({
       name: 'travis',
       message: 'Would you like to enable HTMLProofer to validate your Jekyll output?',
       default: true
-    }, {
-      // Prompts the user for the URL of the project's GitHub repo.
-      type: 'String',
-      name: 'github_url',
-      message: 'What is the GitHub repository URL?',
-      required: 'false'
     }];
 
     return this.prompt(prompts).then(function (props) {
@@ -81,11 +93,29 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-    console.log(this.props.someAnswer);
     this.fs.copy(
       this.templatePath('my-awesome-site'),
       this.destinationPath('my-awesome-site')
     );
+
+    // Handle package.json file.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/package.json'),
+      this.destinationPath('my-awesome-site/package.json'),
+      {
+        project_name: this.props.project_name,
+        github_username: this.props.github_username,
+        github_url: this.props.github_url
+      }
+    );
+
+    // Handle LICENSE file.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/LICENSE'),
+      this.destinationPath('my-awesome-site/LICENSE'),
+      { github_username: this.props.github_username }
+    );
+
   },
 
   install: function () {
