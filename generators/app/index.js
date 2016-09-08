@@ -39,8 +39,8 @@ module.exports = yeoman.Base.extend({
         value: 'html',
         checked: true
         }, {
-        name: ' Jade',
-        value: 'jade',
+        name: ' Pug (Jade)',
+        value: 'pug',
         checked: false
         }
       ]
