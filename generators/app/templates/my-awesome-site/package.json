@@ -1,0 +1,20 @@
+{
+  "name": "<%= project_name %>",
+  "version": "1.0.0",
+  "description": "Your site description",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "<%= github_username %>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0",
+    "gulp": "^3.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "<%= github_url %>"
+  }
+}

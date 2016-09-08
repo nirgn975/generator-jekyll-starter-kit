@@ -11,6 +11,24 @@ module.exports = yeoman.Base.extend({
     ));
 
     var prompts = [{
+      // Prompts the user for the project name.
+      type: 'String',
+      name: 'project_name',
+      message: 'What will be your project name?',
+      required: 'false'
+    }, {
+      // Prompts the user for the URL of the project's GitHub repo.
+      type: 'String',
+      name: 'github_url',
+      message: 'What is the GitHub repository URL?',
+      required: 'false'
+    }, {
+      // Prompts the user for his GitHub username.
+      type: 'String',
+      name: 'github_username',
+      message: 'What is your GitHub username?',
+      required: 'false'
+    }, {
       // Prompts the user to pick a templating engine.
       type: 'list',
       name: 'html',
@@ -47,6 +65,12 @@ module.exports = yeoman.Base.extend({
         }
       ]
     }, {
+      // Prompts the user to decide if he want ES2015 support.
+      type: 'confirm',
+      name: 'es',
+      message: 'Would you like to write ES2015? (ES2015 will be support using Babel and will automatically transpiled to ES5 for wide browser support).',
+      default: true
+    }, {
       // Prompts the user to decide if he want offline support.
       type: 'confirm',
       name: 'sw',
@@ -69,11 +93,36 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-    console.log(this.props.someAnswer);
+    // Copy all non-dotfiles
     this.fs.copy(
       this.templatePath('my-awesome-site'),
-      this.destinationPath('my-awesome-site')
+      this.destinationPath(this.props.project_name)
     );
+
+    // Copy all dotfiles
+    this.fs.copy(
+      this.templatePath('my-awesome-site/.*'),
+      this.destinationRoot(this.props.project_name)
+    );
+
+    // Handle package.json file.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/package.json'),
+      this.destinationPath('package.json'),
+      {
+        project_name: this.props.project_name,
+        github_username: this.props.github_username,
+        github_url: this.props.github_url
+      }
+    );
+
+    // Handle LICENSE file.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/LICENSE'),
+      this.destinationPath('LICENSE'),
+      { github_username: this.props.github_username }
+    );
+
   },
 
   install: function () {
