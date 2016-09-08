@@ -93,15 +93,22 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
+    // Copy all non-dotfiles
     this.fs.copy(
       this.templatePath('my-awesome-site'),
-      this.destinationPath('my-awesome-site')
+      this.destinationPath(this.props.project_name)
+    );
+
+    // Copy all dotfiles
+    this.fs.copy(
+      this.templatePath('my-awesome-site/.*'),
+      this.destinationRoot(this.props.project_name)
     );
 
     // Handle package.json file.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/package.json'),
-      this.destinationPath('my-awesome-site/package.json'),
+      this.destinationPath('package.json'),
       {
         project_name: this.props.project_name,
         github_username: this.props.github_username,
@@ -112,7 +119,7 @@ module.exports = yeoman.Base.extend({
     // Handle LICENSE file.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/LICENSE'),
-      this.destinationPath('my-awesome-site/LICENSE'),
+      this.destinationPath('LICENSE'),
       { github_username: this.props.github_username }
     );
 
