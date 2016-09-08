@@ -14,7 +14,8 @@
     "gulp": "^3.9.1",
     "gulp-htmlmin": "2.0.0",
     "gulp-load-plugins": "1.2.4",
-    "gulp-shell": "0.5.2"
+    "gulp-shell": "0.5.2",
+    "gulp-pug": "3.0.4"
   },
   "repository": {
     "type": "git",

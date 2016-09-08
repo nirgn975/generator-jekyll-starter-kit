@@ -22,6 +22,16 @@ gulp.task('minify-html', () => {
     .pipe(gulp.dest('_site'))
 });
 
+// Pug (Jade) to HTML.
+gulp.task('pug', () => {
+  return gulp.src([
+    '_site/**/*.pug',
+    '!_site/node_modules/**'
+  ])
+  .pipe($.pug())
+  .pipe(gulp.dest('_site'))
+});
+
 gulp.task('jekyll-build', $.shell.task([ 'jekyll build' ]));
 
 // Default task.
