@@ -1,9 +1,13 @@
 ### Jekyll ###
-_site/
+_site
 .sass-cache/
 .jekyll-metadata
 Gemfile.lock
 
+<% if (includePug) { -%>
+### Pug ###
+*.index
+<% } -%>
 
 ### Sass ###
 .sass-cache/

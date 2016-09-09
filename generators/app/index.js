@@ -39,8 +39,8 @@ module.exports = yeoman.Base.extend({
         value: 'html',
         checked: true
         }, {
-        name: ' Jade',
-        value: 'jade',
+        name: ' Pug (Jade)',
+        value: 'pug',
         checked: false
         }
       ]
@@ -80,29 +80,70 @@ module.exports = yeoman.Base.extend({
       // Prompts the user to decide if he want to validate his build.
       type: 'confirm',
       name: 'travis',
-      message: 'Would you like to enable HTMLProofer to validate your Jekyll output?',
+      message: 'Would you like to enable HTMLProofer to validate your Jekyll output on Travis-CI?',
       default: true
     }];
 
     return this.prompt(prompts).then(function (props) {
       // To access props later use this.props.someAnswer;
-      this.props = props;
-      console.log(props);
-      this.props.someAnswer = 'foo';
+      this.project_name = props.project_name;
+      this.github_username = props.github_username;
+      this.github_url = props.github_url;
+      var html = props.html;
+
+      function hasFeature(features, feat) {
+        return features && features.indexOf(feat) !== -1;
+      };
+
+      // manually deal with the response, get back and store the results.
+      // we change a bit this way of doing to automatically do this in the self.prompt() method.
+      this.includeHTML = hasFeature(html, 'html');
+      this.includePug = hasFeature(html, 'pug');
     }.bind(this));
   },
 
   writing: function () {
-    // Copy all non-dotfiles
+    // Copy all .md files.
     this.fs.copy(
-      this.templatePath('my-awesome-site'),
-      this.destinationPath(this.props.project_name)
+      this.templatePath('my-awesome-site/*.md'),
+      this.destinationPath(this.project_name)
     );
 
-    // Copy all dotfiles
+    // Copy all _posts directory.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/_posts'),
+      this.destinationPath(this.project_name + '/_posts')
+    );
+
+    // Copy all .xml files.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/*.xml'),
+      this.destinationPath(this.project_name)
+    );
+
+    // Copy all .yml files.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/*.yml'),
+      this.destinationPath(this.project_name)
+    );
+
+    // Copy Gemfile.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/Gemfile'),
+      this.destinationPath(this.project_name + '/Gemfile')
+    );
+
+    // Copy all dotfiles.
     this.fs.copy(
       this.templatePath('my-awesome-site/.*'),
-      this.destinationRoot(this.props.project_name)
+      this.destinationRoot(this.project_name)
+    );
+
+    // Handle package.json file.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/.gitignore'),
+      this.destinationPath('.gitignore'),
+      { includePug: this.includePug }
     );
 
     // Handle package.json file.
@@ -110,9 +151,11 @@ module.exports = yeoman.Base.extend({
       this.templatePath('my-awesome-site/package.json'),
       this.destinationPath('package.json'),
       {
-        project_name: this.props.project_name,
-        github_username: this.props.github_username,
-        github_url: this.props.github_url
+        project_name: this.project_name,
+        github_username: this.github_username,
+        github_url: this.github_url,
+        includeHTML: this.includeHTML,
+        includePug: this.includePug
       }
     );
 
@@ -120,7 +163,30 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/LICENSE'),
       this.destinationPath('LICENSE'),
-      { github_username: this.props.github_username }
+      { github_username: this.github_username }
+    );
+
+    // Handle HTML/Pug according to user choice.
+    if (this.includeHTML) {
+      this.fs.copy(
+        this.templatePath('my-awesome-site/index.html'),
+        this.destinationPath('index.html')
+      );
+    } else {
+      this.fs.copy(
+        this.templatePath('my-awesome-site/index.pug'),
+        this.destinationPath('index.pug')
+      );
+    }
+
+    // Handle gulpfile.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/gulpfile.babel.js'),
+      this.destinationPath('gulpfile.babel.js'),
+      {
+        includeHTML: this.includeHTML,
+        includePug: this.includePug
+       }
     );
 
   },
