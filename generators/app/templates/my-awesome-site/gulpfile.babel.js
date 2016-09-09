@@ -5,6 +5,7 @@ import gulpLoadPlugins from 'gulp-load-plugins';
 
 const $ = gulpLoadPlugins();
 
+<% if (includeHTML) { -%>
 // Minify the HTML.
 gulp.task('minify-html', () => {
   return gulp.src('_site/**/*.html')
@@ -21,7 +22,9 @@ gulp.task('minify-html', () => {
     }))
     .pipe(gulp.dest('_site'))
 });
+<% } -%>
 
+<% if (includePug) { -%>
 // Pug (Jade) to HTML.
 gulp.task('pug', () => {
   return gulp.src([
@@ -31,6 +34,7 @@ gulp.task('pug', () => {
   .pipe($.pug())
   .pipe(gulp.dest('_site'))
 });
+<% } -%>
 
 gulp.task('jekyll-build', $.shell.task([ 'jekyll build' ]));
 
