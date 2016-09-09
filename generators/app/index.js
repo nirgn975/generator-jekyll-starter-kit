@@ -168,16 +168,54 @@ module.exports = yeoman.Base.extend({
 
     // Handle HTML/Pug according to user choice.
     if (this.includeHTML) {
+      // Copy index.html file.
       this.fs.copy(
         this.templatePath('my-awesome-site/index.html'),
         this.destinationPath('index.html')
       );
+
+      // Copy all _includes directory.
+      this.fs.copy(
+        this.templatePath('my-awesome-site/_includes-html'),
+        this.destinationPath('_includes')
+      );
+
+      // Copy all _layouts directory.
+      this.fs.copy(
+        this.templatePath('my-awesome-site/_layouts-html'),
+        this.destinationPath('_layouts')
+      );
     } else {
+      // Copy index.pug file.
       this.fs.copy(
         this.templatePath('my-awesome-site/index.pug'),
         this.destinationPath('index.pug')
       );
+
+      // Copy all _includes directory.
+      this.fs.copy(
+        this.templatePath('my-awesome-site/_includes-pug'),
+        this.destinationPath('_includes')
+      );
+
+      // Copy all _layouts directory.
+      this.fs.copy(
+        this.templatePath('my-awesome-site/_layouts-pug'),
+        this.destinationPath('_layouts')
+      );
     }
+
+    // Temp - _sass.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/_sass'),
+      this.destinationPath('_sass')
+    );
+
+    // Temp - css.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/css'),
+      this.destinationPath('css')
+    );
 
     // Handle gulpfile.
     this.fs.copyTpl(
