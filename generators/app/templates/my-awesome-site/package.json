@@ -19,7 +19,8 @@
 <% if (includePug) { -%>
     "gulp-pug": "3.0.4",
 <% } -%>
-    "gulp-shell": "0.5.2"
+    "gulp-shell": "0.5.2",
+    "run-sequence": "^1.2.2"
   },
   "repository": {
     "type": "git",

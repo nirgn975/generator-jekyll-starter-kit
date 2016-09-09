@@ -2,6 +2,7 @@
 
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
+import runSequence from 'run-sequence';
 
 const $ = gulpLoadPlugins();
 
@@ -39,4 +40,15 @@ gulp.task('pug', () => {
 gulp.task('jekyll-build', $.shell.task([ 'jekyll build' ]));
 
 // Default task.
-gulp.task('default', () => console.log('in jekyll build task'));
+gulp.task('default', () =>
+  runSequence(
+    'jekyll-build',
+    [
+<% if (includeHTML) { -%>
+      'minify-html'
+<% } else { -%>
+      'pug'
+<% } -%>
+    ]
+  )
+);

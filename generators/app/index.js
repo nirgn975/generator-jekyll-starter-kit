@@ -141,6 +141,13 @@ module.exports = yeoman.Base.extend({
 
     // Handle package.json file.
     this.fs.copyTpl(
+      this.templatePath('my-awesome-site/.gitignore'),
+      this.destinationPath('.gitignore'),
+      { includePug: this.includePug }
+    );
+
+    // Handle package.json file.
+    this.fs.copyTpl(
       this.templatePath('my-awesome-site/package.json'),
       this.destinationPath('package.json'),
       {

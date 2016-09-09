@@ -4,6 +4,10 @@ _site
 .jekyll-metadata
 Gemfile.lock
 
+<% if (includePug) { -%>
+### Pug ###
+*.index
+<% } -%>
 
 ### Sass ###
 .sass-cache/
