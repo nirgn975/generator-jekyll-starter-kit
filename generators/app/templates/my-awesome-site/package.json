@@ -17,7 +17,7 @@
 <% } -%>
     "gulp-load-plugins": "1.2.4",
 <% if (includePug) { -%>
-      "gulp-pug": "3.0.4",
+    "gulp-pug": "3.0.4",
 <% } -%>
     "gulp-shell": "0.5.2"
   },

@@ -103,10 +103,34 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-    // Copy all non-dotfiles.
+    // Copy all .md files.
     this.fs.copy(
-      this.templatePath('my-awesome-site'),
+      this.templatePath('my-awesome-site/*.md'),
       this.destinationPath(this.project_name)
+    );
+
+    // Copy all _posts directory.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/_posts'),
+      this.destinationPath(this.project_name + '/_posts')
+    );
+
+    // Copy all .xml files.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/*.xml'),
+      this.destinationPath(this.project_name)
+    );
+
+    // Copy all .yml files.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/*.yml'),
+      this.destinationPath(this.project_name)
+    );
+
+    // Copy Gemfile.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/Gemfile'),
+      this.destinationPath(this.project_name + '/Gemfile')
     );
 
     // Copy all dotfiles.
@@ -135,6 +159,19 @@ module.exports = yeoman.Base.extend({
       { github_username: this.github_username }
     );
 
+    // Handle HTML/Pug according to user choice.
+    if (this.includeHTML) {
+      this.fs.copy(
+        this.templatePath('my-awesome-site/index.html'),
+        this.destinationPath('index.html')
+      );
+    } else {
+      this.fs.copy(
+        this.templatePath('my-awesome-site/index.pug'),
+        this.destinationPath('index.pug')
+      );
+    }
+
     // Handle gulpfile.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/gulpfile.babel.js'),
@@ -144,14 +181,6 @@ module.exports = yeoman.Base.extend({
         includePug: this.includePug
        }
     );
-
-    // Change html suffix to pug.
-    if (this.includePug) {
-      this.fs.move(
-        this.destinationPath('*.html'),
-        this.destinationPath('*.pug')
-      );
-    }
 
   },
 
