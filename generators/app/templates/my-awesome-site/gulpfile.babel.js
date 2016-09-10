@@ -6,7 +6,6 @@ import runSequence from 'run-sequence';
 
 const $ = gulpLoadPlugins();
 
-<% if (includeHTML) { -%>
 // Minify the HTML.
 gulp.task('minify-html', () => {
   return gulp.src('_site/**/*.html')
@@ -23,17 +22,16 @@ gulp.task('minify-html', () => {
     }))
     .pipe(gulp.dest('_site'))
 });
-<% } -%>
 
 <% if (includePug) { -%>
 // Pug (Jade) to HTML.
 gulp.task('pug', () => {
   return gulp.src([
-    '_site/**/*.pug',
+    '_includes-pug/**/*.pug',
     '!_site/node_modules/**'
   ])
   .pipe($.pug())
-  .pipe(gulp.dest('_site'))
+  .pipe(gulp.dest('_includes'))
 });
 <% } -%>
 
@@ -42,13 +40,12 @@ gulp.task('jekyll-build', $.shell.task([ 'jekyll build' ]));
 // Default task.
 gulp.task('default', () =>
   runSequence(
+<% if (includePug) { -%>
+    'pug',
+<% } -%>
     'jekyll-build',
     [
-<% if (includeHTML) { -%>
       'minify-html'
-<% } else { -%>
-      'pug'
-<% } -%>
     ]
   )
 );
