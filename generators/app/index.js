@@ -133,6 +133,12 @@ module.exports = yeoman.Base.extend({
       this.destinationPath(this.project_name + '/Gemfile')
     );
 
+    // Copy robots.txt.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/robots.txt'),
+      this.destinationPath(this.project_name + '/robots.txt')
+    );
+
     // Copy all dotfiles.
     this.fs.copy(
       this.templatePath('my-awesome-site/.*'),
