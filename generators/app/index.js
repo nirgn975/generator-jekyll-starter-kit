@@ -12,29 +12,34 @@ module.exports = yeoman.Base.extend({
 
     var prompts = [{
       // Prompts the user for the project name.
-      type: 'String',
+      type: 'input',
       name: 'project_name',
       message: 'What will be your project name?',
       required: 'false'
     }, {
       // Prompts the user for the URL of the project's GitHub repo.
-      type: 'String',
+      type: 'input',
       name: 'github_url',
       message: 'What is the GitHub repository URL?',
       required: 'false'
     }, {
       // Prompts the user for his GitHub username.
-      type: 'String',
+      type: 'input',
       name: 'github_username',
       message: 'What is your GitHub username?',
+      required: 'false'
+    }, {
+      // Prompts the user for his GitHub username.
+      type: 'input',
+      name: 'project_description',
+      message: 'What is your project description?',
       required: 'false'
     }, {
       // Prompts the user to pick a templating engine.
       type: 'list',
       name: 'html',
       message: 'What Template Engine do you want to use?',
-      choices: [
-        {
+      choices: [{
         name: ' HTML',
         value: 'html',
         checked: true
@@ -42,15 +47,13 @@ module.exports = yeoman.Base.extend({
         name: ' Pug (Jade) [just for the _includes directory]',
         value: 'pug',
         checked: false
-        }
-      ]
+        }]
     }, {
       // Prompts the user to choose stylesheets.
       type: 'list',
       name: 'css',
       message: 'What Stylesheets do you want to use?',
-      choices: [
-        {
+      choices: [{
         name: ' CSS',
         value: 'css',
         checked: true
@@ -62,8 +65,7 @@ module.exports = yeoman.Base.extend({
         name: ' SCSS',
         value: 'scss',
         checked: false
-        }
-      ]
+        }]
     }, {
       // Prompts the user to decide if he want ES2015 support.
       type: 'confirm',
@@ -89,6 +91,7 @@ module.exports = yeoman.Base.extend({
       this.project_name = props.project_name;
       this.github_username = props.github_username;
       this.github_url = props.github_url;
+      this.project_description = props.project_description;
       var html = props.html;
 
       function hasFeature(features, feat) {
@@ -98,6 +101,7 @@ module.exports = yeoman.Base.extend({
       // manually deal with the response, get back and store the results.
       // we change a bit this way of doing to automatically do this in the self.prompt() method.
       this.includePug = hasFeature(html, 'pug');
+      this.includeTravis = props.travis;
     }.bind(this));
   },
 
@@ -144,11 +148,22 @@ module.exports = yeoman.Base.extend({
       this.destinationRoot(this.project_name)
     );
 
-    // Handle package.json file.
+    // Handle .gitignore file.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/.gitignore'),
       this.destinationPath('.gitignore'),
       { includePug: this.includePug }
+    );
+
+    // Handle README file.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/README.md'),
+      this.destinationPath('README.md'),
+      {
+        project_name: this.project_name,
+        github_username: this.github_username,
+        includeTravis: this.includeTravis
+      }
     );
 
     // Handle package.json file.
@@ -159,7 +174,25 @@ module.exports = yeoman.Base.extend({
         project_name: this.project_name,
         github_username: this.github_username,
         github_url: this.github_url,
+        project_description: this.project_description,
         includePug: this.includePug
+      }
+    );
+
+    // Handle manifest.json file.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/manifest.json'),
+      this.destinationPath('manifest.json'),
+      { project_name: this.project_name }
+    );
+
+    // Handle manifest.webapp file.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/manifest.webapp'),
+      this.destinationPath('manifest.webapp'),
+      {
+        project_name: this.project_name,
+        project_description: this.project_description
       }
     );
 
@@ -174,6 +207,12 @@ module.exports = yeoman.Base.extend({
     this.fs.copy(
       this.templatePath('my-awesome-site/_layouts'),
       this.destinationPath('_layouts')
+    );
+
+    // Copy images directory.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/images'),
+      this.destinationPath('images')
     );
 
     /// Copy index.html file.
@@ -216,9 +255,19 @@ module.exports = yeoman.Base.extend({
       { includePug: this.includePug }
     );
 
+    // Copy travis file according to user choice.
+    if (this.includeTravis) {
+      this.fs.copy(
+        this.templatePath('my-awesome-site/travis'),
+        this.destinationPath('.travis.yml')
+      );
+    }
+
   },
 
   install: function () {
-    this.installDependencies();
+    this.installDependencies({
+      bower: false
+    });
   }
 });

@@ -3,3 +3,7 @@ node_js:
   - v6
   - v5
   - v4
+
+before_install:
+    - npm install -g babel-core
+    - npm install -g babel-preset-es2015
