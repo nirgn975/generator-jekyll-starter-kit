@@ -158,7 +158,8 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('README.md'),
       {
         project_name: this.project_name,
-        github_username: this.github_username
+        github_username: this.github_username,
+        includeTravis: this.includeTravis
       }
     );
 
