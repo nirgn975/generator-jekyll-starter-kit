@@ -29,6 +29,12 @@ module.exports = yeoman.Base.extend({
       message: 'What is your GitHub username?',
       required: 'false'
     }, {
+      // Prompts the user for his GitHub username.
+      type: 'String',
+      name: 'project_description',
+      message: 'What is your project description?',
+      required: 'false'
+    }, {
       // Prompts the user to pick a templating engine.
       type: 'list',
       name: 'html',
@@ -89,6 +95,7 @@ module.exports = yeoman.Base.extend({
       this.project_name = props.project_name;
       this.github_username = props.github_username;
       this.github_url = props.github_url;
+      this.project_description = props.project_description;
       var html = props.html;
 
       function hasFeature(features, feat) {
@@ -171,7 +178,25 @@ module.exports = yeoman.Base.extend({
         project_name: this.project_name,
         github_username: this.github_username,
         github_url: this.github_url,
+        project_description: this.project_description,
         includePug: this.includePug
+      }
+    );
+
+    // Handle package.json file.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/manifest.json'),
+      this.destinationPath('manifest.json'),
+      { project_name: this.project_name }
+    );
+
+    // Handle package.json file.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/manifest.webapp'),
+      this.destinationPath('manifest.webapp'),
+      {
+        project_name: this.project_name,
+        project_description: this.project_description
       }
     );
 
