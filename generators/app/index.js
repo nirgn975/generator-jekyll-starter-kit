@@ -105,7 +105,7 @@ module.exports = yeoman.Base.extend({
       // manually deal with the response, get back and store the results.
       // we change a bit this way of doing to automatically do this in the self.prompt() method.
       this.includePug = hasFeature(html, 'pug');
-      this.includeTravis = hasFeature(travis, 'travis');
+      this.includeTravis = props.travis;
     }.bind(this));
   },
 
@@ -135,9 +135,10 @@ module.exports = yeoman.Base.extend({
     );
 
     // Copy Gemfile.
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('my-awesome-site/Gemfile'),
-      this.destinationPath(this.project_name + '/Gemfile')
+      this.destinationPath(this.project_name + '/Gemfile'),
+      { includeTravis: this.includeTravis }
     );
 
     // Copy robots.txt.
@@ -152,7 +153,7 @@ module.exports = yeoman.Base.extend({
       this.destinationRoot(this.project_name)
     );
 
-    // Handle package.json file.
+    // Handle .gitignore file.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/.gitignore'),
       this.destinationPath('.gitignore'),
@@ -183,14 +184,14 @@ module.exports = yeoman.Base.extend({
       }
     );
 
-    // Handle package.json file.
+    // Handle manifest.json file.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/manifest.json'),
       this.destinationPath('manifest.json'),
       { project_name: this.project_name }
     );
 
-    // Handle package.json file.
+    // Handle manifest.webapp file.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/manifest.webapp'),
       this.destinationPath('manifest.webapp'),
@@ -259,16 +260,19 @@ module.exports = yeoman.Base.extend({
       { includePug: this.includePug }
     );
 
+    // Copy travis file according to user choice.
     if (this.includeTravis) {
       this.fs.copy(
-        this.templatePath('my-awesome-site/.travis'),
-        this.destinationPath('.travis')
+        this.templatePath('my-awesome-site/travis'),
+        this.destinationPath('.travis.yml')
       );
     }
 
   },
 
   install: function () {
-    this.installDependencies();
+    this.installDependencies({
+      bower: false
+    });
   }
 });
