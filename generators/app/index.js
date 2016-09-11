@@ -92,7 +92,6 @@ module.exports = yeoman.Base.extend({
       this.github_username = props.github_username;
       this.github_url = props.github_url;
       this.project_description = props.project_description;
-      var html = props.html;
 
       function hasFeature(features, feat) {
         return features && features.indexOf(feat) !== -1;
@@ -100,7 +99,10 @@ module.exports = yeoman.Base.extend({
 
       // manually deal with the response, get back and store the results.
       // we change a bit this way of doing to automatically do this in the self.prompt() method.
-      this.includePug = hasFeature(html, 'pug');
+      this.includePug = hasFeature(props.html, 'pug');
+      this.includeCss = hasFeature(props.css, 'css');
+      this.includeSass = hasFeature(props.css, 'sass');
+      this.includeScss = hasFeature(props.css, 'scss');
       this.includeTravis = props.travis;
     }.bind(this));
   },
@@ -236,17 +238,29 @@ module.exports = yeoman.Base.extend({
       );
     }
 
-    // Temp - _sass.
-    this.fs.copy(
-      this.templatePath('my-awesome-site/_sass'),
-      this.destinationPath('_sass')
-    );
+    // Copy css directory.
+    if (this.includeCss) {
+      this.fs.copy(
+        this.templatePath('my-awesome-site/css'),
+        this.destinationPath('css')
+      );
+    }
 
-    // Temp - css.
-    this.fs.copy(
-      this.templatePath('my-awesome-site/css'),
-      this.destinationPath('css')
-    );
+    // Copy SASS directory.
+    if (this.includeSass) {
+      this.fs.copy(
+        this.templatePath('my-awesome-site/sass'),
+        this.destinationPath('sass')
+      );
+    }
+
+    // Copy SCSS directory.
+    if (this.includeScss) {
+      this.fs.copy(
+        this.templatePath('my-awesome-site/scss'),
+        this.destinationPath('scss')
+      );
+    }
 
     // Handle gulpfile.
     this.fs.copyTpl(
