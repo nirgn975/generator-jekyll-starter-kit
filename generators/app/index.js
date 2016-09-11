@@ -152,6 +152,16 @@ module.exports = yeoman.Base.extend({
       { includePug: this.includePug }
     );
 
+    // Handle README file.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/README.md'),
+      this.destinationPath('README.md'),
+      {
+        project_name: this.project_name,
+        github_username: this.github_username
+      }
+    );
+
     // Handle package.json file.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/package.json'),
