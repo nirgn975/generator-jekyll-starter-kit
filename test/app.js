@@ -6,6 +6,7 @@ var helpers = require('yeoman-test');
 describe('generator-jekyll-starter-kit:app', function () {
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
+      .withOptions({ skipInstall: true })
       .withPrompts({
         project_name: 'name',
         github_url: 'url',
@@ -22,7 +23,7 @@ describe('generator-jekyll-starter-kit:app', function () {
 
   it('creates files', function () {
     assert.file([
-      'name/index.html'
+      'index.html'
     ]);
   });
 });
