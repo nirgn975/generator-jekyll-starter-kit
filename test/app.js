@@ -12,7 +12,7 @@ describe('generator-jekyll-starter-kit:app', function () {
 
   it('creates files', function () {
     assert.file([
-      'dummyfile.txt'
+      'index.html'
     ]);
   });
 });
