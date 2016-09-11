@@ -98,6 +98,7 @@ module.exports = yeoman.Base.extend({
       // manually deal with the response, get back and store the results.
       // we change a bit this way of doing to automatically do this in the self.prompt() method.
       this.includePug = hasFeature(html, 'pug');
+      this.includeTravis = hasFeature(travis, 'travis');
     }.bind(this));
   },
 
@@ -215,6 +216,13 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('gulpfile.babel.js'),
       { includePug: this.includePug }
     );
+
+    if (this.includeTravis) {
+      this.fs.copy(
+        this.templatePath('my-awesome-site/.travis'),
+        this.destinationPath('.travis')
+      );
+    }
 
   },
 
