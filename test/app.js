@@ -22,7 +22,7 @@ describe('generator-jekyll-starter-kit:app', function () {
 
   it('creates files', function () {
     assert.file([
-      'index.html'
+      'name/index.html'
     ]);
   });
 });
