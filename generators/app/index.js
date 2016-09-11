@@ -135,10 +135,9 @@ module.exports = yeoman.Base.extend({
     );
 
     // Copy Gemfile.
-    this.fs.copyTpl(
+    this.fs.copy(
       this.templatePath('my-awesome-site/Gemfile'),
-      this.destinationPath(this.project_name + '/Gemfile'),
-      { includeTravis: this.includeTravis }
+      this.destinationPath(this.project_name + '/Gemfile')
     );
 
     // Copy robots.txt.
