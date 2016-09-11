@@ -39,7 +39,7 @@ module.exports = yeoman.Base.extend({
         value: 'html',
         checked: true
         }, {
-        name: ' Pug (Jade)',
+        name: ' Pug (Jade) [just for the _includes directory]',
         value: 'pug',
         checked: false
         }
@@ -97,7 +97,6 @@ module.exports = yeoman.Base.extend({
 
       // manually deal with the response, get back and store the results.
       // we change a bit this way of doing to automatically do this in the self.prompt() method.
-      this.includeHTML = hasFeature(html, 'html');
       this.includePug = hasFeature(html, 'pug');
     }.bind(this));
   },
@@ -109,7 +108,7 @@ module.exports = yeoman.Base.extend({
       this.destinationPath(this.project_name)
     );
 
-    // Copy all _posts directory.
+    // Copy _posts directory.
     this.fs.copy(
       this.templatePath('my-awesome-site/_posts'),
       this.destinationPath(this.project_name + '/_posts')
@@ -133,6 +132,12 @@ module.exports = yeoman.Base.extend({
       this.destinationPath(this.project_name + '/Gemfile')
     );
 
+    // Copy robots.txt.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/robots.txt'),
+      this.destinationPath(this.project_name + '/robots.txt')
+    );
+
     // Copy all dotfiles.
     this.fs.copy(
       this.templatePath('my-awesome-site/.*'),
@@ -154,7 +159,6 @@ module.exports = yeoman.Base.extend({
         project_name: this.project_name,
         github_username: this.github_username,
         github_url: this.github_url,
-        includeHTML: this.includeHTML,
         includePug: this.includePug
       }
     );
@@ -166,27 +170,50 @@ module.exports = yeoman.Base.extend({
       { github_username: this.github_username }
     );
 
-    // Handle HTML/Pug according to user choice.
-    if (this.includeHTML) {
+    // Copy _layouts directory.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/_layouts'),
+      this.destinationPath('_layouts')
+    );
+
+    /// Copy index.html file.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/index.html'),
+      this.destinationPath('index.html'),
+      { includePug: this.includePug }
+    );
+
+    // Copy _includes directory.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/_includes'),
+      this.destinationPath('_includes')
+    );
+
+    // Copy _includes-pug directory according to HTML/Pug user choice.
+    if (this.includePug) {
       this.fs.copy(
-        this.templatePath('my-awesome-site/index.html'),
-        this.destinationPath('index.html')
-      );
-    } else {
-      this.fs.copy(
-        this.templatePath('my-awesome-site/index.pug'),
-        this.destinationPath('index.pug')
+        this.templatePath('my-awesome-site/_includes-pug'),
+        this.destinationPath('_includes-pug')
       );
     }
+
+    // Temp - _sass.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/_sass'),
+      this.destinationPath('_sass')
+    );
+
+    // Temp - css.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/css'),
+      this.destinationPath('css')
+    );
 
     // Handle gulpfile.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/gulpfile.babel.js'),
       this.destinationPath('gulpfile.babel.js'),
-      {
-        includeHTML: this.includeHTML,
-        includePug: this.includePug
-       }
+      { includePug: this.includePug }
     );
 
   },

@@ -18,6 +18,10 @@ layout: default
     {% endfor %}
   </ul>
 
+<% if (includePug) { -%>
+  {% include example.html %}
+<% } -%>
+
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
 </div>
