@@ -18,6 +18,11 @@
     "gulp-pug": "3.0.4",
 <% } -%>
     "gulp-shell": "0.5.2",
+<% if (includeSass || includeScss) { -%>
+    "gulp-sass": "^2.3.2",
+<% } -%>
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cssmin": "^0.1.7",
     "run-sequence": "^1.2.2"
   },
   "repository": {

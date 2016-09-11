@@ -51,12 +51,12 @@ module.exports = yeoman.Base.extend({
     }, {
       // Prompts the user to choose stylesheets.
       type: 'list',
-      name: 'css',
+      name: 'stylesheets',
       message: 'What Stylesheets do you want to use?',
       choices: [{
         name: ' CSS',
         value: 'css',
-        checked: true
+        checked: false
         }, {
         name: ' SASS',
         value: 'sass',
@@ -100,10 +100,12 @@ module.exports = yeoman.Base.extend({
       // manually deal with the response, get back and store the results.
       // we change a bit this way of doing to automatically do this in the self.prompt() method.
       this.includePug = hasFeature(props.html, 'pug');
-      this.includeCss = hasFeature(props.css, 'css');
-      this.includeSass = hasFeature(props.css, 'sass');
-      this.includeScss = hasFeature(props.css, 'scss');
+      this.includeCss = hasFeature(props.stylesheets, 'css');
+      this.includeSass = hasFeature(props.stylesheets, 'sass');
+      this.includeScss = hasFeature(props.stylesheets, 'scss');
       this.includeTravis = props.travis;
+
+      console.log(this);
     }.bind(this));
   },
 
@@ -177,7 +179,9 @@ module.exports = yeoman.Base.extend({
         github_username: this.github_username,
         github_url: this.github_url,
         project_description: this.project_description,
-        includePug: this.includePug
+        includePug: this.includePug,
+        includeSass: this.includeSass,
+        includeScss: this.includeScss
       }
     );
 
@@ -266,7 +270,11 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/gulpfile.babel.js'),
       this.destinationPath('gulpfile.babel.js'),
-      { includePug: this.includePug }
+      {
+        includePug: this.includePug,
+        includeSass: this.includeSass,
+        includeScss: this.includeScss
+      }
     );
 
     // Copy travis file according to user choice.
@@ -276,6 +284,12 @@ module.exports = yeoman.Base.extend({
         this.destinationPath('.travis.yml')
       );
     }
+
+    // Copy humans.txt file.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/humans.txt'),
+      this.destinationPath('humans.txt')
+    );
 
   },
 
