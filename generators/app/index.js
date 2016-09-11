@@ -12,25 +12,25 @@ module.exports = yeoman.Base.extend({
 
     var prompts = [{
       // Prompts the user for the project name.
-      type: 'String',
+      type: 'input',
       name: 'project_name',
       message: 'What will be your project name?',
       required: 'false'
     }, {
       // Prompts the user for the URL of the project's GitHub repo.
-      type: 'String',
+      type: 'input',
       name: 'github_url',
       message: 'What is the GitHub repository URL?',
       required: 'false'
     }, {
       // Prompts the user for his GitHub username.
-      type: 'String',
+      type: 'input',
       name: 'github_username',
       message: 'What is your GitHub username?',
       required: 'false'
     }, {
       // Prompts the user for his GitHub username.
-      type: 'String',
+      type: 'input',
       name: 'project_description',
       message: 'What is your project description?',
       required: 'false'
@@ -39,8 +39,7 @@ module.exports = yeoman.Base.extend({
       type: 'list',
       name: 'html',
       message: 'What Template Engine do you want to use?',
-      choices: [
-        {
+      choices: [{
         name: ' HTML',
         value: 'html',
         checked: true
@@ -48,15 +47,13 @@ module.exports = yeoman.Base.extend({
         name: ' Pug (Jade) [just for the _includes directory]',
         value: 'pug',
         checked: false
-        }
-      ]
+        }]
     }, {
       // Prompts the user to choose stylesheets.
       type: 'list',
       name: 'css',
       message: 'What Stylesheets do you want to use?',
-      choices: [
-        {
+      choices: [{
         name: ' CSS',
         value: 'css',
         checked: true
@@ -68,8 +65,7 @@ module.exports = yeoman.Base.extend({
         name: ' SCSS',
         value: 'scss',
         checked: false
-        }
-      ]
+        }]
     }, {
       // Prompts the user to decide if he want ES2015 support.
       type: 'confirm',
