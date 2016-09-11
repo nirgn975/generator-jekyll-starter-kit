@@ -213,6 +213,12 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('_layouts')
     );
 
+    // Copy images directory.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/images'),
+      this.destinationPath('images')
+    );
+
     /// Copy index.html file.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/index.html'),
