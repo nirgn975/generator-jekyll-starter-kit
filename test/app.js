@@ -11,8 +11,8 @@ describe('generator-jekyll-starter-kit:app', function () {
         github_url: 'githubURL',
         github_username: 'githubUserName',
         project_description: 'projectDescription',
-        html: new List(this.html),
-        css: new List(this.css),
+        html: this.emit('html'),
+        css: this.emit('css'),
         es: true,
         sw: true,
         travis: true
