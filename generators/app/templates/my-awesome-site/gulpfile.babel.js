@@ -3,6 +3,7 @@
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import runSequence from 'run-sequence';
+import browserSync from 'browser-sync';
 
 const $ = gulpLoadPlugins();
 
@@ -22,6 +23,43 @@ gulp.task('minify-html', () => {
     }))
     .pipe(gulp.dest('_site'))
 });
+
+// Minify and add prefix to css.
+gulp.task('css', () => {
+  const AUTOPREFIXER_BROWSERS = [
+    'ie >= 10',
+    'ie_mob >= 10',
+    'ff >= 30',
+    'chrome >= 34',
+    'safari >= 7',
+    'opera >= 23',
+    'ios >= 7',
+    'android >= 4.4',
+    'bb >= 10'
+  ];
+
+    return gulp.src('_site/css/main.css')
+        .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+        .pipe($.cssnano())
+        .pipe(gulp.dest('_site/css'));
+});
+
+<% if (includeSass || includeScss) { -%>
+// Compile scss to css.
+gulp.task('scss', () => {
+<% if (includeSass) { -%>
+    return gulp.src('sass/main.sass')
+<% } -%>
+<% if (includeScss) { -%>
+    return gulp.src('scss/main.scss')
+<% } -%>
+        .pipe($.sass({
+            includePaths: ['css'],
+            onError: browserSync.notify
+        }))
+        .pipe(gulp.dest('_site/css'));
+});
+<% } -%>
 
 <% if (includePug) { -%>
 // Pug (Jade) to HTML.
@@ -45,7 +83,11 @@ gulp.task('default', () =>
 <% } -%>
     'jekyll-build',
     [
+<% if (includeSass | includeScss) { -%>
+      'scss',
+<% } -%>
       'minify-html'
-    ]
+    ],
+    'css'
   )
 );

@@ -27,3 +27,15 @@ github_username:  jekyll
 # Build settings
 markdown: kramdown
 permalink: pretty
+exclude: [
+  "node_modules",
+  "LICENSE",
+  "package.json",
+  "README.md",
+  "Gemfile",
+  "gulpfile.babel.js",
+  ".babelrc",
+  ".gitignore",
+  "sass",
+  "scss"
+]

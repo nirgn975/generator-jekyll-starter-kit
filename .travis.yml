@@ -4,6 +4,7 @@ node_js:
   - v5
   - v4
 
-before_install:
-    - npm install -g babel-core
-    - npm install -g babel-preset-es2015
+install:
+  - npm install -g gulp
+  - npm install -g babel-core
+  - npm install -g babel-preset-es2015
