@@ -104,8 +104,6 @@ module.exports = yeoman.Base.extend({
       this.includeSass = hasFeature(props.stylesheets, 'sass');
       this.includeScss = hasFeature(props.stylesheets, 'scss');
       this.includeTravis = props.travis;
-
-      console.log(this);
     }.bind(this));
   },
 
