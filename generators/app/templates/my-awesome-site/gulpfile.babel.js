@@ -3,6 +3,7 @@
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import runSequence from 'run-sequence';
+import browserSync from 'browser-sync';
 
 const $ = gulpLoadPlugins();
 
@@ -46,7 +47,12 @@ gulp.task('css', () => {
 <% if (includeSass || includeScss) { -%>
 // Compile scss to css.
 gulp.task('scss', () => {
+<% if (includeSass) { -%>
+    return gulp.src('sass/main.sass')
+<% } -%>
+<% if (includeScss) { -%>
     return gulp.src('scss/main.scss')
+<% } -%>
         .pipe($.sass({
             includePaths: ['css'],
             onError: browserSync.notify

@@ -51,11 +51,11 @@ module.exports = yeoman.Base.extend({
     }, {
       // Prompts the user to choose stylesheets.
       type: 'list',
-      name: 'stylesheets',
+      name: 'css',
       message: 'What Stylesheets do you want to use?',
       choices: [{
         name: ' CSS',
-        value: 'css',
+        value: 'stylesheets',
         checked: false
         }, {
         name: ' SASS',
@@ -100,9 +100,9 @@ module.exports = yeoman.Base.extend({
       // manually deal with the response, get back and store the results.
       // we change a bit this way of doing to automatically do this in the self.prompt() method.
       this.includePug = hasFeature(props.html, 'pug');
-      this.includeCss = hasFeature(props.stylesheets, 'css');
-      this.includeSass = hasFeature(props.stylesheets, 'sass');
-      this.includeScss = hasFeature(props.stylesheets, 'scss');
+      this.includeCss = hasFeature(props.css, 'stylesheets');
+      this.includeSass = hasFeature(props.css, 'sass');
+      this.includeScss = hasFeature(props.css, 'scss');
       this.includeTravis = props.travis;
     }.bind(this));
   },
