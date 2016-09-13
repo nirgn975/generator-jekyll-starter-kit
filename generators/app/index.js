@@ -153,26 +153,23 @@ module.exports = yeoman.Base.extend({
     // Handle .gitignore file.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/.gitignore'),
-      this.destinationPath('.gitignore'),
-      { includePug: this.includePug }
-    );
+      this.destinationPath('.gitignore'), {
+        includePug: this.includePug
+      });
 
     // Handle README file.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/README.md'),
-      this.destinationPath('README.md'),
-      {
+      this.destinationPath('README.md'), {
         projectName: this.projectName,
         githubUsername: this.githubUsername,
         includeTravis: this.includeTravis
-      }
-    );
+      });
 
     // Handle package.json file.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/package.json'),
-      this.destinationPath('package.json'),
-      {
+      this.destinationPath('package.json'), {
         projectName: this.projectName,
         githubUsername: this.githubUsername,
         githubUrl: this.githubUrl,
@@ -180,32 +177,29 @@ module.exports = yeoman.Base.extend({
         includePug: this.includePug,
         includeSass: this.includeSass,
         includeScss: this.includeScss
-      }
-    );
+      });
 
     // Handle manifest.json file.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/manifest.json'),
-      this.destinationPath('manifest.json'),
-      { projectName: this.projectName }
-    );
+      this.destinationPath('manifest.json'), {
+        projectName: this.projectName
+      });
 
     // Handle manifest.webapp file.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/manifest.webapp'),
-      this.destinationPath('manifest.webapp'),
-      {
+      this.destinationPath('manifest.webapp'), {
         projectName: this.projectName,
         projectDescription: this.projectDescription
-      }
-    );
+      });
 
     // Handle LICENSE file.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/LICENSE'),
-      this.destinationPath('LICENSE'),
-      { githubUsername: this.githubUsername }
-    );
+      this.destinationPath('LICENSE'), {
+        githubUsername: this.githubUsername
+      });
 
     // Copy _layouts directory.
     this.fs.copy(
@@ -222,9 +216,9 @@ module.exports = yeoman.Base.extend({
     /// Copy index.html file.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/index.html'),
-      this.destinationPath('index.html'),
-      { includePug: this.includePug }
-    );
+      this.destinationPath('index.html'), {
+        includePug: this.includePug
+      });
 
     // Copy _includes directory.
     this.fs.copy(
@@ -267,13 +261,11 @@ module.exports = yeoman.Base.extend({
     // Handle gulpfile.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/gulpfile.babel'),
-      this.destinationPath('gulpfile.babel.js'),
-      {
+      this.destinationPath('gulpfile.babel.js'), {
         includePug: this.includePug,
         includeSass: this.includeSass,
         includeScss: this.includeScss
-      }
-    );
+      });
 
     // Copy travis file according to user choice.
     if (this.includeTravis) {
