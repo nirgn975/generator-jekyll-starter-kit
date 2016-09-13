@@ -3,9 +3,3 @@ node_js:
   - v6
   - v5
   - v4
-
-install:
-  - npm install -g gulp
-  - npm install -g babel-core
-  - npm install -g babel-preset-es2015
-  - npm install
