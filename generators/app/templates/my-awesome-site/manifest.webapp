@@ -1,8 +1,8 @@
 {
   "version": "1.0.0",
-  "name": "<%= project_name %>",
+  "name": "<%= projectName %>",
   "launch_path": "/index.html",
-  "description": "<%= project_description %>",
+  "description": "<%= projectDescription %>",
   "icons": {
     "128": "/images/touch/icon-128x128.png"
   },
@@ -18,8 +18,8 @@
   },
   "locales": {
     "en": {
-      "name": "<%= project_name %>",
-      "description": "<%= project_description %>"
+      "name": "<%= projectName %>",
+      "description": "<%= projectDescription %>"
     }
   }
 }

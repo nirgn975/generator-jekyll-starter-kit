@@ -1,12 +1,12 @@
 {
-  "name": "<%= project_name %>",
+  "name": "<%= projectName %>",
   "version": "1.0.0",
-  "description": "<%= project_description %>",
+  "description": "<%= projectDescription %>",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "<%= github_username %>",
+  "author": "<%= githubUsername %>",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.14.0",
@@ -28,6 +28,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "<%= github_url %>"
+    "url": "<%= githubUrl %>"
   }
 }

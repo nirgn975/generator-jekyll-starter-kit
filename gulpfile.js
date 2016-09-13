@@ -12,7 +12,20 @@ var coveralls = require('gulp-coveralls');
 gulp.task('static', function () {
   return gulp.src('**/*.js')
     .pipe(excludeGitignore())
-    .pipe(eslint())
+    .pipe(eslint({
+      ecmaFeatures: {
+        modules: true
+      },
+      baseConfig: {
+        // parser: 'babel-eslint',
+      },
+      envs: [
+        'browser', 'es6'
+      ],
+      parserOptions: {
+        sourceType: 'module'
+      }
+    }))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });
@@ -30,7 +43,7 @@ gulp.task('pre-test', function () {
     .pipe(istanbul.hookRequire());
 });
 
-gulp.task('test', ['pre-test'], function (cb) {
+gulp.task('test', function (cb) {
   var mochaErr;
 
   gulp.src('test/**/*.js')

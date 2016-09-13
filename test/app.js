@@ -8,10 +8,10 @@ describe('generator-jekyll-starter-kit:app', function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withOptions({ skipInstall: true })
       .withPrompts({
-        project_name: 'name',
-        github_url: 'url',
-        github_username: 'username',
-        project_description: 'description',
+        projectName: 'name',
+        githubUrl: 'url',
+        githubUsername: 'username',
+        projectDescription: 'description',
         html: 'html',
         css: 'css',
         es: true,
