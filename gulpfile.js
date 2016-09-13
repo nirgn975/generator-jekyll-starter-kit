@@ -43,7 +43,7 @@ gulp.task('pre-test', function () {
     .pipe(istanbul.hookRequire());
 });
 
-gulp.task('test', function (cb) {
+gulp.task('test', ['pre-test'], function (cb) {
   var mochaErr;
 
   gulp.src('test/**/*.js')
