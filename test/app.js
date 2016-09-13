@@ -26,5 +26,9 @@ describe('generator-jekyll-starter-kit:app', function () {
       'index.html',
       'README.md'
     ]);
+    assert.noFile([
+      'scss',
+      'sass'
+    ]);
   });
 });
