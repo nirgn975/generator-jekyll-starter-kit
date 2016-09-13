@@ -8,3 +8,4 @@ install:
   - npm install -g gulp
   - npm install -g babel-core
   - npm install -g babel-preset-es2015
+  - npm install
