@@ -4,14 +4,15 @@ var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 
 describe('generator-jekyll-starter-kit:app', function () {
+  this.timeout(10000);
+
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
-      .withOptions({ skipInstall: true })
       .withPrompts({
-        project_name: 'name',
-        github_url: 'url',
-        github_username: 'username',
-        project_description: 'description',
+        projectName: 'name',
+        githubUrl: 'url',
+        githubUsername: 'username',
+        projectDescription: 'description',
         html: 'html',
         css: 'css',
         es: true,
@@ -23,7 +24,25 @@ describe('generator-jekyll-starter-kit:app', function () {
 
   it('creates files', function () {
     assert.file([
-      'index.html'
+      'index.html',
+      'README.md'
     ]);
+  });
+
+  it('not created files', function () {
+    assert.noFile([
+      'scss',
+      'sass'
+    ]);
+  });
+
+  it('fills package.json with correct information', function () {
+    assert.JSONFileContent('package.json', {
+      name: 'name'
+    });
+  });
+
+  it('fills the README with project data', function () {
+    assert.fileContent('README.md', 'name');
   });
 });

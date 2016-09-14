@@ -1,6 +1,6 @@
 {
-  "name": "<%= project_name %>",
-  "short_name": "<%= project_name %>",
+  "name": "<%= projectName %>",
+  "short_name": "<%= projectName %>",
   "icons": [{
         "src": "images/touch/icon-128x128.png",
         "sizes": "128x128",

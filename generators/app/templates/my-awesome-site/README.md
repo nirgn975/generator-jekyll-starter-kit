@@ -1,7 +1,7 @@
-<%= project_name %>
+<%= projectName %>
 ===
 
-[![license](https://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/<%= github_username %>/<%= project_name %>/blob/master/LICENSE) [![Build Status](https://travis-ci.org/<%= github_username %>/<%= project_name %>.svg?branch=master)](https://travis-ci.org/<%= github_username %>/<%= project_name %>)
+[![license](https://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/<%= githubUsername %>/<%= projectName %>/blob/master/LICENSE) [![Build Status](https://travis-ci.org/<%= githubUsername %>/<%= projectName %>.svg?branch=master)](https://travis-ci.org/<%= githubUsername %>/<%= projectName %>)
 
 Your site description
 
