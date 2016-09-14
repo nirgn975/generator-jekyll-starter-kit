@@ -275,7 +275,7 @@ module.exports = yeoman.Base.extend({
       );
     }
 
-    // Copy humans.txt file. 
+    // Copy humans.txt file.
     this.fs.copy(
       this.templatePath('my-awesome-site/humans.txt'),
       this.destinationPath('humans.txt')
