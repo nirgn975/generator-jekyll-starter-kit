@@ -4,6 +4,8 @@ var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 
 describe('generator-jekyll-starter-kit:app', function () {
+  this.timeout(0);
+
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
@@ -17,8 +19,7 @@ describe('generator-jekyll-starter-kit:app', function () {
         sw: true,
         travis: true
       })
-      .toPromise()
-      .then();
+      .toPromise();
   });
 
   it('creates files', function () {
