@@ -4,9 +4,9 @@ var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 
 describe('generator-jekyll-starter-kit:app', function () {
-  before(function () {
-    this.timeout(0);
+  this.timeout(5000);
 
+  before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         projectName: 'name',
