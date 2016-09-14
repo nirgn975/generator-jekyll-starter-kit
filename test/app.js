@@ -17,7 +17,8 @@ describe('generator-jekyll-starter-kit:app', function () {
         sw: true,
         travis: true
       })
-      .toPromise();
+      .toPromise()
+      .then();
   });
 
   it('creates files', function () {
