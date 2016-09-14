@@ -43,11 +43,11 @@ module.exports = yeoman.Base.extend({
         name: ' HTML',
         value: 'html',
         checked: true
-        }, {
+      }, {
         name: ' Pug (Jade) [just for the _includes directory]',
         value: 'pug',
         checked: false
-        }]
+      }]
     }, {
       // Prompts the user to choose stylesheets.
       type: 'list',
@@ -57,15 +57,15 @@ module.exports = yeoman.Base.extend({
         name: ' CSS',
         value: 'stylesheets',
         checked: false
-        }, {
+      }, {
         name: ' SASS',
         value: 'sass',
         checked: false
-        }, {
+      }, {
         name: ' SCSS',
         value: 'scss',
         checked: false
-        }]
+      }]
     }, {
       // Prompts the user to decide if he want ES2015 support.
       type: 'confirm',
@@ -95,7 +95,7 @@ module.exports = yeoman.Base.extend({
 
       function hasFeature(features, feat) {
         return features && features.indexOf(feat) !== -1;
-      };
+      }
 
       // manually deal with the response, get back and store the results.
       // we change a bit this way of doing to automatically do this in the self.prompt() method.
@@ -213,7 +213,7 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('images')
     );
 
-    /// Copy index.html file.
+    // Copy index.html file.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/index.html'),
       this.destinationPath('index.html'), {
@@ -280,7 +280,6 @@ module.exports = yeoman.Base.extend({
       this.templatePath('my-awesome-site/humans.txt'),
       this.destinationPath('humans.txt')
     );
-
   },
 
   install: function () {
