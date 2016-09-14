@@ -19,6 +19,9 @@ gulp.task('static', function () {
       baseConfig: {
         // parser: 'babel-eslint',
       },
+      rules: {
+        'new-cap': ['off']
+      },
       envs: [
         'browser', 'es6'
       ],

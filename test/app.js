@@ -28,9 +28,22 @@ describe('generator-jekyll-starter-kit:app', function () {
       'index.html',
       'README.md'
     ]);
+  });
+
+  it('not created files', function () {
     assert.noFile([
       'scss',
       'sass'
     ]);
+  });
+
+  it('fills package.json with correct information', function () {
+    assert.JSONFileContent('package.json', {
+      name: 'name'
+    });
+  });
+
+  it('fills the README with project data', function () {
+    assert.fileContent('README.md', 'name');
   });
 });
