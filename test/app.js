@@ -32,6 +32,5 @@ describe('generator-jekyll-starter-kit:app', function () {
       'scss',
       'sass'
     ]);
-    done();
   });
 });
