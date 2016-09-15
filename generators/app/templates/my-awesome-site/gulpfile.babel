@@ -22,6 +22,7 @@ gulp.task('minify-html', () => {
       removeOptionalTags: true
     }))
     .pipe(gulp.dest('_site'))
+    .pipe(browserSync.stream());
 });
 
 // Minify and add prefix to css.
@@ -41,7 +42,8 @@ gulp.task('css', () => {
     return gulp.src('_site/css/main.css')
         .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
         .pipe($.cssnano())
-        .pipe(gulp.dest('_site/css'));
+        .pipe(gulp.dest('_site/css'))
+        .pipe(browserSync.stream());
 });
 
 <% if (includeSass || includeScss) { -%>
@@ -70,8 +72,47 @@ gulp.task('pug', () => {
   ])
   .pipe($.pug())
   .pipe(gulp.dest('_includes'))
+  .pipe(browserSync.stream());
 });
 <% } -%>
+
+// Watch change in files.
+gulp.task('watch', () => {
+  // Warch html changes.
+  gulp.watch([
+    '_includes/*.html',
+    '_layouts/*.html',
+    'index.html'
+  ], ['minify-html']);
+
+<% if (includePug) { -%>
+  // Watch Pug (Jade) changes.
+  gulp.watch('_includes-pug/*.pug', ['pug']);
+<% } -%>
+
+  // Watch stylesheets changes.
+  gulp.watch('_site/css/*.css', ['css']);
+
+<% if (includeScss) { -%>
+  // Watch sass changes.
+  gulp.watch('sass/*.sass', ['sass']);
+<% } -%>
+
+<% if (includeScss) { -%>
+  // Watch scss changes.
+  gulp.watch('scss/*.scss', ['scss']);
+<% } -%>
+
+  gulp.watch().on('change', browserSync.reload);
+});
+
+// Init the browser sync.
+gulp.task('serve', ['default'], function() {
+  runSequence('watch')
+  browserSync.init({
+    server: "_site"
+  });
+});
 
 gulp.task('jekyll-build', $.shell.task([ 'jekyll build' ]));
 
