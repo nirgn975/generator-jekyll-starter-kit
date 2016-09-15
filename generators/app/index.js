@@ -154,7 +154,8 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/.gitignore'),
       this.destinationPath('.gitignore'), {
-        includePug: this.includePug
+        includeSass: this.includeSass,
+        includeScss: this.includeScss
       });
 
     // Handle README file.
@@ -263,6 +264,7 @@ module.exports = yeoman.Base.extend({
       this.templatePath('my-awesome-site/gulpfile.babel'),
       this.destinationPath('gulpfile.babel.js'), {
         includePug: this.includePug,
+        includeCss: this.includeCss,
         includeSass: this.includeSass,
         includeScss: this.includeScss
       });
