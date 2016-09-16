@@ -21,7 +21,7 @@ gulp.task('minify-html', () => {
       removeStyleLinkTypeAttributes: true,
       removeOptionalTags: true
     }))
-    .pipe(gulp.dest('_site'))
+    .pipe(gulp.dest('_site'));
 });
 
 // Minify and add prefix to css.
@@ -38,10 +38,10 @@ gulp.task('css', () => {
     'bb >= 10'
   ];
 
-    return gulp.src('_site/css/main.css')
-        .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
-        .pipe($.cssnano())
-        .pipe(gulp.dest('_site/css'));
+  return gulp.src('css/main.css')
+    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe($.cssnano())
+    .pipe(gulp.dest('_site/css'));
 });
 
 <% if (includeSass || includeScss) { -%>
@@ -57,7 +57,7 @@ gulp.task('scss', () => {
             includePaths: ['css'],
             onError: browserSync.notify
         }))
-        .pipe(gulp.dest('_site/css'));
+        .pipe(gulp.dest('css'));
 });
 <% } -%>
 
@@ -69,25 +69,62 @@ gulp.task('pug', () => {
     '!_site/node_modules/**'
   ])
   .pipe($.pug())
-  .pipe(gulp.dest('_includes'))
+  .pipe(gulp.dest('_includes'));
 });
 <% } -%>
 
-gulp.task('jekyll-build', $.shell.task([ 'jekyll build' ]));
+// Watch change in files.
+gulp.task('serve', ['jekyll-build'], () => {
+  browserSync.init({
+    notify: false,
+    // Run as an https by uncommenting 'https: true'
+    // Note: this uses an unsigned certificate which on first access
+    //       will present a certificate warning in the browser.
+    // https: true,
+    server: '_site',
+    port: 3000
+  });
+
+  // Warch html changes.
+  gulp.watch([
+    'css/**/*.css',
+    '_includes/**/*.html',
+    '_layouts/**/*.html',
+    '_posts/**/*.md',
+    'index.html'
+  ], ['jekyll-build', browserSync.reload]);
+
+<% if (includePug) { -%>
+  // Watch Pug (Jade) changes.
+  gulp.watch('_includes-pug/**/*.pug', ['pug']);
+<% } -%>
+
+<% if (includeSass) { -%>
+  // Watch sass changes.
+  gulp.watch('sass/**/*.sass', ['scss']);
+<% } -%>
+
+<% if (includeScss) { -%>
+  // Watch scss changes.
+  gulp.watch('scss/**/*.scss', ['scss']);
+<% } -%>
+});
+
+gulp.task('jekyll-build', [<% if (includeSass | includeScss) { -%>'scss'<% } -%>
+<% if ((includeSass | includeScss) && includePug) { -%>,<% } -%>
+<% if (includePug) { -%>'pug'<% } -%>], $.shell.task([ 'jekyll build' ]));
 
 // Default task.
-gulp.task('default', () =>
+gulp.task('build', () =>
   runSequence(
 <% if (includePug) { -%>
     'pug',
 <% } -%>
-    'jekyll-build',
-    [
 <% if (includeSass | includeScss) { -%>
-      'scss',
+    'scss',
 <% } -%>
-      'minify-html'
-    ],
+    'jekyll-build',
+    'minify-html',
     'css'
   )
 );

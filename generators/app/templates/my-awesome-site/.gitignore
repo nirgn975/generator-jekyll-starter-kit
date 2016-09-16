@@ -4,9 +4,8 @@ _site
 .jekyll-metadata
 Gemfile.lock
 
-<% if (includePug) { -%>
-### Pug ###
-*.index
+<% if (includeSass || includeScss) { -%>
+css
 <% } -%>
 
 ### Sass ###
