@@ -24,15 +24,15 @@ gulp.task('minify-html', () => {
     .pipe(gulp.dest('_site'));
 });
 
-// Optimize images
-gulp.task('minify-images', () =>
+// Optimize images.
+gulp.task('minify-images', () => {
   gulp.src('images/**/*')
     .pipe($.imagemin({
       progressive: true,
       interlaced: true
     }))
     .pipe(gulp.dest('_site/images'));
-);
+});
 
 // Minify and add prefix to css.
 gulp.task('css', () => {
