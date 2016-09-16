@@ -156,7 +156,7 @@ module.exports = yeoman.Base.extend({
       this.templatePath('my-awesome-site/.babelrc'),
       this.destinationPath('.babelrc'), {
         includeES: !this.includeES
-    });
+      });
 
     // Handle .gitignore file.
     this.fs.copyTpl(
