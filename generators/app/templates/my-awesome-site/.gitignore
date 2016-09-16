@@ -3,7 +3,7 @@ _site
 .sass-cache/
 .jekyll-metadata
 Gemfile.lock
-
+scripts
 <% if (includeSass || includeScss) { -%>
 css
 <% } -%>

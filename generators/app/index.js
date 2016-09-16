@@ -104,6 +104,7 @@ module.exports = yeoman.Base.extend({
       this.includeSass = hasFeature(props.css, 'sass');
       this.includeScss = hasFeature(props.css, 'scss');
       this.includeTravis = props.travis;
+      this.includeES = props.es;
     }.bind(this));
   },
 
@@ -149,6 +150,13 @@ module.exports = yeoman.Base.extend({
       this.templatePath('my-awesome-site/.*'),
       this.destinationRoot(this.projectName)
     );
+
+    // Handle .babelrc file.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/.babelrc'),
+      this.destinationPath('.babelrc'), {
+        includeES: !this.includeES
+      });
 
     // Handle .gitignore file.
     this.fs.copyTpl(
@@ -208,6 +216,12 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('_layouts')
     );
 
+    // Copy scripts directory.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/_scripts'),
+      this.destinationPath('_scripts')
+    );
+
     // Copy images directory.
     this.fs.copy(
       this.templatePath('my-awesome-site/images'),
@@ -265,7 +279,8 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('gulpfile.babel.js'), {
         includePug: this.includePug,
         includeSass: this.includeSass,
-        includeScss: this.includeScss
+        includeScss: this.includeScss,
+        includeES: this.includeES
       });
 
     // Copy travis file according to user choice.
