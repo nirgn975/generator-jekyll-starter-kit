@@ -218,8 +218,8 @@ module.exports = yeoman.Base.extend({
 
     // Copy scripts directory.
     this.fs.copy(
-      this.templatePath('my-awesome-site/_scripts'),
-      this.destinationPath('_scripts')
+      this.templatePath('my-awesome-site/_scripts/main'),
+      this.destinationPath('_scripts/main.js')
     );
 
     // Copy images directory.
@@ -292,10 +292,11 @@ module.exports = yeoman.Base.extend({
     }
 
     // Copy humans.txt file.
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('my-awesome-site/humans.txt'),
-      this.destinationPath('humans.txt')
-    );
+      this.destinationPath('humans.txt'), {
+        githubUsername: this.githubUsername
+      });
   },
 
   install: function () {

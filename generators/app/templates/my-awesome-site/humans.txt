@@ -3,7 +3,7 @@
 Thanks for looked at my humans.txt!
 
 /* TEAM */
-Your title: Your name.
+Developer: <%= githubUsername %>.
 Site: email, link to a contact form, etc.
 Twitter: your Twitter username.
 Location: City, Country.
