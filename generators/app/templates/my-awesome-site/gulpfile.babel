@@ -74,8 +74,8 @@ gulp.task('pug', () => {
 <% } -%>
 
 // Watch change in files.
-gulp.task('serve', ['default'], () => {
-  browserSync({
+gulp.task('serve', ['jekyll-build'], () => {
+  browserSync.init({
     notify: false,
     // Run as an https by uncommenting 'https: true'
     // Note: this uses an unsigned certificate which on first access
@@ -87,9 +87,7 @@ gulp.task('serve', ['default'], () => {
 
   // Warch html changes.
   gulp.watch([
-<% if (includeCss) { -%>
     'css/**/*.css',
-<% } -%>
     '_includes/**/*.html',
     '_layouts/**/*.html',
     '_posts/**/*.md',
@@ -101,21 +99,23 @@ gulp.task('serve', ['default'], () => {
   gulp.watch('_includes-pug/**/*.pug', ['pug']);
 <% } -%>
 
-<% if (includeScss) { -%>
+<% if (includeSass) { -%>
   // Watch sass changes.
-  gulp.watch('sass/**/*.sass', ['sass', 'jekyll-build', browserSync.reload]);
+  gulp.watch('sass/**/*.sass', ['scss']);
 <% } -%>
 
 <% if (includeScss) { -%>
   // Watch scss changes.
-  gulp.watch('scss/**/*.scss', ['scss', 'jekyll-build', browserSync.reload]);
+  gulp.watch('scss/**/*.scss', ['scss']);
 <% } -%>
 });
 
-gulp.task('jekyll-build', $.shell.task([ 'jekyll build' ]));
+gulp.task('jekyll-build', [<% if (includeSass | includeScss) { -%>'scss'<% } -%>
+<% if ((includeSass | includeScss) && includePug) { -%>,<% } -%>
+<% if (includePug) { -%>'pug'<% } -%>], $.shell.task([ 'jekyll build' ]));
 
 // Default task.
-gulp.task('default', () =>
+gulp.task('build', () =>
   runSequence(
 <% if (includePug) { -%>
     'pug',

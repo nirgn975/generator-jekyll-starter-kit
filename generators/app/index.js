@@ -264,7 +264,6 @@ module.exports = yeoman.Base.extend({
       this.templatePath('my-awesome-site/gulpfile.babel'),
       this.destinationPath('gulpfile.babel.js'), {
         includePug: this.includePug,
-        includeCss: this.includeCss,
         includeSass: this.includeSass,
         includeScss: this.includeScss
       });
