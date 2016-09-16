@@ -27,6 +27,7 @@ describe('generator-html-css-es2015-sw-travis', function () {
       '_includes',
       '_layouts',
       '_posts',
+      '_scripts',
       'css',
       'images',
       '_config.yml',
@@ -74,6 +75,10 @@ describe('generator-html-css-es2015-sw-travis', function () {
   it('fills the LICENSE with project data', function () {
     assert.fileContent('LICENSE', 'name');
   });
+
+  it('gulpfile content', function () {
+    assert.fileContent('gulpfile.babel.js', '$.babel()');
+  });
 });
 
 describe('generator-pug-scss-travis', function () {
@@ -88,7 +93,7 @@ describe('generator-pug-scss-travis', function () {
         projectDescription: 'description',
         html: 'pug',
         css: 'scss',
-        es: true,
+        es: false,
         sw: true,
         travis: true
       })
@@ -108,6 +113,10 @@ describe('generator-pug-scss-travis', function () {
       'css',
       'sass'
     ]);
+  });
+
+  it('gulpfile content', function () {
+    assert.noFileContent('gulpfile.babel.js', '$.babel()');
   });
 });
 
@@ -143,5 +152,9 @@ describe('generator-pug-sass-no_travis', function () {
       'scss',
       '.travis.yml'
     ]);
+  });
+
+  it('humans.txt content', function () {
+    assert.fileContent('humans.txt', 'name');
   });
 });
