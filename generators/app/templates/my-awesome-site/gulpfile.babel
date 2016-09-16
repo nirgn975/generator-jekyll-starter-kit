@@ -34,6 +34,21 @@ gulp.task('minify-images', () => {
     .pipe(gulp.dest('_site/images'));
 });
 
+// Concatenate<% if (includeES) { -%>, transpiles ES2015 code to ES5<% } -%> and minify JavaScript.
+gulp.task('scripts', () => {
+  gulp.src([
+    // Note: You need to explicitly list your scripts here in the right order
+    //       to be correctly concatenated
+    './_scripts/main.js'
+  ])
+<% if (includeES) { -%>
+    .pipe($.babel())
+<% } -%>
+    .pipe($.concat('main.min.js'))
+    .pipe($.uglify({preserveComments: 'some'}))
+    .pipe(gulp.dest('scripts'));
+});
+
 // Minify and add prefix to css.
 gulp.task('css', () => {
   const AUTOPREFIXER_BROWSERS = [
@@ -98,6 +113,7 @@ gulp.task('serve', ['jekyll-build'], () => {
   // Warch html changes.
   gulp.watch([
     'css/**/*.css',
+    'scripts/**/*.js',
     '_includes/**/*.html',
     '_layouts/**/*.html',
     '_posts/**/*.md',
@@ -118,11 +134,12 @@ gulp.task('serve', ['jekyll-build'], () => {
   // Watch scss changes.
   gulp.watch('scss/**/*.scss', ['scss']);
 <% } -%>
+
+  // Watch JavaScript changes.
+  gulp.watch('_scripts/**/*.js', ['scripts']);
 });
 
-gulp.task('jekyll-build', [<% if (includeSass | includeScss) { -%>'scss'<% } -%>
-<% if ((includeSass | includeScss) && includePug) { -%>,<% } -%>
-<% if (includePug) { -%>'pug'<% } -%>], $.shell.task([ 'jekyll build' ]));
+gulp.task('jekyll-build', ['scripts'<% if (includeSass | includeScss) { -%>, 'scss'<% } -%><% if (includePug) { -%>, 'pug'<% } -%>], $.shell.task([ 'jekyll build' ]));
 
 // Default task.
 gulp.task('build', () =>
@@ -136,6 +153,7 @@ gulp.task('build', () =>
     'jekyll-build',
     'minify-html',
     'css',
-    'minify-images'
+    'minify-images',
+    'scripts'
   )
 );

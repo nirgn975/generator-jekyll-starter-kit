@@ -1,6 +1,7 @@
 {
   "presets": ["es2015"],
-  // Remove the line below to enable ES2015 support.
+<% if (includeES) { -%>
   "only": "gulpfile.babel.js",
+<% } -%>
   "retainLines": true
 }
