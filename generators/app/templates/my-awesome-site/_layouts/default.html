@@ -16,7 +16,12 @@
     {% include footer.html %}
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<% if (includeFirebase) { -%>
   <script async src="/scripts/main.min.js"></script>
+<% } -%>
+<% if (includeGithub) { -%>
+  <script async src="{{ "/scripts/main.min.js" | prepend: site.url }}"></script>
+<% } -%>
   </body>
 
 </html>

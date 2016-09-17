@@ -161,6 +161,15 @@ module.exports = yeoman.Base.extend({
       this.destinationPath(this.projectName + '/robots.txt')
     );
 
+    // Handle _config.yml file.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/_config.yml'),
+      this.destinationPath('_config.yml'), {
+        projectName: this.projectName,
+        githubUsername: this.githubUsername,
+        projectDescription: this.projectDescription
+      });
+
     // Copy 404.html.
     this.fs.copy(
       this.templatePath('my-awesome-site/404.html'),
@@ -338,6 +347,22 @@ module.exports = yeoman.Base.extend({
       this.templatePath('my-awesome-site/humans.txt'),
       this.destinationPath('humans.txt'), {
         githubUsername: this.githubUsername
+      });
+
+    // Handle _lyouts/default.html file.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/_lyouts/default.html'),
+      this.destinationPath('_lyouts/default.html'), {
+        includeGithub: this.includeGithub,
+        includeFirebase: this.includeFirebase
+      });
+
+    // Handle _includes/head.html file.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/_includes/head.html'),
+      this.destinationPath('_includes/head.html'), {
+        includeGithub: this.includeGithub,
+        includeFirebase: this.includeFirebase
       });
   },
 
