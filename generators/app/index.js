@@ -84,6 +84,20 @@ module.exports = yeoman.Base.extend({
       name: 'travis',
       message: 'Would you like to enable HTMLProofer to validate your Jekyll output on Travis-CI?',
       default: true
+    }, {
+      // Prompts the user to choose deploy method.
+      type: 'list',
+      name: 'deploy',
+      message: 'How you want to deploy your website?',
+      choices: [{
+        name: ' GitHub pages',
+        value: 'github',
+        checked: false
+      }, {
+        name: ' Firebase',
+        value: 'firebase',
+        checked: false
+      }]
     }];
 
     return this.prompt(prompts).then(function (props) {
@@ -105,6 +119,8 @@ module.exports = yeoman.Base.extend({
       this.includeScss = hasFeature(props.css, 'scss');
       this.includeTravis = props.travis;
       this.includeES = props.es;
+      this.includeGithub = hasFeature(props.deploy, 'github');
+      this.includeFirebase = hasFeature(props.deploy, 'firebase');
     }.bind(this));
   },
 
@@ -145,6 +161,23 @@ module.exports = yeoman.Base.extend({
       this.destinationPath(this.projectName + '/robots.txt')
     );
 
+    // Handle _config.yml file.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/_config.yml'),
+      this.destinationPath(this.projectName + '/_config.yml'), {
+        projectName: this.projectName,
+        githubUsername: this.githubUsername,
+        projectDescription: this.projectDescription,
+        includeGithub: this.includeGithub,
+        includeFirebase: this.includeFirebase
+      });
+
+    // Copy 404.html.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/404.html'),
+      this.destinationPath(this.projectName + '/404.html')
+    );
+
     // Copy all dotfiles.
     this.fs.copy(
       this.templatePath('my-awesome-site/.*'),
@@ -172,8 +205,25 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('README.md'), {
         projectName: this.projectName,
         githubUsername: this.githubUsername,
-        includeTravis: this.includeTravis
+        projectDescription: this.projectDescription,
+        includeTravis: this.includeTravis,
+        includeGithub: this.includeGithub,
+        includeFirebase: this.includeFirebase
       });
+
+    if (this.includeFirebase) {
+      // Copy .firebaserc file.
+      this.fs.copy(
+        this.templatePath('my-awesome-site/firebaserc'),
+        this.destinationPath('.firebaserc')
+      );
+
+      // Copy firebase.json file.
+      this.fs.copy(
+        this.templatePath('my-awesome-site/firebase'),
+        this.destinationPath('firebase.json')
+      );
+    }
 
     // Handle package.json file.
     this.fs.copyTpl(
@@ -185,7 +235,9 @@ module.exports = yeoman.Base.extend({
         projectDescription: this.projectDescription,
         includePug: this.includePug,
         includeSass: this.includeSass,
-        includeScss: this.includeScss
+        includeScss: this.includeScss,
+        includeGithub: this.includeGithub,
+        includeFirebase: this.includeFirebase
       });
 
     // Handle manifest.json file.
@@ -280,7 +332,8 @@ module.exports = yeoman.Base.extend({
         includePug: this.includePug,
         includeSass: this.includeSass,
         includeScss: this.includeScss,
-        includeES: this.includeES
+        includeES: this.includeES,
+        includeGithub: this.includeGithub
       });
 
     // Copy travis file according to user choice.
@@ -297,9 +350,29 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('humans.txt'), {
         githubUsername: this.githubUsername
       });
+
+    // Handle _lyouts/default.html file.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/_layouts/default.html'),
+      this.destinationPath('_layouts/default.html'), {
+        includeGithub: this.includeGithub,
+        includeFirebase: this.includeFirebase
+      });
+
+    // Handle _includes/head.html file.
+    this.fs.copyTpl(
+      this.templatePath('my-awesome-site/_includes/head.html'),
+      this.destinationPath('_includes/head.html'), {
+        includeGithub: this.includeGithub,
+        includeFirebase: this.includeFirebase
+      });
   },
 
   install: function () {
+    if (this.includeFirebase) {
+      console.log('\n\n\tPlease visit https://console.firebase.google.com to create a new project, then run ' + chalk.blue('firebase use --add') + '\n');
+    }
+
     this.installDependencies({
       bower: false
     });

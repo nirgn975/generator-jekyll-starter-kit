@@ -1,44 +1,59 @@
 ### Jekyll ###
-_site
+_site/
 .sass-cache/
 .jekyll-metadata
+scripts/
 Gemfile.lock
-scripts
+.publish/
 <% if (includeSass || includeScss) { -%>
-css
+css/
 <% } -%>
+
+### Always-ignore files and folders ###
+*.diff
+*.err
+*.log
+*.orig
+*.rej
+*.swn
+*.swo
+*.swp
+._*
+*~
+
+### Ignore packages ###
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+### Packages ###
+node_modules/
+bower_components
 
 ### Sass ###
 .sass-cache/
 *.css.map
 
+### Linux ###
+*~
 
 ### OSX ###
 *.DS_Store
 .AppleDouble
 .LSOverride
 
-
 ### Linux ###
 *~
-
-# temporary files which can be created if a process still has a handle open of a deleted file
-.fuse_hidden*
-
-# KDE directory preferences
-.directory
-
-# Linux trash folder which might appear on any partition or disk
 .Trash-*
-
 
 ### Windows ###
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
-
-# Folder config file
 Desktop.ini
-
-# Recycle Bin used on file shares
 $RECYCLE.BIN/

@@ -84,8 +84,8 @@ gulp.task('scss', () => {
         }))
         .pipe(gulp.dest('css'));
 });
-<% } -%>
 
+<% } -%>
 <% if (includePug) { -%>
 // Pug (Jade) to HTML.
 gulp.task('pug', () => {
@@ -96,8 +96,8 @@ gulp.task('pug', () => {
   .pipe($.pug())
   .pipe(gulp.dest('_includes'));
 });
-<% } -%>
 
+<% } -%>
 // Watch change in files.
 gulp.task('serve', ['jekyll-build'], () => {
   browserSync.init({
@@ -123,18 +123,18 @@ gulp.task('serve', ['jekyll-build'], () => {
 <% if (includePug) { -%>
   // Watch Pug (Jade) changes.
   gulp.watch('_includes-pug/**/*.pug', ['pug']);
-<% } -%>
 
+<% } -%>
 <% if (includeSass) { -%>
   // Watch sass changes.
   gulp.watch('sass/**/*.sass', ['scss']);
-<% } -%>
 
+<% } -%>
 <% if (includeScss) { -%>
   // Watch scss changes.
   gulp.watch('scss/**/*.scss', ['scss']);
-<% } -%>
 
+<% } -%>
   // Watch JavaScript changes.
   gulp.watch('_scripts/**/*.js', ['scripts']);
 });
@@ -153,7 +153,14 @@ gulp.task('build', () =>
     'jekyll-build',
     'minify-html',
     'css',
-    'minify-images',
-    'scripts'
+    'minify-images'
   )
 );
+
+<% if (includeGithub) { -%>
+// Waite for build task and deploy the site to gh-pages branch.
+gulp.task('deploy', () => {
+  return gulp.src('./_site/**/*')
+    .pipe($.ghPages());
+});
+<% } -%>

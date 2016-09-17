@@ -1,9 +1,8 @@
-<%= projectName %>
-===
+# test
 
-[![license](https://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/<%= githubUsername %>/<%= projectName %>/blob/master/LICENSE) [![Build Status](https://travis-ci.org/<%= githubUsername %>/<%= projectName %>.svg?branch=master)](https://travis-ci.org/<%= githubUsername %>/<%= projectName %>)
+[![license][license-image]][license-url] [![Build Status][travis-image]][travis-url]
 
-Your site description
+> <%= projectDescription %>
 
 ## Prerequisites
 
@@ -28,11 +27,20 @@ $ npm run gulp
 ```
 
 **Deploy mode**
-
+<% if (includeGithub) { -%>
 You can easily deploy your site build to gh-pages branch with the command
 ```shell
+$ npm run gulp build
 $ npm run gulp deploy
 ```
+<% } -%>
+<% if (includeFirebase) { -%>
+You can easily deploy your site build to Firebase with the command
+```shell
+$ npm run gulp build
+$ firebase deploy
+```
+<% } -%>
 
 <% if (includeTravis) { -%>
 ## Tests
@@ -42,3 +50,8 @@ If you want to run the tests on your local machine please install `gem install h
 $ htmlproofer ./_site
 ```
 <% } -%>
+
+[license-image]: https://img.shields.io/badge/license-ISC-blue.svg
+[license-url]: https://github.com/<%= githubUsername %>/<%= projectName %>/blob/master/LICENSE
+[travis-image]: https://travis-ci.org/<%= githubUsername %>/<%= projectName %>.svg?branch=master
+[travis-url]: https://travis-ci.org/<%= githubUsername %>/<%= projectName %>
