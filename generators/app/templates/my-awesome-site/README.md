@@ -1,7 +1,7 @@
 <%= projectName %>
 ===
 
-[![license](https://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/<%= githubUsername %>/<%= projectName %>/blob/master/LICENSE) [![Build Status](https://travis-ci.org/<%= githubUsername %>/<%= projectName %>.svg?branch=master)](https://travis-ci.org/<%= githubUsername %>/<%= projectName %>)
+[![license](https://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/<%= githubUsername %>/<%= projectName %>/blob/master/LICENSE) [![Build Status][travis-image]][travis-url]
 
 Your site description
 
@@ -28,11 +28,18 @@ $ npm run gulp
 ```
 
 **Deploy mode**
-
+<% if (includeGithub) { -%>
 You can easily deploy your site build to gh-pages branch with the command
 ```shell
 $ npm run gulp deploy
 ```
+<% } -%>
+<% if (includeGithub) { -%>
+You can easily deploy your site build to Firebase with the command
+```shell
+$ firebase deploy
+  ```
+<% } -%>
 
 <% if (includeTravis) { -%>
 ## Tests

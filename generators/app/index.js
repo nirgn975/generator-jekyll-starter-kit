@@ -84,6 +84,20 @@ module.exports = yeoman.Base.extend({
       name: 'travis',
       message: 'Would you like to enable HTMLProofer to validate your Jekyll output on Travis-CI?',
       default: true
+    }, {
+      // Prompts the user to choose deploy method.
+      type: 'list',
+      name: 'deploy',
+      message: 'How you want to deploy your website?',
+      choices: [{
+        name: ' GitHub pages',
+        value: 'github',
+        checked: false
+      }, {
+        name: ' Firebase',
+        value: 'firebase',
+        checked: false
+      }]
     }];
 
     return this.prompt(prompts).then(function (props) {
@@ -105,6 +119,8 @@ module.exports = yeoman.Base.extend({
       this.includeScss = hasFeature(props.css, 'scss');
       this.includeTravis = props.travis;
       this.includeES = props.es;
+      this.includeGithub = hasFeature(props.deploy, 'github');
+      this.includeFirebase = hasFeature(props.deploy, 'firebase');
     }.bind(this));
   },
 
@@ -172,7 +188,9 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('README.md'), {
         projectName: this.projectName,
         githubUsername: this.githubUsername,
-        includeTravis: this.includeTravis
+        includeTravis: this.includeTravis,
+        includeGithub = this.includeGithub,
+        includeFirebase: this.includeFirebase
       });
 
     // Handle package.json file.
@@ -185,7 +203,8 @@ module.exports = yeoman.Base.extend({
         projectDescription: this.projectDescription,
         includePug: this.includePug,
         includeSass: this.includeSass,
-        includeScss: this.includeScss
+        includeScss: this.includeScss,
+        includeGithub: this.includeGithub
       });
 
     // Handle manifest.json file.
@@ -280,7 +299,8 @@ module.exports = yeoman.Base.extend({
         includePug: this.includePug,
         includeSass: this.includeSass,
         includeScss: this.includeScss,
-        includeES: this.includeES
+        includeES: this.includeES,
+        includeGithub: this.includeGithub
       });
 
     // Copy travis file according to user choice.

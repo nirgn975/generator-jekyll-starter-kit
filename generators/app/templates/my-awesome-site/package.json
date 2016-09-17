@@ -4,7 +4,8 @@
   "description": "<%= projectDescription %>",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gulp": "gulp",
+    "gulp deploy": "gulp deploy"
   },
   "author": "<%= githubUsername %>",
   "license": "ISC",
@@ -17,6 +18,9 @@
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.0",
     "gulp-cssnano": "^2.1.2",
+<% if (includeGithub) { -%>
+    "gulp-gh-pages": "^0.5.4",
+<% } -%>
     "gulp-htmlmin": "2.0.0",
     "gulp-imagemin": "^3.0.3",
     "gulp-load-plugins": "1.2.4",
