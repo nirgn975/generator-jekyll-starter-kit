@@ -4,6 +4,7 @@ _site/
 .jekyll-metadata
 scripts/
 Gemfile.lock
+.publish/
 <% if (includeSass || includeScss) { -%>
 css/
 <% } -%>

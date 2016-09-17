@@ -161,6 +161,12 @@ module.exports = yeoman.Base.extend({
       this.destinationPath(this.projectName + '/robots.txt')
     );
 
+    // Copy 404.html.
+    this.fs.copy(
+      this.templatePath('my-awesome-site/404.html'),
+      this.destinationPath(this.projectName + '/404.html')
+    );
+
     // Copy all dotfiles.
     this.fs.copy(
       this.templatePath('my-awesome-site/.*'),
@@ -188,10 +194,25 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('README.md'), {
         projectName: this.projectName,
         githubUsername: this.githubUsername,
+        projectDescription: this.projectDescription,
         includeTravis: this.includeTravis,
-        includeGithub = this.includeGithub,
+        includeGithub: this.includeGithub,
         includeFirebase: this.includeFirebase
       });
+
+    if (this.includeFirebase) {
+      // Copy .firebaserc file.
+      this.fs.copy(
+        this.templatePath('my-awesome-site/firebaserc'),
+        this.destinationPath(this.projectName + '.firebaserc')
+      );
+
+      // Copy firebase.json file.
+      this.fs.copy(
+        this.templatePath('my-awesome-site/firebase'),
+        this.destinationPath(this.projectName + '/firebase.json')
+      );
+    }
 
     // Handle package.json file.
     this.fs.copyTpl(
@@ -323,5 +344,9 @@ module.exports = yeoman.Base.extend({
     this.installDependencies({
       bower: false
     });
+
+    if (this.includeFirebase) {
+      console.log("Please visit https://console.firebase.google.com to create a new project, then run firebase use --add");
+    }
   }
 });

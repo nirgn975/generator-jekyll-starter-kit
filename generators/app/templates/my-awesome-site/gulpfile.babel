@@ -159,7 +159,7 @@ gulp.task('build', () =>
 
 <% if (includeGithub) { -%>
 // Waite for build task and deploy the site to gh-pages branch.
-gulp.task('deploy', ['build'], function() {
+gulp.task('deploy', ['build'], () => {
   return gulp.src('./_site/**/*')
     .pipe($.ghPages());
 });
