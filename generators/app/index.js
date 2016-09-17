@@ -164,7 +164,7 @@ module.exports = yeoman.Base.extend({
     // Handle _config.yml file.
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/_config.yml'),
-      this.destinationPath('_config.yml'), {
+      this.destinationPath(this.projectName + '/_config.yml'), {
         projectName: this.projectName,
         githubUsername: this.githubUsername,
         projectDescription: this.projectDescription
@@ -351,8 +351,8 @@ module.exports = yeoman.Base.extend({
 
     // Handle _lyouts/default.html file.
     this.fs.copyTpl(
-      this.templatePath('my-awesome-site/_lyouts/default.html'),
-      this.destinationPath('_lyouts/default.html'), {
+      this.templatePath('my-awesome-site/_layouts/default.html'),
+      this.destinationPath('_layouts/default.html'), {
         includeGithub: this.includeGithub,
         includeFirebase: this.includeFirebase
       });
@@ -368,7 +368,7 @@ module.exports = yeoman.Base.extend({
 
   install: function () {
     if (this.includeFirebase) {
-      console.log("\n\nPlease visit https://console.firebase.google.com to create a new project, then run firebase use --add\n");
+      console.log('\n\n\tPlease visit https://console.firebase.google.com to create a new project, then run ' + chalk.blue('firebase use --add') + '\n');
     }
 
     this.installDependencies({
