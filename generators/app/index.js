@@ -204,13 +204,13 @@ module.exports = yeoman.Base.extend({
       // Copy .firebaserc file.
       this.fs.copy(
         this.templatePath('my-awesome-site/firebaserc'),
-        this.destinationPath(this.projectName + '.firebaserc')
+        this.destinationPath('.firebaserc')
       );
 
       // Copy firebase.json file.
       this.fs.copy(
         this.templatePath('my-awesome-site/firebase'),
-        this.destinationPath(this.projectName + '/firebase.json')
+        this.destinationPath('firebase.json')
       );
     }
 
@@ -225,7 +225,8 @@ module.exports = yeoman.Base.extend({
         includePug: this.includePug,
         includeSass: this.includeSass,
         includeScss: this.includeScss,
-        includeGithub: this.includeGithub
+        includeGithub: this.includeGithub,
+        includeFirebase: this.includeFirebase
       });
 
     // Handle manifest.json file.
@@ -341,12 +342,12 @@ module.exports = yeoman.Base.extend({
   },
 
   install: function () {
+    if (this.includeFirebase) {
+      console.log("\n\nPlease visit https://console.firebase.google.com to create a new project, then run firebase use --add\n");
+    }
+
     this.installDependencies({
       bower: false
     });
-
-    if (this.includeFirebase) {
-      console.log("Please visit https://console.firebase.google.com to create a new project, then run firebase use --add");
-    }
   }
 });

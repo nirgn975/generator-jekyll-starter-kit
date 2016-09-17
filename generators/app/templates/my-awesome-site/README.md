@@ -36,6 +36,7 @@ $ npm run gulp deploy
 <% if (includeFirebase) { -%>
 You can easily deploy your site build to Firebase with the command
 ```shell
+$ npm run gulp build
 $ firebase deploy
 ```
 <% } -%>
