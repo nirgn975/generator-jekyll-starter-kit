@@ -17,7 +17,12 @@ title: <%= projectName %>
 email: your-email@domain.com
 description: > # this means to ignore newlines until "url:"
   <%= projectDescription %>
-url: "https://<%= githubUsername %>.github.io/<%= projectName %>" # the base hostname & protocol for your site
+<% if (includeFirebase) { -%>
+url: ""
+<% } -%>
+<% if (includeGithub) { -%>
+url: "https://<%= githubUsername %>.github.io/<%= projectName %>"
+<% } -%>
 twitter_username: <%= githubUsername %>
 github_username:  <%= githubUsername %>
 

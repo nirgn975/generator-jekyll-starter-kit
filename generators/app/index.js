@@ -167,7 +167,9 @@ module.exports = yeoman.Base.extend({
       this.destinationPath(this.projectName + '/_config.yml'), {
         projectName: this.projectName,
         githubUsername: this.githubUsername,
-        projectDescription: this.projectDescription
+        projectDescription: this.projectDescription,
+        includeGithub: this.includeGithub,
+        includeFirebase: this.includeFirebase
       });
 
     // Copy 404.html.
