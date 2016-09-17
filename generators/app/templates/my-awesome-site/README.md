@@ -30,6 +30,7 @@ $ npm run gulp
 <% if (includeGithub) { -%>
 You can easily deploy your site build to gh-pages branch with the command
 ```shell
+$ npm run gulp build
 $ npm run gulp deploy
 ```
 <% } -%>
