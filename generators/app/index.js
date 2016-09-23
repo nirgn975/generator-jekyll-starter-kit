@@ -117,6 +117,7 @@ module.exports = yeoman.Base.extend({
       this.includeCss = hasFeature(props.css, 'stylesheets');
       this.includeSass = hasFeature(props.css, 'sass');
       this.includeScss = hasFeature(props.css, 'scss');
+      this.includeSW = props.sw;
       this.includeTravis = props.travis;
       this.includeES = props.es;
       this.includeGithub = hasFeature(props.deploy, 'github');
@@ -236,6 +237,7 @@ module.exports = yeoman.Base.extend({
         includePug: this.includePug,
         includeSass: this.includeSass,
         includeScss: this.includeScss,
+        includeSW: this.includeSW,
         includeGithub: this.includeGithub,
         includeFirebase: this.includeFirebase
       });
@@ -333,7 +335,8 @@ module.exports = yeoman.Base.extend({
         includeSass: this.includeSass,
         includeScss: this.includeScss,
         includeES: this.includeES,
-        includeGithub: this.includeGithub
+        includeGithub: this.includeGithub,
+        includeSW: this.includeSW
       });
 
     // Copy travis file according to user choice.
@@ -356,7 +359,8 @@ module.exports = yeoman.Base.extend({
       this.templatePath('my-awesome-site/_layouts/default.html'),
       this.destinationPath('_layouts/default.html'), {
         includeGithub: this.includeGithub,
-        includeFirebase: this.includeFirebase
+        includeFirebase: this.includeFirebase,
+        includeSW: this.includeSW
       });
 
     // Handle _includes/head.html file.
