@@ -1,5 +1,7 @@
 # generator-jekyll-starter-kit
 
+[![Join the chat at https://gitter.im/generator-jekyll-starter-kit/Lobby](https://badges.gitter.im/generator-jekyll-starter-kit/Lobby.svg)](https://gitter.im/generator-jekyll-starter-kit/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 
 > Jekyll + Google web-starter-kit = best of both worlds
