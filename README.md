@@ -1,10 +1,6 @@
 # generator-jekyll-starter-kit
 
-<<<<<<< Updated upstream
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-=======
 [![license][license-image]][license-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Join the chat at https://gitter.im/generator-jekyll-starter-kit/Lobby][gitter-image]][gitter-url]
->>>>>>> Stashed changes
 
 > Jekyll + Google web-starter-kit = best of both worlds
 
