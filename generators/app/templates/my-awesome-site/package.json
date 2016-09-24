@@ -22,6 +22,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-cssnano": "^2.1.2",
 <% if (includeGithub) { -%>
+    "gulp-replace": "^0.5.4",
     "gulp-gh-pages": "^0.5.4",
 <% } -%>
     "gulp-htmlmin": "2.0.0",

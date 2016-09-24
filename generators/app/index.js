@@ -207,9 +207,7 @@ module.exports = yeoman.Base.extend({
         projectName: this.projectName,
         githubUsername: this.githubUsername,
         projectDescription: this.projectDescription,
-        includeTravis: this.includeTravis,
-        includeGithub: this.includeGithub,
-        includeFirebase: this.includeFirebase
+        includeTravis: this.includeTravis
       });
 
     if (this.includeFirebase) {
@@ -331,11 +329,13 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('my-awesome-site/gulpfile.babel'),
       this.destinationPath('gulpfile.babel.js'), {
+        projectName: this.projectName,
         includePug: this.includePug,
         includeSass: this.includeSass,
         includeScss: this.includeScss,
         includeES: this.includeES,
         includeGithub: this.includeGithub,
+        includeFirebase: this.includeFirebase
         includeSW: this.includeSW
       });
 

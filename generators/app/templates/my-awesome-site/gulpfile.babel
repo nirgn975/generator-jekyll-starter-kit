@@ -148,7 +148,13 @@ gulp.task('generate-service-worker', function(callback) {
 
   swPrecache.write(path.join(rootDir, 'sw.js'), {
     staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif,json}'],
+<% if (includeFirebase) { -%>
     stripPrefix: rootDir
+<% } -%>
+<% if (includeGithub) { -%>
+    stripPrefix: rootDir,
+    replacePrefix: '<%= projectName %>'
+<% } -%>
   }, callback);
 });
 <% } -%>
@@ -175,9 +181,43 @@ gulp.task('build', () =>
 );
 
 <% if (includeGithub) { -%>
-// Waite for build task and deploy the site to gh-pages branch.
-gulp.task('deploy', () => {
+// Edit config file for jekyll build.
+gulp.task('before-gh-deploy', () => {
+  return gulp.src('./_config.yml')
+    .pipe($.replace('baseurl: ""', 'baseurl: "/test"'))
+    .pipe(gulp.dest('./'));
+});
+
+// Revert config file for gulp serve in local.
+gulp.task('cleanup-gh-deploy', () => {
+  return gulp.src('./_config.yml')
+    .pipe($.replace('baseurl: "/test"', 'baseurl: ""'))
+    .pipe(gulp.dest('./'));
+});
+
+// Depoly website to gh-pages.
+gulp.task('gh-pages', () => {
   return gulp.src('./_site/**/*')
     .pipe($.ghPages());
+});
+
+gulp.task('deploy', () => {
+  runSequence(
+    'before-gh-deploy',
+    'build',
+    'gh-pages',
+    'cleanup-gh-deploy'
+  )
+});
+<% } -%>
+
+<% if (includeFirebase) { -%>
+gulp.task('firebase', $.shell.task([ 'firebase depoly' ]));
+
+gulp.task('deploy', () => {
+  runSequence(
+    'build',
+    'firebase'
+  )
 });
 <% } -%>

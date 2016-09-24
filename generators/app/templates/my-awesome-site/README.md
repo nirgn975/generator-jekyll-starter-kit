@@ -1,4 +1,4 @@
-# test
+# <%= projectName %>
 
 [![license][license-image]][license-url] <% if (includeTravis) { -%>[![Build Status][travis-image]][travis-url]<% } -%>
 
@@ -27,20 +27,11 @@ $ npm run gulp
 ```
 
 **Deploy mode**
-<% if (includeGithub) { -%>
-You can easily deploy your site build to gh-pages branch with the command
+
+You can easily deploy your site build with the command
 ```shell
-$ npm run gulp build
 $ npm run gulp deploy
 ```
-<% } -%>
-<% if (includeFirebase) { -%>
-You can easily deploy your site build to Firebase with the command
-```shell
-$ npm run gulp build
-$ firebase deploy
-```
-<% } -%>
 
 <% if (includeTravis) { -%>
 ## Tests

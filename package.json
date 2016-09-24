@@ -1,7 +1,7 @@
 {
   "name": "generator-jekyll-starter-kit",
-  "version": "0.0.0",
-  "description": "Jekyll and Google web-starter-kit = best of both worlds",
+  "version": "0.1.0",
+  "description": "Jekyll + Google web-starter-kit = best of both worlds",
   "homepage": "https://github.com/nirgn975/jekyll-starter-kit",
   "author": {
     "name": "Nir Galon",
@@ -21,10 +21,12 @@
     "SASS",
     "SCSS",
     "JavaScript",
-    "jQuery",
     "ES6",
+    "ES2015",
     "Gulp",
-    "Travis",
+    "Travis-CI",
+    "gh-pages",
+    "Firebase",
     "yeoman-generator"
   ],
   "dependencies": {
