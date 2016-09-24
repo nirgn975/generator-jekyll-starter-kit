@@ -153,7 +153,7 @@ gulp.task('generate-service-worker', function(callback) {
 <% } -%>
 <% if (includeGithub) { -%>
     stripPrefix: rootDir,
-    replacePrefix: '<%= projectName %>'
+    replacePrefix: '/<%= projectName %>'
 <% } -%>
   }, callback);
 });
@@ -204,7 +204,13 @@ gulp.task('gh-pages', () => {
 gulp.task('deploy', () => {
   runSequence(
     'before-gh-deploy',
-    'build',
+    'pug',
+    'scss',
+    'jekyll-build',
+    'minify-html',
+    'css',
+    'generate-service-worker',
+    'minify-images',
     'gh-pages',
     'cleanup-gh-deploy'
   )
@@ -216,7 +222,13 @@ gulp.task('firebase', $.shell.task([ 'firebase depoly' ]));
 
 gulp.task('deploy', () => {
   runSequence(
-    'build',
+    'pug',
+    'scss',
+    'jekyll-build',
+    'minify-html',
+    'css',
+    'generate-service-worker',
+    'minify-images',
     'firebase'
   )
 });
