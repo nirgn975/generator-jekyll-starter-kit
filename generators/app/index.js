@@ -335,7 +335,7 @@ module.exports = yeoman.Base.extend({
         includeScss: this.includeScss,
         includeES: this.includeES,
         includeGithub: this.includeGithub,
-        includeFirebase: this.includeFirebase
+        includeFirebase: this.includeFirebase,
         includeSW: this.includeSW
       });
 
