@@ -1,6 +1,10 @@
 # generator-jekyll-starter-kit
 
+<<<<<<< Updated upstream
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+=======
+[![license][license-image]][license-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Join the chat at https://gitter.im/generator-jekyll-starter-kit/Lobby][gitter-image]][gitter-url]
+>>>>>>> Stashed changes
 
 > Jekyll + Google web-starter-kit = best of both worlds
 
@@ -34,6 +38,8 @@ Great! Here is how you can install the local generator to test changes.
 ISC © [Nir Galon](http://nirgn.com)
 
 
+[license-image]: https://img.shields.io/badge/license-ISC-blue.svg
+[license-url]: https://github.com/nirgn975/generator-jekyll-starter-kit/blob/master/LICENSE
 [npm-image]: https://badge.fury.io/js/generator-jekyll-starter-kit.svg
 [npm-url]: https://npmjs.org/package/generator-jekyll-starter-kit
 [travis-image]: https://travis-ci.org/nirgn975/generator-jekyll-starter-kit.svg?branch=master

@@ -14,31 +14,31 @@ module.exports = yeoman.Base.extend({
       // Prompts the user for the project name.
       type: 'input',
       name: 'projectName',
-      message: 'What will be your project name?',
+      message: '(1/10) What will be your project name?',
       required: 'false'
     }, {
       // Prompts the user for the URL of the project's GitHub repo.
       type: 'input',
       name: 'githubUrl',
-      message: 'What is the GitHub repository URL?',
+      message: '(2/10) What is the GitHub repository URL?',
       required: 'false'
     }, {
       // Prompts the user for his GitHub username.
       type: 'input',
       name: 'githubUsername',
-      message: 'What is your GitHub username?',
+      message: '(3/10) What is your GitHub username?',
       required: 'false'
     }, {
       // Prompts the user for his GitHub username.
       type: 'input',
       name: 'projectDescription',
-      message: 'What is your project description?',
+      message: '(4/10) What is your project description?',
       required: 'false'
     }, {
       // Prompts the user to pick a templating engine.
       type: 'list',
       name: 'html',
-      message: 'What Template Engine do you want to use?',
+      message: '(5/10) What Template Engine do you want to use?',
       choices: [{
         name: ' HTML',
         value: 'html',
@@ -52,7 +52,7 @@ module.exports = yeoman.Base.extend({
       // Prompts the user to choose stylesheets.
       type: 'list',
       name: 'css',
-      message: 'What Stylesheets do you want to use?',
+      message: '(6/10) What Stylesheets do you want to use?',
       choices: [{
         name: ' CSS',
         value: 'stylesheets',
@@ -70,25 +70,25 @@ module.exports = yeoman.Base.extend({
       // Prompts the user to decide if he want ES2015 support.
       type: 'confirm',
       name: 'es',
-      message: 'Would you like to write ES2015? (ES2015 will be support using Babel and will automatically transpiled to ES5 for wide browser support).',
+      message: '(7/10) Would you like to write ES2015? (ES2015 will be support using Babel and will automatically transpiled to ES5 for wide browser support).',
       default: true
     }, {
       // Prompts the user to decide if he want offline support.
       type: 'confirm',
       name: 'sw',
-      message: 'Would you like to enable Service Worker for offline use?',
+      message: '(8/10) Would you like to enable Service Worker for offline use?',
       default: true
     }, {
       // Prompts the user to decide if he want to validate his build.
       type: 'confirm',
       name: 'travis',
-      message: 'Would you like to enable HTMLProofer to validate your Jekyll output on Travis-CI?',
+      message: '(9/10) Would you like to enable HTMLProofer to validate your Jekyll output on Travis-CI?',
       default: true
     }, {
       // Prompts the user to choose deploy method.
       type: 'list',
       name: 'deploy',
-      message: 'How you want to deploy your website?',
+      message: '(10/10) How you want to deploy your website?',
       choices: [{
         name: ' GitHub pages',
         value: 'github',

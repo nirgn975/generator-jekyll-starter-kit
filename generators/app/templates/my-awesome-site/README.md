@@ -1,6 +1,6 @@
 # test
 
-[![license][license-image]][license-url] [![Build Status][travis-image]][travis-url]
+[![license][license-image]][license-url] <% if (includeTravis) { -%>[![Build Status][travis-image]][travis-url]<% } -%>
 
 > <%= projectDescription %>
 
@@ -53,5 +53,7 @@ $ htmlproofer ./_site
 
 [license-image]: https://img.shields.io/badge/license-ISC-blue.svg
 [license-url]: https://github.com/<%= githubUsername %>/<%= projectName %>/blob/master/LICENSE
+<% if (includeTravis) { -%>
 [travis-image]: https://travis-ci.org/<%= githubUsername %>/<%= projectName %>.svg?branch=master
 [travis-url]: https://travis-ci.org/<%= githubUsername %>/<%= projectName %>
+<% } -%>
