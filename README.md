@@ -1,6 +1,6 @@
 <img src="https://github.com/nirgn975/jekyll-starter-kit/blob/master/images/jekyll-starter-kit.png" />
 
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Join the chat at https://gitter.im/jekyll-starter-kit/Lobby][gitter-image]][gitter-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Join the chat at https://gitter.im/jekyll_starter_kit/Lobby][gitter-image]][gitter-url]
 
 > Jekyll + Google web-starter-kit = best of both worlds
 
@@ -45,4 +45,4 @@ Great! Here is how you can install the local generator to test changes.
 [coveralls-image]: https://coveralls.io/repos/nirgn975/jekyll-starter-kit/badge.svg
 [coveralls-url]: https://coveralls.io/r/nirgn975/jekyll-starter-kit
 [gitter-image]: https://badges.gitter.im/jekyll-starter-kit/Lobby.svg
-[gitter-url]: https://gitter.im/jekyll-starter-kit/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+[gitter-url]: https://gitter.im/jekyll_starter_kit/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
