@@ -33,8 +33,8 @@ Great! Here is how you can install the local generator to test changes.
 
 ## Credit
 
-[Nir Galon](http://nirgn.com)
-[Yotam Emergy](ydesign.webflow.io)
+  * [Nir Galon](http://nirgn.com)
+  * [Yotam Emergy](ydesign.webflow.io)
 
 [npm-image]: https://badge.fury.io/js/generator-jekyll-starter-kit.svg
 [npm-url]: https://npmjs.org/package/generator-jekyll-starter-kit
