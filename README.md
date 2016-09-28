@@ -31,10 +31,10 @@ Great! Here is how you can install the local generator to test changes.
   4. `mkdir app`
   5. Inside the new directory, initiate `yo jekyll-starter-kit`
 
-## License
+## Credit
 
-ISC © [Nir Galon](http://nirgn.com)
-
+[Nir Galon](http://nirgn.com)
+[Yotam Emergy](ydesign.webflow.io)
 
 [npm-image]: https://badge.fury.io/js/generator-jekyll-starter-kit.svg
 [npm-url]: https://npmjs.org/package/generator-jekyll-starter-kit
