@@ -1,8 +1,10 @@
-# generator-jekyll-starter-kit
+<img src="https://github.com/nirgn975/jekyll-starter-kit/blob/master/images/jekyll-starter-kit.png" />
 
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Join the chat at https://gitter.im/generator-jekyll-starter-kit/Lobby][gitter-image]][gitter-url]
 
 > Jekyll + Google web-starter-kit = best of both worlds
+
+---
 
 ## Installation
 
@@ -29,10 +31,10 @@ Great! Here is how you can install the local generator to test changes.
   4. `mkdir app`
   5. Inside the new directory, initiate `yo jekyll-starter-kit`
 
-## License
+## Contributors
 
-ISC © [Nir Galon](http://nirgn.com)
-
+  * [Nir Galon](http://nirgn.com)
+  * [Yotam Emergy](http://ydesign.webflow.io/)
 
 [npm-image]: https://badge.fury.io/js/generator-jekyll-starter-kit.svg
 [npm-url]: https://npmjs.org/package/generator-jekyll-starter-kit
