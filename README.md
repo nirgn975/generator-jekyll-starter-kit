@@ -31,7 +31,7 @@ Great! Here is how you can install the local generator to test changes.
   4. `mkdir app`
   5. Inside the new directory, initiate `yo jekyll-starter-kit`
 
-## Credit
+## Contributors
 
   * [Nir Galon](http://nirgn.com)
   * [Yotam Emergy](http://ydesign.webflow.io/)
