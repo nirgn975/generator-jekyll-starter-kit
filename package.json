@@ -1,6 +1,6 @@
 {
-  "name": "generator-jekyll-starter-kit",
-  "version": "0.0.0",
+  "name": "jekyll-starter-kit",
+  "version": "1.0.0",
   "description": "Jekyll and Google web-starter-kit = best of both worlds",
   "homepage": "https://github.com/nirgn975/jekyll-starter-kit",
   "author": {
@@ -53,7 +53,7 @@
       "mocha": true
     }
   },
-  "repository": "nirgn975/generator-jekyll-starter-kit",
+  "repository": "nirgn975/jekyll-starter-kit",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"
