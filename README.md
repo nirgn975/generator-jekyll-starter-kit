@@ -1,6 +1,6 @@
 <img src="https://github.com/nirgn975/jekyll-starter-kit/blob/master/images/jekyll-starter-kit.png" />
 
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Join the chat at https://gitter.im/generator-jekyll-starter-kit/Lobby][gitter-image]][gitter-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Join the chat at https://gitter.im/jekyll_starter_kit/Lobby][gitter-image]][gitter-url]
 
 > Jekyll + Google web-starter-kit = best of both worlds
 
@@ -8,11 +8,11 @@
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-jekyll-starter-kit using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and jekyll-starter-kit using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
-npm install -g generator-jekyll-starter-kit
+npm install -g jekyll-starter-kit
 ```
 
 Then generate your new project:
@@ -36,13 +36,13 @@ Great! Here is how you can install the local generator to test changes.
   * [Nir Galon](http://nirgn.com)
   * [Yotam Emergy](http://ydesign.webflow.io/)
 
-[npm-image]: https://badge.fury.io/js/generator-jekyll-starter-kit.svg
-[npm-url]: https://npmjs.org/package/generator-jekyll-starter-kit
-[travis-image]: https://travis-ci.org/nirgn975/generator-jekyll-starter-kit.svg?branch=master
-[travis-url]: https://travis-ci.org/nirgn975/generator-jekyll-starter-kit
-[daviddm-image]: https://david-dm.org/nirgn975/generator-jekyll-starter-kit.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/nirgn975/generator-jekyll-starter-kit
-[coveralls-image]: https://coveralls.io/repos/nirgn975/generator-jekyll-starter-kit/badge.svg
-[coveralls-url]: https://coveralls.io/r/nirgn975/generator-jekyll-starter-kit
-[gitter-image]: https://badges.gitter.im/generator-jekyll-starter-kit/Lobby.svg
-[gitter-url]: https://gitter.im/generator-jekyll-starter-kit/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+[npm-image]: https://badge.fury.io/js/jekyll-starter-kit.svg
+[npm-url]: https://npmjs.org/package/jekyll-starter-kit
+[travis-image]: https://travis-ci.org/nirgn975/jekyll-starter-kit.svg?branch=master
+[travis-url]: https://travis-ci.org/nirgn975/jekyll-starter-kit
+[daviddm-image]: https://david-dm.org/nirgn975/jekyll-starter-kit.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/nirgn975/jekyll-starter-kit
+[coveralls-image]: https://coveralls.io/repos/nirgn975/jekyll-starter-kit/badge.svg
+[coveralls-url]: https://coveralls.io/r/nirgn975/jekyll-starter-kit
+[gitter-image]: https://badges.gitter.im/jekyll-starter-kit/Lobby.svg
+[gitter-url]: https://gitter.im/jekyll_starter_kit/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
