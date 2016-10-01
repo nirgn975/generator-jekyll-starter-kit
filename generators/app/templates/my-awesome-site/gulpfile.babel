@@ -4,7 +4,9 @@ import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import runSequence from 'run-sequence';
 import browserSync from 'browser-sync';
-
+<% if (includeSW) { -%>
+import swPrecache from 'sw-precache';
+<% } -%>
 const $ = gulpLoadPlugins();
 
 // Minify the HTML.
@@ -139,6 +141,24 @@ gulp.task('serve', ['jekyll-build'], () => {
   gulp.watch('_scripts/**/*.js', ['scripts']);
 });
 
+<% if (includeSW) { -%>
+gulp.task('generate-service-worker', function(callback) {
+  var path = require('path');
+  var rootDir = '_site';
+
+  swPrecache.write(path.join(rootDir, 'sw.js'), {
+    staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif,json}'],
+<% if (includeFirebase) { -%>
+    stripPrefix: rootDir
+<% } -%>
+<% if (includeGithub) { -%>
+    stripPrefix: rootDir,
+    replacePrefix: '/<%= projectName %>'
+<% } -%>
+  }, callback);
+});
+<% } -%>
+
 gulp.task('jekyll-build', ['scripts'<% if (includeSass | includeScss) { -%>, 'scss'<% } -%><% if (includePug) { -%>, 'pug'<% } -%>], $.shell.task([ 'jekyll build' ]));
 
 // Default task.
@@ -153,14 +173,75 @@ gulp.task('build', () =>
     'jekyll-build',
     'minify-html',
     'css',
+<% if (includeSW) { -%>
+    'generate-service-worker',
+<% } -%>
     'minify-images'
   )
 );
 
 <% if (includeGithub) { -%>
-// Waite for build task and deploy the site to gh-pages branch.
-gulp.task('deploy', () => {
+// Edit config file for jekyll build.
+gulp.task('before-gh-deploy', () => {
+  return gulp.src('./_config.yml')
+    .pipe($.replace('baseurl: ""', 'baseurl: "/test"'))
+    .pipe(gulp.dest('./'));
+});
+
+// Revert config file for gulp serve in local.
+gulp.task('cleanup-gh-deploy', () => {
+  return gulp.src('./_config.yml')
+    .pipe($.replace('baseurl: "/test"', 'baseurl: ""'))
+    .pipe(gulp.dest('./'));
+});
+
+// Depoly website to gh-pages.
+gulp.task('gh-pages', () => {
   return gulp.src('./_site/**/*')
     .pipe($.ghPages());
+});
+
+gulp.task('deploy', () => {
+  runSequence(
+    'before-gh-deploy',
+    'pug',
+    'scss',
+    'jekyll-build',
+    'minify-html',
+    'css',
+    'generate-service-worker',
+    'minify-images',
+    'gh-pages',
+    'cleanup-gh-deploy'
+  )
+});
+<% } -%>
+
+<% if (includeFirebase) { -%>
+// Remove 404.html from service worker, because firebase don't serve the page
+// in a GET request, and return 404 code.
+gulp.task('cleanup-sw-deploy', () => {
+  return gulp.src('./_site/sw.js')
+    .pipe($.replace('/404.html', ''))
+    .pipe(gulp.dest('./_site/'));
+});
+
+gulp.task('jekyll-build-for-deploy', $.shell.task([ 'jekyll build' ]));
+
+gulp.task('firebase', $.shell.task([ 'firebase deploy' ]));
+
+gulp.task('deploy', () => {
+  runSequence(
+    'pug',
+    'scss',
+    'scripts',
+    'jekyll-build-for-deploy',
+    'minify-html',
+    'css',
+    'generate-service-worker',
+    'cleanup-sw-deploy',
+    'minify-images',
+    'firebase'
+  )
 });
 <% } -%>

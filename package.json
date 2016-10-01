@@ -21,10 +21,12 @@
     "SASS",
     "SCSS",
     "JavaScript",
-    "jQuery",
     "ES6",
+    "ES2015",
     "Gulp",
-    "Travis",
+    "Travis-CI",
+    "gh-pages",
+    "Firebase",
     "yeoman-generator"
   ],
   "dependencies": {

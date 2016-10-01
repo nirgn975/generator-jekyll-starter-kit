@@ -1,6 +1,6 @@
-# test
+# <%= projectName %>
 
-[![license][license-image]][license-url] [![Build Status][travis-image]][travis-url]
+[![license][license-image]][license-url] <% if (includeTravis) { -%>[![Build Status][travis-image]][travis-url]<% } -%>
 
 > <%= projectDescription %>
 
@@ -27,20 +27,11 @@ $ npm run gulp
 ```
 
 **Deploy mode**
-<% if (includeGithub) { -%>
-You can easily deploy your site build to gh-pages branch with the command
+
+You can easily deploy your site build with the command
 ```shell
-$ npm run gulp build
 $ npm run gulp deploy
 ```
-<% } -%>
-<% if (includeFirebase) { -%>
-You can easily deploy your site build to Firebase with the command
-```shell
-$ npm run gulp build
-$ firebase deploy
-```
-<% } -%>
 
 <% if (includeTravis) { -%>
 ## Tests
@@ -53,5 +44,7 @@ $ htmlproofer ./_site
 
 [license-image]: https://img.shields.io/badge/license-ISC-blue.svg
 [license-url]: https://github.com/<%= githubUsername %>/<%= projectName %>/blob/master/LICENSE
+<% if (includeTravis) { -%>
 [travis-image]: https://travis-ci.org/<%= githubUsername %>/<%= projectName %>.svg?branch=master
 [travis-url]: https://travis-ci.org/<%= githubUsername %>/<%= projectName %>
+<% } -%>

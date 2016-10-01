@@ -82,18 +82,7 @@ describe('generator-html-css-es2015-sw-travis', function () {
   it('gulpfile content', function () {
     assert.fileContent('gulpfile.babel.js', '$.babel()');
     assert.fileContent('gulpfile.babel.js', '$.ghPages()');
-  });
-
-  it('README content', function () {
-    assert.fileContent('README.md', 'npm run gulp deploy');
-  });
-
-  it('head.html content', function () {
-    assert.fileContent('_includes/head.html', '{{ "/css/main.css" | prepend: site.url }}');
-  });
-
-  it('default.html content', function () {
-    assert.fileContent('_layouts/default.html', '{{ "/scripts/main.min.js" | prepend: site.url }}');
+    assert.fileContent('gulpfile.babel.js', 'swPrecache.write');
   });
 });
 
@@ -110,7 +99,7 @@ describe('generator-pug-scss-travis', function () {
         html: 'pug',
         css: 'scss',
         es: false,
-        sw: true,
+        sw: false,
         travis: true,
         deploy: 'firebase'
       })
@@ -136,14 +125,7 @@ describe('generator-pug-scss-travis', function () {
 
   it('gulpfile content', function () {
     assert.noFileContent('gulpfile.babel.js', '$.babel()');
-  });
-
-  it('head.html content', function () {
-    assert.noFileContent('_includes/head.html', '{{ "/css/main.css" | prepend: site.url }}');
-  });
-
-  it('default.html content', function () {
-    assert.noFileContent('_layouts/default.html', '{{ "/scripts/main.min.js" | prepend: site.url }}');
+    assert.noFileContent('gulpfile.babel.js', 'swPrecache.write');
   });
 });
 
@@ -184,9 +166,5 @@ describe('generator-pug-sass-no_travis', function () {
 
   it('humans.txt content', function () {
     assert.fileContent('humans.txt', 'name');
-  });
-
-  it('README content', function () {
-    assert.fileContent('README.md', 'firebase deploy');
   });
 });
