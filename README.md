@@ -38,7 +38,7 @@ Great! Here is how you can install the local generator to test changes.
   * [Yotam Emergy](http://ydesign.webflow.io/)
 
 [license-image]: https://img.shields.io/badge/license-ISC-blue.svg
-[license-url]: https://github.com/nirgn975/Elmctron/blob/master/LICENSE
+[license-url]: https://github.com/nirgn975/jekyll-starter-kit/blob/master/LICENSE
 [npm-image]: https://badge.fury.io/js/jekyll-starter-kit.svg
 [npm-url]: https://npmjs.org/package/jekyll-starter-kit
 [travis-image]: https://travis-ci.org/nirgn975/jekyll-starter-kit.svg?branch=master
