@@ -1,13 +1,17 @@
-sudo: false
+sudo: required
+dist: trusty
 
 language: ruby
 rvm:
-- 2.3
+- 2.2
 
 env:
   global:
     # speeds up installation of html-proofer
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+
+before_install:
+  - npm install npm -g
 
 install:
   - npm install
@@ -16,5 +20,4 @@ install:
 
 script:
   - gulp build
-  - rm -R ./_site/node_modules
   - htmlproofer ./_site

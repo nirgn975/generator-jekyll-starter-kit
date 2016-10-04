@@ -184,14 +184,14 @@ gulp.task('build', () =>
 // Edit config file for jekyll build.
 gulp.task('before-gh-deploy', () => {
   return gulp.src('./_config.yml')
-    .pipe($.replace('baseurl: ""', 'baseurl: "/test"'))
+    .pipe($.replace('baseurl: ""', 'baseurl: "/<%= projectName %>"'))
     .pipe(gulp.dest('./'));
 });
 
 // Revert config file for gulp serve in local.
 gulp.task('cleanup-gh-deploy', () => {
   return gulp.src('./_config.yml')
-    .pipe($.replace('baseurl: "/test"', 'baseurl: ""'))
+    .pipe($.replace('baseurl: "/<%= projectName %>"', 'baseurl: ""'))
     .pipe(gulp.dest('./'));
 });
 
