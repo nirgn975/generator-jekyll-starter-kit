@@ -1,4 +1,4 @@
-<img src="https://github.com/nirgn975/jekyll-starter-kit/blob/master/images/jekyll-starter-kit.png" />
+<img src="https://raw.githubusercontent.com/nirgn975/jekyll-starter-kit/master/images/jekyll-starter-kit.png" />
 
 
 [![license][license-image]][license-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Join the chat at https://gitter.im/jekyll_starter_kit/Lobby][gitter-image]][gitter-url]
