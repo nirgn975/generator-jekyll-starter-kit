@@ -1,7 +1,7 @@
 {
-  "name": "jekyll-starter-kit",
-  "version": "1.0.1",
-  "description": "Jekyll and Google web-starter-kit = best of both worlds",
+  "name": "generator-jekyll-starter-kit",
+  "version": "1.0.2",
+  "description": "Combine Jekyll and Google web-starter-kit to enjoy the best of both worlds",
   "homepage": "https://github.com/nirgn975/jekyll-starter-kit",
   "author": {
     "name": "Nir Galon",
