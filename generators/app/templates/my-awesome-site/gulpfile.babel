@@ -204,12 +204,18 @@ gulp.task('gh-pages', () => {
 gulp.task('deploy', () => {
   runSequence(
     'before-gh-deploy',
+<% if (includePug) { -%>
     'pug',
+<% } -%>
+<% if (includeSass || includeScss) { -%>
     'scss',
+<% } -%>
     'jekyll-build',
     'minify-html',
     'css',
+<% if (includeSW) { -%>
     'generate-service-worker',
+<% } -%>
     'minify-images',
     'gh-pages',
     'cleanup-gh-deploy'
@@ -232,14 +238,20 @@ gulp.task('firebase', $.shell.task([ 'firebase deploy' ]));
 
 gulp.task('deploy', () => {
   runSequence(
+<% if (includePug) { -%>
     'pug',
+<% } -%>
+<% if (includeSass || includeScss) { -%>
     'scss',
+<% } -%>
     'scripts',
     'jekyll-build-for-deploy',
     'minify-html',
     'css',
+<% if (includeSW) { -%>
     'generate-service-worker',
     'cleanup-sw-deploy',
+<% } -%>
     'minify-images',
     'firebase'
   )
