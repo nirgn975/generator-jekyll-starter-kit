@@ -194,7 +194,7 @@ module.exports = yeoman.Base.extend({
 
     // Handle .gitignore file.
     this.fs.copyTpl(
-      this.templatePath('my-awesome-site/.gitignore'),
+      this.templatePath('my-awesome-site/gitignore'),
       this.destinationPath('.gitignore'), {
         includeSass: this.includeSass,
         includeScss: this.includeScss
