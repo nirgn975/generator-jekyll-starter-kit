@@ -3,7 +3,7 @@ dist: trusty
 
 language: ruby
 rvm:
-- 2.2
+  - 2.3
 
 env:
   global:
@@ -12,12 +12,13 @@ env:
 
 before_install:
   - npm install npm -g
+  - bundle update
 
 install:
   - npm install
-  - npm install -g gulp
-  - gem install jekyll html-proofer
+  - bundle install
+  - gem install html-proofer
 
 script:
-  - gulp build
+  - npm run gulp build
   - htmlproofer ./_site
