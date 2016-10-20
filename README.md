@@ -19,7 +19,7 @@ npm install -g generator-jekyll-starter-kit
 Then generate your new project:
 
 ```bash
-yo generator-jekyll-starter-kit
+yo jekyll-starter-kit
 ```
 
 ## Want to help?
