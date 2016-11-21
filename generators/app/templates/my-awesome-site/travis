@@ -19,6 +19,16 @@ install:
   - bundle install
   - gem install html-proofer
 
+  # Install lighthouse
+  - npm install -g GoogleChrome/lighthouse
+  - export LIGHTHOUSE_CHROMIUM_PATH="$(pwd)/chrome-linux/chrome"
+  - npm explore -g lighthouse -- ./lighthouse-core/scripts/download-chrome.sh
+  - mv $(npm root -g)/lighthouse/chrome-linux .
+  - $LIGHTHOUSE_CHROMIUM_PATH --version
+  - (cd $(npm root -g)/lighthouse/lighthouse-cli && npm install && npm run build)
+
 script:
   - npm run gulp build
   - htmlproofer ./_site
+  - lighthouse http://localhost:3000/ --output-json --output-path=./validate/log.json
+  - ./validate/checklog.js ./validate/log.json
