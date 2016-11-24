@@ -373,7 +373,7 @@ module.exports = yeoman.Base.extend({
 
     // Copy validate checklog file for lighthouse.
     this.fs.copy(
-      this.templatePath('validate/checklog'),
+      this.templatePath('my-awesome-site/validate/checklog'),
       this.destinationPath('validate/checklog.js')
     );
   },
