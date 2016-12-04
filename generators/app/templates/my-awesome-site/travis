@@ -28,5 +28,5 @@ script:
   - npm run gulp build
   - htmlproofer ./_site
   - cd _site && ws&
-  - lighthouse http://127.0.0.1:8000 --output-json --output-path=./validate/log.json
+  - lighthouse http://127.0.0.1:8000 --output=json --output-path=./validate/log.json
   - node ./validate/checklog.js ./validate/log.json
