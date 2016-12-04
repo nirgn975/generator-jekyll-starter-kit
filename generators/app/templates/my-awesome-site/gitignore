@@ -57,3 +57,6 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
+
+### Lighthouse ###
+validate/log.json

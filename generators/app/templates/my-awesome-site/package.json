@@ -36,6 +36,9 @@
 <% } -%>
     "gulp-shell": "0.5.2",
     "gulp-uglify": "^2.0.0",
+<% if (includeTravis) { -%>
+    "lighthouse": "^1.2.0",
+<% } -%>
 <% if (includeSW) { -%>
     "sw-precache": "^4.0.0",
     "sw-toolbox": "^3.2.1",

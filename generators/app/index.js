@@ -237,7 +237,8 @@ module.exports = yeoman.Base.extend({
         includeScss: this.includeScss,
         includeSW: this.includeSW,
         includeGithub: this.includeGithub,
-        includeFirebase: this.includeFirebase
+        includeFirebase: this.includeFirebase,
+        includeTravis: this.includeTravis
       });
 
     // Handle manifest.json file.
@@ -344,6 +345,12 @@ module.exports = yeoman.Base.extend({
       this.fs.copy(
         this.templatePath('my-awesome-site/travis'),
         this.destinationPath('.travis.yml')
+      );
+
+      // Copy validate checklog file for lighthouse.
+      this.fs.copy(
+        this.templatePath('my-awesome-site/validate/checklog'),
+        this.destinationPath('validate/checklog.js')
       );
     }
 
