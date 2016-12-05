@@ -1,12 +1,12 @@
 {
   "name": "generator-jekyll-starter-kit",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Combine Jekyll and Google web-starter-kit to enjoy the best of both worlds",
   "homepage": "https://github.com/nirgn975/generator-jekyll-starter-kit",
   "author": {
     "name": "Nir Galon",
     "email": "nirgn975@gmail.com",
-    "url": "http://nirgn.com"
+    "url": "http://www.nirgn.com"
   },
   "files": [
     "generators"
