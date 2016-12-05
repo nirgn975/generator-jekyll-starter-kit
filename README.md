@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/nirgn975/generator-jekyll-starter-kit/master/images/jekyll-starter-kit.png" />
 
 
-[![license][license-image]][license-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Join the chat at https://gitter.im/jekyll_starter_kit/Lobby][gitter-image]][gitter-url]
+[![license][license-image]][license-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Join the chat at https://gitter.im/jekyll_starter_kit/Lobby][gitter-image]][gitter-url] [![Donate](https://img.shields.io/badge/Donate-PayPal-lightgrey.svg)](https://www.paypal.me/nirgn/2)
 
 > Jekyll + Google web-starter-kit = best of both worlds
 
