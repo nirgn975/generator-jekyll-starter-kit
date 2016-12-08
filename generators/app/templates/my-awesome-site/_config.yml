@@ -35,5 +35,6 @@ exclude: [
   ".babelrc",
   ".gitignore",
   "sass",
-  "scss"
+  "scss",
+  "validate"
 ]
