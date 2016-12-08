@@ -74,17 +74,19 @@ gulp.task('css', () => {
 <% if (includeSass || includeScss) { -%>
 // Compile scss to css.
 gulp.task('scss', () => {
+//This will check for sass in all pages of the site, incase you use them
+//TODO: Move all Jekyll setup in a folder, build to another folder
 <% if (includeSass) { -%>
-    return gulp.src('sass/main.sass')
+    return gulp.src(['**/css/*.sass','!_site']])
 <% } -%>
 <% if (includeScss) { -%>
-    return gulp.src('scss/main.scss')
+    return gulp.src(['**/css/*.scss','!_site'])
 <% } -%>
         .pipe($.sass({
             includePaths: ['css'],
             onError: browserSync.notify
         }))
-        .pipe(gulp.dest('css'));
+        .pipe(gulp.dest('.'));
 });
 
 <% } -%>
