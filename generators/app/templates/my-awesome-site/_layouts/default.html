@@ -15,11 +15,11 @@
 
     {% include footer.html %}
 
-  <link async href="scripts/main.min.js">
+  <link async href="{{ "/scripts/main.min.js" | relative_url }}">
 <% if (includeSW) { -%>
   <script>
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register("sw.js").then(function() {
+    navigator.serviceWorker.register("{{ "/sw.js" | relative_url }}").then(function() {
       console.log("Service Worker Registered");
     });
   }
