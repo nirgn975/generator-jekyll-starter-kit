@@ -7,7 +7,7 @@ module.exports = Generator.extend({
   prompting: function () {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the sublime ' + chalk.red('jekyll-starter-kit') + ' generator!'
+      'Welcome to the kickass ' + chalk.red('jekyll-starter-kit') + ' generator!'
     ));
 
     var prompts = [{
