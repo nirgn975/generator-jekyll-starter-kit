@@ -1,9 +1,9 @@
 'use strict';
-var yeoman = require('yeoman-generator');
+var Generator = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 
-module.exports = yeoman.Base.extend({
+module.exports = Generator.extend({
   prompting: function () {
     // Have Yeoman greet the user.
     this.log(yosay(
@@ -384,8 +384,6 @@ module.exports = yeoman.Base.extend({
       console.log('\n\n\tPlease visit https://console.firebase.google.com to create a new project, then run ' + chalk.blue('firebase use --add') + '\n');
     }
 
-    this.installDependencies({
-      bower: false
-    });
+    this.installDependencies();
   }
 });

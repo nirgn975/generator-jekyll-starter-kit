@@ -61,7 +61,7 @@ describe('generator-html-css-es2015-sw-travis', function () {
   });
 
   it('fills package.json with correct information', function () {
-    assert.JSONFileContent('package.json', {
+    assert.jsonFileContent('package.json', {
       name: 'name',
       description: 'description',
       author: 'username',
