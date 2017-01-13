@@ -12,23 +12,7 @@ var coveralls = require('gulp-coveralls');
 gulp.task('static', function () {
   return gulp.src('**/*.js')
     .pipe(excludeGitignore())
-    .pipe(eslint({
-      ecmaFeatures: {
-        modules: true
-      },
-      baseConfig: {
-        // parser: 'babel-eslint',
-      },
-      rules: {
-        'new-cap': ['off']
-      },
-      envs: [
-        'browser', 'es6'
-      ],
-      parserOptions: {
-        sourceType: 'module'
-      }
-    }))
+    .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });

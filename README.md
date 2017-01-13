@@ -5,8 +5,6 @@
 
 > Jekyll + Google web-starter-kit = best of both worlds
 
----
-
 ## Installation
 
 First, install [Yeoman](http://yeoman.io) and jekyll-starter-kit using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
