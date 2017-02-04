@@ -5,6 +5,8 @@
 
 > Jekyll + Google web-starter-kit = best of both worlds
 
+<img src="https://raw.githubusercontent.com/nirgn975/generator-jekyll-starter-kit/master/images/hyper-terminal.png" />
+
 ## Installation
 
 First, install [Yeoman](http://yeoman.io) and jekyll-starter-kit using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
