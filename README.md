@@ -5,7 +5,7 @@
 
 > Jekyll + Google web-starter-kit = best of both worlds
 
-<img src="https://raw.githubusercontent.com/nirgn975/generator-jekyll-starter-kit/master/images/hyper-terminal.png" />
+<img src="https://raw.githubusercontent.com/nirgn975/generator-jekyll-starter-kit/71/images/hyper-terminal.png" />
 
 ## Installation
 
