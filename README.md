@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/nirgn975/generator-jekyll-starter-kit/master/images/jekyll-starter-kit.png" />
 
 
-[![license][license-image]][license-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][dependencyci-image]][dependencyci-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Gitter][gitter-image]][gitter-url] [![npm][downloads-image]][downloads-url] [![Donate][donate-image]][donate-url]
+[![license][license-image]][license-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][dependencyci-image]][dependencyci-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Gitter][gitter-image]][gitter-url]
 
 > Jekyll + Google web-starter-kit = best of both worlds
 
@@ -26,7 +26,7 @@ yo jekyll-starter-kit
 
 ## Features
 
-  * Automagically compile [Pug](https://github.com/pugjs/pug) [optional]
+  * Automagically compile [Pug](https://github.com/pugjs/pug)
   * Automagically compile Sass / SCSS
   * Minify HTML
   * Minify and Autoprefixing CSS
@@ -53,6 +53,8 @@ Great! Here is how you can install the local generator to test changes.
 
   * [Nir Galon](http://nirgn.com)
   * [Yotam Emergy](http://ydesign.webflow.io/)
+
+[![npm][downloads-image]][downloads-url] [![Donate][donate-image]][donate-url]
 
 [license-image]: https://img.shields.io/badge/license-ISC-blue.svg
 [license-url]: https://github.com/nirgn975/generator-jekyll-starter-kit/blob/master/LICENSE
