@@ -38,6 +38,7 @@ yo jekyll-starter-kit
   * Deploy the project to GitHub pages or Firebase with only one command
   * Automagically test your project output on Travis-CI
   * Test your project against [lighthouse](https://github.com/GoogleChrome/lighthouse) and fail Travis-CI with score below 80
+  * Awesome README file with all instructions and badges - like the pros
 
 ## Want to help?
 
