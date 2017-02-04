@@ -1,11 +1,13 @@
 <img src="https://raw.githubusercontent.com/nirgn975/generator-jekyll-starter-kit/master/images/jekyll-starter-kit.png" />
 
 
-[![license][license-image]][license-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][dependencyci-image]][dependencyci-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Join the chat at https://gitter.im/jekyll_starter_kit/Lobby][gitter-image]][gitter-url] [![Donate][donate-image]][donate-url]
+[![license][license-image]][license-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][dependencyci-image]][dependencyci-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Gitter][gitter-image]][gitter-url] [![npm][downloads-image]][downloads-url] [![Donate][donate-image]][donate-url]
 
 > Jekyll + Google web-starter-kit = best of both worlds
 
-<img src="https://raw.githubusercontent.com/nirgn975/generator-jekyll-starter-kit/71/images/hyper-terminal.png" />
+<div style="width: 100%; text-align: center;">
+  <img style="width: 80%;" src="https://raw.githubusercontent.com/nirgn975/generator-jekyll-starter-kit/71/images/hyper-terminal.png" />
+</div>
 
 ## Installation
 
@@ -21,6 +23,21 @@ Then generate your new project:
 ```bash
 yo jekyll-starter-kit
 ```
+
+## Features
+
+  * Automagically compile [Pug](https://github.com/pugjs/pug) [optional]
+  * Automagically compile Sass / SCSS
+  * Minify HTML
+  * Minify and Autoprefixing CSS
+  * Awesome image optimization before deploy
+  * Enable ES2015 features using Babel
+  * Concatenate and minify JavaScript
+  * Built-in preview server with BrowserSync
+  * Automagically create a service worker file
+  * Deploy the project to GitHub pages or Firebase with only one command
+  * Automagically test your project output on Travis-CI
+  * Test your project against [lighthouse](https://github.com/GoogleChrome/lighthouse) and fail Travis-CI with score below 80
 
 ## Want to help?
 
@@ -47,7 +64,9 @@ Great! Here is how you can install the local generator to test changes.
 [dependencyci-url]: https://dependencyci.com/github/nirgn975/generator-jekyll-starter-kit
 [coveralls-image]: https://coveralls.io/repos/nirgn975/generator-jekyll-starter-kit/badge.svg
 [coveralls-url]: https://coveralls.io/r/nirgn975/generator-jekyll-starter-kit
-[gitter-image]: https://badges.gitter.im/generator-jekyll-starter-kit/Lobby.svg
+[gitter-image]: https://img.shields.io/badge/Gitter-Join_the_chat_%E2%86%92-00d06f.svg
 [gitter-url]: https://gitter.im/jekyll_starter_kit/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+[downloads-image]: https://img.shields.io/npm/dt/generator-jekyll-starter-kit.svg
+[downloads-url]: https://www.npmjs.com/package/generator-jekyll-starter-kit
 [donate-image]: https://img.shields.io/badge/Donate-PayPal-lightgrey.svg
 [donate-url]: https://www.paypal.me/nirgn/2
