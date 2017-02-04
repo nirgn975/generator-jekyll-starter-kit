@@ -6,7 +6,7 @@
 > Jekyll + Google web-starter-kit = best of both worlds
 
 <div style="width: 100%; text-align: center;">
-  <img style="width: 80%;" src="https://raw.githubusercontent.com/nirgn975/generator-jekyll-starter-kit/71/images/hyper-terminal.png" />
+  <img style="width: 80%;" src="https://raw.githubusercontent.com/nirgn975/generator-jekyll-starter-kit/master/images/hyper-terminal.png" />
 </div>
 
 ## Installation
