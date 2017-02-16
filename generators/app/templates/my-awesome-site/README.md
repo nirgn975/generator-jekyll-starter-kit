@@ -23,7 +23,7 @@ To install this project, you'll need the following things installed on your mach
 This will give you file watching, browser synchronisation, auto-rebuild, CSS injecting etc.
 
 ```shell
-$ npm run gulp
+$ npm run gulp serve
 ```
 
 **Deploy mode**
