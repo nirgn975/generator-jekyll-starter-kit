@@ -384,6 +384,6 @@ module.exports = Generator.extend({
       console.log('\n\n\tPlease visit https://console.firebase.google.com to create a new project, then run ' + chalk.blue('firebase use --add') + '\n');
     }
 
-    this.installDependencies();
+    this.npmInstall();
   }
 });
