@@ -1,6 +1,6 @@
 {
-  "name": "appTest",
-  "short_name": "appTest",
+  "name": "<%= projectName %>",
+  "short_name": "<%= projectName %>",
   "icons": [{
         "src": "images/touch/128x128.jpg",
         "sizes": "128x128",
