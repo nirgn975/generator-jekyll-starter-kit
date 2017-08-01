@@ -9,6 +9,12 @@ import swPrecache from 'sw-precache';
 <% } -%>
 const $ = gulpLoadPlugins();
 
+// Delete the _site directory.
+gulp.task('cleanup-build', () => {
+  return gulp.src('_site', {read: false})
+      .pipe($.clean());
+});
+
 // Minify the HTML.
 gulp.task('minify-html', () => {
   return gulp.src('_site/**/*.html')
@@ -47,7 +53,7 @@ gulp.task('scripts', () => {
 <% if (includeES) { -%>
     .pipe($.babel())
 <% } -%>
-    .pipe($.uglify({preserveComments: 'some'}))
+    .pipe($.uglify())
     .pipe(gulp.dest('scripts'));
 });
 
@@ -164,6 +170,7 @@ gulp.task('jekyll-build', ['scripts'<% if (includeSass | includeScss) { -%>, 'sc
 // Default task.
 gulp.task('build', () =>
   runSequence(
+    'cleanup-build',
 <% if (includePug) { -%>
     'pug',
 <% } -%>
@@ -189,6 +196,7 @@ gulp.task('gh-pages', () => {
 
 gulp.task('deploy', () => {
   runSequence(
+    'cleanup-build',
 <% if (includePug) { -%>
     'pug',
 <% } -%>
@@ -222,6 +230,7 @@ gulp.task('firebase', $.shell.task([ 'firebase deploy' ]));
 
 gulp.task('deploy', () => {
   runSequence(
+    'cleanup-build',
 <% if (includePug) { -%>
     'pug',
 <% } -%>

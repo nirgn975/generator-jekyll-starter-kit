@@ -1,5 +1,17 @@
 sudo: false
 language: node_js
 node_js:
-  - v7
-  - v6
+  - "8"
+
+before_install:
+  - npm install -g npm@latest codecov
+
+install:
+  - npm install
+
+script:
+  - npm run test
+
+after_script:
+  - cd ../server && npm run coverage
+  - codecov
