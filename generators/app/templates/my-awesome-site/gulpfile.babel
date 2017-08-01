@@ -53,7 +53,7 @@ gulp.task('scripts', () => {
 <% if (includeES) { -%>
     .pipe($.babel())
 <% } -%>
-    .pipe($.uglify({preserveComments: 'some'}))
+    .pipe($.uglify())
     .pipe(gulp.dest('scripts'));
 });
 
