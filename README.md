@@ -76,5 +76,5 @@ Great! Here is how you can install the local generator to test changes.
 
 [downloads-image]: https://img.shields.io/npm/dt/generator-jekyll-starter-kit.svg
 [downloads-url]: https://www.npmjs.com/package/generator-jekyll-starter-kit
-[donate-image]: https://img.shields.io/badge/Donate-PayPal-lightgrey.svg
+[donate-image]: https://img.shields.io/badge/PayPal-Donate-lightgrey.svg
 [donate-url]: https://www.paypal.me/nirgn/2
