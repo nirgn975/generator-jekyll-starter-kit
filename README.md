@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/nirgn975/generator-jekyll-starter-kit/master/images/jekyll-starter-kit.png" />
 
 
-[![license][license-image]][license-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][dependencyci-image]][dependencyci-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Codacy Badge][codacy-image]][codacy-url] [![Maintenance][maintenance-image]][maintenance-url] [![Gitter][gitter-image]][gitter-url]
+[![license][license-image]][license-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][dependencyci-image]][dependencyci-url] [![codecov][codecov-image]][codecov-url] [![Codacy Badge][codacy-image]][codacy-url] [![Maintenance][maintenance-image]][maintenance-url] [![Gitter][gitter-image]][gitter-url]
 
 > Jekyll + Google web-starter-kit = best of both worlds
 
@@ -65,8 +65,8 @@ Great! Here is how you can install the local generator to test changes.
 [travis-url]: https://travis-ci.org/nirgn975/generator-jekyll-starter-kit
 [dependencyci-image]: https://dependencyci.com/github/nirgn975/generator-jekyll-starter-kit/badge
 [dependencyci-url]: https://dependencyci.com/github/nirgn975/generator-jekyll-starter-kit
-[coveralls-image]: https://coveralls.io/repos/nirgn975/generator-jekyll-starter-kit/badge.svg
-[coveralls-url]: https://coveralls.io/r/nirgn975/generator-jekyll-starter-kit
+[codecov-image]: https://codecov.io/gh/nirgn975/generator-jekyll-starter-kit/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/nirgn975/generator-jekyll-starter-kit
 [codacy-image]: https://api.codacy.com/project/badge/Grade/6dfa47fa71b64497a313cb1ddfcf26f4
 [codacy-url]: https://www.codacy.com/app/nirgn975/generator-jekyll-starter-kit?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nirgn975/generator-jekyll-starter-kit&amp;utm_campaign=Badge_Grade
 [maintenance-image]: https://img.shields.io/maintenance/yes/2017.svg
