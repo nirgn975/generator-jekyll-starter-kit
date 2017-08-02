@@ -148,7 +148,7 @@ gulp.task('serve', ['jekyll-build'], () => {
 });
 
 <% if (includeSW) { -%>
-gulp.task('generate-service-worker', function(callback) {
+gulp.task('generate-service-worker', (callback) => {
   var path = require('path');
   var rootDir = '_site';
 
@@ -164,12 +164,31 @@ gulp.task('generate-service-worker', function(callback) {
   }, callback);
 });
 <% } -%>
+<% if (includeGithub) { -%>
+
+  gulp.task('fix-config', () => {
+    gulp.src('_config.yml')
+      .pipe($.replace('baseurl: ""', 'baseurl: "<%= projectName %>"'))
+      .pipe($.clean())
+      .pipe(gulp.dest('.'));
+  });
+
+  gulp.task('revert-config', () => {
+    gulp.src('_config.yml')
+        .pipe($.replace('baseurl: "<%= projectName %>"', 'baseurl: ""'))
+        .pipe($.clean())
+        .pipe(gulp.dest('.'));
+  });
+<% } -%>
 
 gulp.task('jekyll-build', ['scripts'<% if (includeSass | includeScss) { -%>, 'scss'<% } -%><% if (includePug) { -%>, 'pug'<% } -%>], $.shell.task([ 'jekyll build' ]));
 
 // Default task.
 gulp.task('build', () =>
   runSequence(
+<% if (includeGithub) { -%>
+    'fix-config',
+<% } -%>
     'cleanup-build',
 <% if (includePug) { -%>
     'pug',
@@ -183,7 +202,8 @@ gulp.task('build', () =>
 <% if (includeSW) { -%>
     'generate-service-worker',
 <% } -%>
-    'minify-images'
+    'minify-images',
+    'revert-config'
   )
 );
 
@@ -196,6 +216,9 @@ gulp.task('gh-pages', () => {
 
 gulp.task('deploy', () => {
   runSequence(
+<% if (includeGithub) { -%>
+    'fix-config',
+<% } -%>
     'cleanup-build',
 <% if (includePug) { -%>
     'pug',
@@ -210,7 +233,8 @@ gulp.task('deploy', () => {
     'generate-service-worker',
 <% } -%>
     'minify-images',
-    'gh-pages'
+    'gh-pages',
+    'revert-config'
   )
 });
 <% } -%>
