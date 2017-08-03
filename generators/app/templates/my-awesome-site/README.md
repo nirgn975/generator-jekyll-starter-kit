@@ -1,6 +1,6 @@
 # <%= projectName %>
 
-[![license][license-image]][license-url] <% if (includeTravis) { -%>[![Build Status][travis-image]][travis-url]<% } -%>
+[![license][license-image]][license-url] <% if (includeTravis) { -%>[![Build Status][travis-image]][travis-url] <% } -%>[![Dependency Status][dependencyci-image]][dependencyci-url]
 
 > <%= projectDescription %>
 
@@ -8,8 +8,11 @@
 
 To install this project, you'll need the following things installed on your machine.
 
-1. [Jekyll](http://jekyllrb.com/) - `$ gem install jekyll`
+1. [Jekyll](http://jekyllrb.com/) - `$ gem install jekyll -v 3.5.1`
 2. [NodeJS](http://nodejs.org) - use the installer.
+<% if (includeFirebase) { -%>
+3. [Firebase CLI](https://github.com/firebase/firebase-tools).
+<% } -%>
 
 ## Local Installation
 
@@ -48,3 +51,5 @@ $ htmlproofer ./_site
 [travis-image]: https://travis-ci.org/<%= githubUsername %>/<%= projectName %>.svg?branch=master
 [travis-url]: https://travis-ci.org/<%= githubUsername %>/<%= projectName %>
 <% } -%>
+[dependencyci-image]: https://dependencyci.com/github/<%= githubUsername %>/<%= projectName %>/badge
+[dependencyci-url]: https://dependencyci.com/github/<%= githubUsername %>/<%= projectName %>
