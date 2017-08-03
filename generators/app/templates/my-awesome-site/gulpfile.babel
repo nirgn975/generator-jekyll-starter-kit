@@ -181,7 +181,7 @@ gulp.task('generate-service-worker', (callback) => {
   });
 <% } -%>
 
-gulp.task('jekyll-build', ['scripts'<% if (includeSass | includeScss) { -%>, 'scss'<% } -%><% if (includePug) { -%>, 'pug'<% } -%>], $.shell.task([ 'jekyll build' ]));
+gulp.task('jekyll-build', $.shell.task([ 'jekyll build' ]));
 
 // Default task.
 gulp.task('build', () =>
@@ -196,6 +196,7 @@ gulp.task('build', () =>
 <% if (includeSass | includeScss) { -%>
     'scss',
 <% } -%>
+    'scripts',
     'jekyll-build',
     'minify-html',
     'css',
@@ -226,6 +227,7 @@ gulp.task('deploy', () => {
 <% if (includeSass || includeScss) { -%>
     'scss',
 <% } -%>
+    'scripts',
     'jekyll-build',
     'minify-html',
     'css',
@@ -248,8 +250,6 @@ gulp.task('cleanup-sw-deploy', () => {
     .pipe(gulp.dest('./_site/'));
 });
 
-gulp.task('jekyll-build-for-deploy', $.shell.task([ 'jekyll build' ]));
-
 gulp.task('firebase', $.shell.task([ 'firebase deploy' ]));
 
 gulp.task('deploy', () => {
@@ -262,7 +262,7 @@ gulp.task('deploy', () => {
     'scss',
 <% } -%>
     'scripts',
-    'jekyll-build-for-deploy',
+    'jekyll-build',
     'minify-html',
     'css',
 <% if (includeSW) { -%>
