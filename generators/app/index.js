@@ -207,7 +207,8 @@ module.exports = Generator.extend({
         projectName: this.projectName,
         githubUsername: this.githubUsername,
         projectDescription: this.projectDescription,
-        includeTravis: this.includeTravis
+        includeTravis: this.includeTravis,
+        includeFirebase: this.includeFirebase
       });
 
     if (this.includeFirebase) {
@@ -381,8 +382,10 @@ module.exports = Generator.extend({
 
   install: function () {
     if (this.includeFirebase) {
-      console.log('\n\n\tPlease visit https://console.firebase.google.com to create a new project, then run ' + chalk.blue('firebase use --add') + '\n');
+      console.log('\n\n\tPlease visit https://console.firebase.google.com to create a new project, then run ' + chalk.keyword('red')('firebase use --add') + '\n');
     }
+    console.log(chalk.keyword('red').bold('\n\t- Please visit https://travis-ci.org and enable it for this project.'));
+    console.log(chalk.keyword('red').bold('\n\t- Please visit https://dependencyci.com and enable it for this project.'));
 
     this.npmInstall();
   }
