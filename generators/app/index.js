@@ -207,7 +207,8 @@ module.exports = Generator.extend({
         projectName: this.projectName,
         githubUsername: this.githubUsername,
         projectDescription: this.projectDescription,
-        includeTravis: this.includeTravis
+        includeTravis: this.includeTravis,
+        includeFirebase: this.includeFirebase
       });
 
     if (this.includeFirebase) {
