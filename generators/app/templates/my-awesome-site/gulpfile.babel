@@ -181,7 +181,9 @@ gulp.task('generate-service-worker', (callback) => {
   });
 <% } -%>
 
-gulp.task('jekyll-build', $.shell.task([ 'jekyll build' ]));
+gulp.task('jekyll-build', ['scripts', 'scss'], $.shell.task(['jekyll build']));
+
+gulp.task('jekyll-build-for-deploy', $.shell.task(['jekyll build']));
 
 // Default task.
 gulp.task('build', () =>
@@ -197,14 +199,18 @@ gulp.task('build', () =>
     'scss',
 <% } -%>
     'scripts',
-    'jekyll-build',
+    'jekyll-build-for-deploy',
     'minify-html',
     'css',
 <% if (includeSW) { -%>
     'generate-service-worker',
 <% } -%>
+<% if (includeGithub) { -%>
     'minify-images',
     'revert-config'
+<% } else { -%>
+    'minify-images'
+<% } -%>
   )
 );
 
@@ -228,7 +234,7 @@ gulp.task('deploy', () => {
     'scss',
 <% } -%>
     'scripts',
-    'jekyll-build',
+    'jekyll-build-for-deploy',
     'minify-html',
     'css',
 <% if (includeSW) { -%>
@@ -250,7 +256,7 @@ gulp.task('cleanup-sw-deploy', () => {
     .pipe(gulp.dest('./_site/'));
 });
 
-gulp.task('firebase', $.shell.task([ 'firebase deploy' ]));
+gulp.task('firebase', $.shell.task(['firebase deploy']));
 
 gulp.task('deploy', () => {
   runSequence(
@@ -262,7 +268,7 @@ gulp.task('deploy', () => {
     'scss',
 <% } -%>
     'scripts',
-    'jekyll-build',
+    'jekyll-build-for-deploy',
     'minify-html',
     'css',
 <% if (includeSW) { -%>
@@ -271,6 +277,6 @@ gulp.task('deploy', () => {
 <% } -%>
     'minify-images',
     'firebase'
-  )
+  );
 });
 <% } -%>
