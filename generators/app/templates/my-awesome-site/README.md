@@ -8,7 +8,7 @@
 
 To install this project, you'll need the following things installed on your machine.
 
-1. [Jekyll](http://jekyllrb.com/) - `$ gem install jekyll -v 3.5.1`
+1. [Jekyll](http://jekyllrb.com/) - `$ gem install jekyll -v 3.6.0`
 2. [NodeJS](http://nodejs.org) - use the installer.
 <% if (includeFirebase) { -%>
 3. [Firebase CLI](https://github.com/firebase/firebase-tools).
