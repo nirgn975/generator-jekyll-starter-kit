@@ -138,12 +138,6 @@ module.exports = Generator.extend({
       this.destinationPath(this.projectName + '/_posts')
     );
 
-    // Copy all .xml files.
-    this.fs.copy(
-      this.templatePath('my-awesome-site/*.xml'),
-      this.destinationPath(this.projectName)
-    );
-
     // Copy all .yml files.
     this.fs.copy(
       this.templatePath('my-awesome-site/*.yml'),
