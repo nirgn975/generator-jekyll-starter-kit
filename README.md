@@ -54,6 +54,7 @@ Great! Here is how you can install the local generator to test changes.
 
   * [Nir Galon](http://nirgn.com)
   * [Yotam Emergy](http://ydesign.webflow.io/)
+  * [Carol Ng](https://www.carolkng.com/)
 
 [![npm][downloads-image]][downloads-url] [![Donate][donate-image]][donate-url]
 
