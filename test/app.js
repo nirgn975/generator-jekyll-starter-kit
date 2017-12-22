@@ -35,7 +35,6 @@ describe('generator-html-css-es2015-sw-travis', function () {
       '.babelrc',
       '.gitignore',
       'about.md',
-      'feed.xml',
       'Gemfile',
       'gulpfile.babel.js',
       'humans.txt',
