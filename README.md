@@ -41,7 +41,7 @@ yo jekyll-starter-kit
   * Awesome README file with all instructions and badges - like the pros :wink:
   
   ## Trouble with running the project?
-  There's could be an issue with Gem package manager and the gems on your local maching. If so, run:
+  There's could be an issue with Gem package manager and the gems on your local machine. If so, run:
   ```
   bundle install
   ```
@@ -61,6 +61,7 @@ Great! Here is how you can install the local generator to test changes.
 ## Contributors
 
   * [Nir Galon](http://nirgn.com)
+  * [Roy Segall](http://twitter.com/roysegall)
   * [Yotam Emergy](http://ydesign.webflow.io/)
   * [Carol Ng](https://www.carolkng.com/)
 
