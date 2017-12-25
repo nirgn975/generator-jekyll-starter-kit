@@ -15,7 +15,7 @@
 
     {% include footer.html %}
 
-  <link async href="{{ "/scripts/main.min.js" | relative_url }}">
+    <script async src="{{ '/scripts/main.min.js' | relative_url }}"></script>
 <% if (includeSW) { -%>
   <script>
   if ('serviceWorker' in navigator) {
