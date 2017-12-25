@@ -39,6 +39,14 @@ yo jekyll-starter-kit
   * Automagically test your project output on Travis-CI
   * Test your project against [lighthouse](https://github.com/GoogleChrome/lighthouse) and fail Travis-CI with score below 80
   * Awesome README file with all instructions and badges - like the pros :wink:
+  
+  ## Trouble with running the project?
+  There's could be an issue with Gem package manager and the gems on your local machine. If so, run:
+  ```
+  bundle install
+  ```
+  
+  For more info about bundle go to [Bundler](http://bundler.io/).
 
 ## Want to help?
 
@@ -53,6 +61,7 @@ Great! Here is how you can install the local generator to test changes.
 ## Contributors
 
   * [Nir Galon](http://nirgn.com)
+  * [Roy Segall](http://twitter.com/roysegall)
   * [Yotam Emergy](http://ydesign.webflow.io/)
   * [Carol Ng](https://www.carolkng.com/)
 
