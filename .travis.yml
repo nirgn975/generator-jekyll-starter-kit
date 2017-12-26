@@ -15,3 +15,10 @@ script:
 after_script:
   - cd ../server && npm run coverage
   - codecov
+
+deploy:
+  provider: npm
+  email: "nir@galon.io"
+  api_key: $NPM_TOKEN
+  on:
+    tags: true
