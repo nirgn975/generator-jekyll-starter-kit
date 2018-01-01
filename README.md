@@ -39,13 +39,13 @@ yo jekyll-starter-kit
   * Automagically test your project output on Travis-CI
   * Test your project against [lighthouse](https://github.com/GoogleChrome/lighthouse) and fail Travis-CI with score below 80
   * Awesome README file with all instructions and badges - like the pros :wink:
-  
+
   ## Trouble with running the project?
   There's could be an issue with Gem package manager and the gems on your local machine. If so, run:
   ```
   bundle install
   ```
-  
+
   For more info about bundle go to [Bundler](http://bundler.io/).
 
 ## Want to help?
@@ -79,11 +79,10 @@ Great! Here is how you can install the local generator to test changes.
 [codecov-url]: https://codecov.io/gh/nirgn975/generator-jekyll-starter-kit
 [codacy-image]: https://api.codacy.com/project/badge/Grade/6dfa47fa71b64497a313cb1ddfcf26f4
 [codacy-url]: https://www.codacy.com/app/nirgn975/generator-jekyll-starter-kit?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nirgn975/generator-jekyll-starter-kit&amp;utm_campaign=Badge_Grade
-[maintenance-image]: https://img.shields.io/maintenance/yes/2017.svg
+[maintenance-image]: https://img.shields.io/maintenance/yes/2018.svg
 [maintenance-url]: https://github.com/nirgn975
 [gitter-image]: https://img.shields.io/badge/Gitter-Join_the_chat_%E2%86%92-00d06f.svg
 [gitter-url]: https://gitter.im/jekyll_starter_kit/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
-
 [downloads-image]: https://img.shields.io/npm/dt/generator-jekyll-starter-kit.svg
 [downloads-url]: https://www.npmjs.com/package/generator-jekyll-starter-kit
 [donate-image]: https://img.shields.io/badge/PayPal-Donate-lightgrey.svg
