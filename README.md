@@ -40,13 +40,13 @@ yo jekyll-starter-kit
   * Test your project against [lighthouse](https://github.com/GoogleChrome/lighthouse) and fail Travis-CI with score below 80
   * Awesome README file with all instructions and badges - like the pros :wink:
 
-  ## Trouble with running the project?
-  There's could be an issue with Gem package manager and the gems on your local machine. If so, run:
-  ```
-  bundle install
-  ```
+## Trouble with running the project?
+There's could be an issue with Gem package manager and the gems on your local machine. If so, run:
+```
+bundle install
+```
 
-  For more info about bundle go to [Bundler](http://bundler.io/).
+For more info about bundle go to [Bundler](http://bundler.io/).
 
 ## Want to help?
 
@@ -56,7 +56,7 @@ Great! Here is how you can install the local generator to test changes.
   2. `npm install` inside the new directory.
   3. `npm link` - This makes your local system sync with the changes you make
   4. `mkdir app`
-  5. Inside the new directory, initiate `yo generator-jekyll-starter-kit`
+  5. Inside the new directory, initiate `yo jekyll-starter-kit`
 
 ## Contributors
 
