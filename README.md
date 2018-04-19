@@ -56,7 +56,7 @@ Great! Here is how you can install the local generator to test changes.
   2. `npm install` inside the new directory.
   3. `npm link` - This makes your local system sync with the changes you make
   4. `mkdir app`
-  5. Inside the new directory, initiate `yo generator-jekyll-starter-kit`
+  5. Inside the new directory, initiate `yo jekyll-starter-kit`
 
 ## Contributors
 
