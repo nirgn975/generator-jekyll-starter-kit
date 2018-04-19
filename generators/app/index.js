@@ -379,7 +379,7 @@ module.exports = Generator.extend({
       console.log('\n\n\tPlease visit https://console.firebase.google.com to create a new project, then run ' + chalk.keyword('red')('firebase use --add') + '\n');
     }
     console.log(chalk.keyword('red').bold('\n\t- Please visit https://travis-ci.org and enable it for this project.'));
-    console.log(chalk.keyword('red').bold('\n\t- Please visit https://dependencyci.com and enable it for this project.'));
+    console.log(chalk.keyword('red').bold('\n\t- Please visit https://tidelift.com and enable it for this project.'));
 
     this.npmInstall();
   }

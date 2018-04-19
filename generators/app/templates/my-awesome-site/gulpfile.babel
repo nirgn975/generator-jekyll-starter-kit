@@ -181,7 +181,7 @@ gulp.task('generate-service-worker', (callback) => {
   });
 <% } -%>
 
-gulp.task('jekyll-build', ['scripts', 'scss'], $.shell.task(['jekyll build']));
+gulp.task('jekyll-build', [<% if (includePug) { -%>'pug',<% } -%>'scripts', 'scss'], $.shell.task(['jekyll build']));
 
 gulp.task('jekyll-build-for-deploy', $.shell.task(['jekyll build']));
 

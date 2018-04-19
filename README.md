@@ -40,13 +40,13 @@ yo jekyll-starter-kit
   * Test your project against [lighthouse](https://github.com/GoogleChrome/lighthouse) and fail Travis-CI with score below 80
   * Awesome README file with all instructions and badges - like the pros :wink:
 
-  ## Trouble with running the project?
-  There's could be an issue with Gem package manager and the gems on your local machine. If so, run:
-  ```
-  bundle install
-  ```
+## Trouble with running the project?
+There's could be an issue with Gem package manager and the gems on your local machine. If so, run:
+```
+bundle install
+```
 
-  For more info about bundle go to [Bundler](http://bundler.io/).
+For more info about bundle go to [Bundler](http://bundler.io/).
 
 ## Want to help?
 
