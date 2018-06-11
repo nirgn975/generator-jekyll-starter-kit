@@ -15,7 +15,7 @@ script:
   - npm run test
 
 after_script:
-  - cd ../server && npm run coverage
+  - npm run coverage
   - codecov
 
 deploy:
