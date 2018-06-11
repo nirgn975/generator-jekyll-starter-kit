@@ -1,7 +1,9 @@
 sudo: false
 language: node_js
 node_js:
-  - "8"
+  - v10
+  - v8
+  - v6
 
 before_install:
   - npm install -g npm@latest codecov
@@ -10,10 +12,12 @@ install:
   - npm install
 
 script:
+  - npm run prepublishOnly
+  - npm run pretest
+  - npm run precommit
   - npm run test
 
 after_script:
-  - cd ../server && npm run coverage
   - codecov
 
 deploy:

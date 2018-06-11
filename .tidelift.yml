@@ -1,0 +1,6 @@
+ci:
+  # Don't run unlicensed test on any dependencies from NPM
+  platform:
+    NPM:
+      tests:
+        unlicensed: skip
