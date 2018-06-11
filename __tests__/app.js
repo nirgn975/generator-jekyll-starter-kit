@@ -1,13 +1,12 @@
 'use strict';
-var path = require('path');
-var assert = require('yeoman-assert');
-var helpers = require('yeoman-test');
+const path = require('path');
+const assert = require('yeoman-assert');
+const helpers = require('yeoman-test');
 
-describe('generator-html-css-es2015-sw-travis', function () {
-  this.timeout(5000);
-
-  before(function () {
-    return helpers.run(path.join(__dirname, '../generators/app'))
+describe('generator-html-css-es2015-sw-travis', () => {
+  beforeAll(() => {
+    return helpers
+      .run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         projectName: 'name',
         githubUrl: 'url',
@@ -23,7 +22,7 @@ describe('generator-html-css-es2015-sw-travis', function () {
       .toPromise();
   });
 
-  it('creates files', function () {
+  it('creates files', () => {
     assert.file([
       '_includes',
       '_layouts',
@@ -49,17 +48,11 @@ describe('generator-html-css-es2015-sw-travis', function () {
     ]);
   });
 
-  it('not created files', function () {
-    assert.noFile([
-      '_includes-pug',
-      'scss',
-      'sass',
-      '.firebaserc',
-      'firebase.json'
-    ]);
+  it('not created files', () => {
+    assert.noFile(['_includes-pug', 'scss', 'sass', '.firebaserc', 'firebase.json']);
   });
 
-  it('fills package.json with correct information', function () {
+  it('fills package.json with correct information', () => {
     assert.jsonFileContent('package.json', {
       name: 'name',
       description: 'description',
@@ -70,26 +63,25 @@ describe('generator-html-css-es2015-sw-travis', function () {
     });
   });
 
-  it('fills the README with project data', function () {
+  it('fills the README with project data', () => {
     assert.fileContent('README.md', 'name');
   });
 
-  it('fills the LICENSE with project data', function () {
+  it('fills the LICENSE with project data', () => {
     assert.fileContent('LICENSE', 'name');
   });
 
-  it('gulpfile content', function () {
+  it('gulpfile content', () => {
     assert.fileContent('gulpfile.babel.js', '$.babel()');
     assert.fileContent('gulpfile.babel.js', '$.ghPages()');
     assert.fileContent('gulpfile.babel.js', 'swPrecache.write');
   });
 });
 
-describe('generator-pug-scss-travis', function () {
-  this.timeout(5000);
-
-  before(function () {
-    return helpers.run(path.join(__dirname, '../generators/app'))
+describe('generator-pug-scss-travis', () => {
+  beforeAll(() => {
+    return helpers
+      .run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         projectName: 'name',
         githubUrl: 'url',
@@ -105,34 +97,24 @@ describe('generator-pug-scss-travis', function () {
       .toPromise();
   });
 
-  it('creates files', function () {
-    assert.file([
-      '_includes-pug',
-      'scss',
-      '.travis.yml',
-      '.firebaserc',
-      'firebase.json'
-    ]);
+  it('creates files', () => {
+    assert.file(['_includes-pug', 'scss', '.travis.yml', '.firebaserc', 'firebase.json']);
   });
 
-  it('not created files', function () {
-    assert.noFile([
-      'css',
-      'sass'
-    ]);
+  it('not created files', () => {
+    assert.noFile(['css', 'sass']);
   });
 
-  it('gulpfile content', function () {
+  it('gulpfile content', () => {
     assert.noFileContent('gulpfile.babel.js', '$.babel()');
     assert.noFileContent('gulpfile.babel.js', 'swPrecache.write');
   });
 });
 
-describe('generator-pug-sass-no_travis', function () {
-  this.timeout(5000);
-
-  before(function () {
-    return helpers.run(path.join(__dirname, '../generators/app'))
+describe('generator-pug-sass-no_travis', () => {
+  beforeAll(() => {
+    return helpers
+      .run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         projectName: 'name',
         githubUrl: 'url',
@@ -148,22 +130,15 @@ describe('generator-pug-sass-no_travis', function () {
       .toPromise();
   });
 
-  it('creates files', function () {
-    assert.file([
-      '_includes-pug',
-      'sass'
-    ]);
+  it('creates files', () => {
+    assert.file(['_includes-pug', 'sass']);
   });
 
-  it('not created files', function () {
-    assert.noFile([
-      'css',
-      'scss',
-      '.travis.yml'
-    ]);
+  it('not created files', () => {
+    assert.noFile(['css', 'scss', '.travis.yml']);
   });
 
-  it('humans.txt content', function () {
+  it('humans.txt content', () => {
     assert.fileContent('humans.txt', 'name');
   });
 });
