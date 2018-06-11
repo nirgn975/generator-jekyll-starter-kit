@@ -12,10 +12,12 @@ install:
   - npm install
 
 script:
+  - npm run prepublishOnly
+  - npm run pretest
+  - npm run precommit
   - npm run test
 
 after_script:
-  - npm run coverage
   - codecov
 
 deploy:

@@ -46,12 +46,14 @@
     "npm": ">= 4.0.0"
   },
   "dependencies": {
-    "yeoman-generator": "^2.0.1",
     "chalk": "^2.1.0",
+    "nyc": "^12.0.2",
+    "yeoman-generator": "^2.0.1",
     "yosay": "^2.0.1"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+     "collectCoverage": true
   },
   "scripts": {
     "prepublishOnly": "nsp check",
