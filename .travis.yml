@@ -1,9 +1,11 @@
 sudo: false
 language: node_js
 node_js:
+  - v12
   - v10
   - v8
   - v6
+  - v4
 
 before_install:
   - npm install -g npm@latest codecov
@@ -19,6 +21,7 @@ script:
 
 after_script:
   - codecov
+  - cat ./coverage/lcov.info | coveralls
 
 deploy:
   provider: npm

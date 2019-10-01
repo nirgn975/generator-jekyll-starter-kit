@@ -1,12 +1,12 @@
 {
   "name": "generator-jekyll-starter-kit",
-  "version": "2.3.2",
+  "version": "0.0.0",
   "description": "Combine Jekyll and Google web-starter-kit to enjoy the best of both worlds",
   "homepage": "https://github.com/nirgn975/generator-jekyll-starter-kit",
   "author": {
     "name": "Nir Galon",
     "email": "nir@galon.io",
-    "url": "http://www.nirgn.com"
+    "url": "http://www.galon.com"
   },
   "files": [
     "generators"
@@ -32,34 +32,26 @@
   "devDependencies": {
     "yeoman-test": "^1.7.0",
     "yeoman-assert": "^3.1.0",
-    "nsp": "^2.8.0",
-    "eslint": "^4.19.1",
-    "prettier": "^1.11.1",
-    "husky": "^0.14.3",
-    "lint-staged": "^6.1.1",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-prettier": "^2.6.0",
-    "eslint-config-xo": "^0.20.1",
-    "jest": "^22.0.6"
+    "coveralls": "^3.0.5",
+    "eslint": "^6.0.1",
+    "prettier": "^1.18.2",
+    "husky": "^3.0.1",
+    "lint-staged": "^9.2.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-config-xo": "^0.26.0",
+    "jest": "^24.8.0"
   },
   "engines": {
     "npm": ">= 4.0.0"
   },
   "dependencies": {
-    "chalk": "^2.1.0",
-    "nyc": "^12.0.2",
     "yeoman-generator": "^2.0.1",
+    "chalk": "^2.1.0",
     "yosay": "^2.0.1"
   },
   "jest": {
-    "testEnvironment": "node",
-     "collectCoverage": true
-  },
-  "scripts": {
-    "prepublishOnly": "nsp check",
-    "pretest": "eslint .",
-    "precommit": "lint-staged",
-    "test": "jest"
+    "testEnvironment": "node"
   },
   "lint-staged": {
     "*.js": [
@@ -81,17 +73,15 @@
       "node": true
     },
     "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "singleQuote": true,
-          "printWidth": 90
-        }
-      ]
+      "prettier/prettier": "error"
     },
     "plugins": [
       "prettier"
     ]
+  },
+  "scripts": {
+    "pretest": "eslint .",
+    "test": "jest"
   },
   "repository": "nirgn975/generator-jekyll-starter-kit",
   "license": "ISC"
