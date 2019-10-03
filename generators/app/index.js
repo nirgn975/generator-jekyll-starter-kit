@@ -149,9 +149,9 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    // Copy all .md files.
+    // Copy all .markdown files.
     this.fs.copy(
-      this.templatePath('my-awesome-site/*.md'),
+      this.templatePath('my-awesome-site/*.markdown'),
       this.destinationPath(this.projectName)
     );
 
@@ -428,6 +428,7 @@ module.exports = class extends Generator {
           '\n'
       );
     }
+
     console.log(
       chalk
         .keyword('red')
@@ -439,6 +440,8 @@ module.exports = class extends Generator {
         .bold('\n\t- Please visit https://tidelift.com and enable it for this project.')
     );
 
-    this.installDependencies();
+    this.installDependencies({
+      bower: false
+    });
   }
 };
