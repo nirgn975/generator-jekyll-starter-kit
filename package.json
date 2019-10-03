@@ -32,7 +32,6 @@
   "devDependencies": {
     "yeoman-test": "^1.7.0",
     "yeoman-assert": "^3.1.0",
-    "nsp": "^2.8.0",
     "eslint": "^4.19.1",
     "prettier": "^1.11.1",
     "husky": "^0.14.3",
@@ -56,7 +55,7 @@
     "collectCoverage": true
   },
   "scripts": {
-    "prepublishOnly": "nsp check",
+    "prepublishOnly": "npm audit --audit-level high",
     "pretest": "eslint .",
     "precommit": "lint-staged",
     "test": "jest"
