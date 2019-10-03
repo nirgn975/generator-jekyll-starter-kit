@@ -428,6 +428,7 @@ module.exports = class extends Generator {
           '\n'
       );
     }
+
     console.log(
       chalk
         .keyword('red')
