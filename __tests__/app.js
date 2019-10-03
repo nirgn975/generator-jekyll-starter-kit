@@ -33,7 +33,7 @@ describe('generator-html-css-es2015-sw-travis', () => {
       '_config.yml',
       '.babelrc',
       '.gitignore',
-      'about.md',
+      'about.markdown',
       'Gemfile',
       'gulpfile.babel.js',
       'humans.txt',
