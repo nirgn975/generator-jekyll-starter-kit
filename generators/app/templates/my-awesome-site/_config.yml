@@ -30,16 +30,17 @@ github_username:  <%= githubUsername %>
 # Build settings
 markdown: kramdown
 permalink: pretty
-exclude: [
-  "node_modules",
-  "LICENSE",
-  "package.json",
-  "README.md",
-  "Gemfile",
-  "gulpfile.babel.js",
-  ".babelrc",
-  ".gitignore",
-  "sass",
-  "scss",
-  "validate"
-]
+plugins:
+  - jekyll-feed
+exclude:
+  - node_modules
+  - LICENSE
+  - package.json
+  - README.md
+  - Gemfile
+  - gulpfile.babel.js
+  - .babelrc
+  - .gitignore
+  - sass
+  - scss
+  - validate
