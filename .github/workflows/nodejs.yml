@@ -1,0 +1,45 @@
+name: Node CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [8,x, 10.x, 12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: install dependencies
+      run: |
+        npm install
+
+    - name: check lint errors
+      run: |
+        npm run prepublishOnly
+        npm run pretest
+        npm run precommit
+
+    - name: run tests
+      run: |
+        npm run test
+
+    - name: run coverage
+      run: |
+        npm install -g codecov
+        npm run coverage
+        codecov -t d925a2ff-8b69-424c-865e-3fe65e7b22f4
+      env:
+        MONGODB_URI: mongodb://localhost/trends-server
+        PORT: 4000
+        LOG_LEVEL: info
+        NODE_ENV: dev
+        GOOGLE_APPLICATION_CREDENTIALS: ./BIGWIP-02c02ffc7ed9.json
+        LAST_UPDATE: 24 * 60 * 60 * 1000
+        CUSTOMER_AUTH: wyycv4tvtkevt61bdq4dsya2i2zw6k

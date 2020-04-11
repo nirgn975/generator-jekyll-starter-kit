@@ -93,5 +93,8 @@
     ]
   },
   "repository": "nirgn975/generator-jekyll-starter-kit",
-  "license": "ISC"
+  "license": "ISC",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@nirgn975"
+  }
 }
