@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/nirgn975/generator-jekyll-starter-kit/master/images/jekyll-starter-kit.png" />
 
 
-[![license][license-image]][license-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][dependencyci-image]][dependencyci-url] [![codecov][codecov-image]][codecov-url] [![Codacy Badge][codacy-image]][codacy-url] [![Maintenance][maintenance-image]][maintenance-url] [![Gitter][gitter-image]][gitter-url]
+[![license][license-image]][license-url] [![NPM version][npm-image]][npm-url] ![Node CI](https://github.com/nirgn975/generator-jekyll-starter-kit/workflows/Node%20CI/badge.svg) [![Dependency Status][dependencyci-image]][dependencyci-url] [![codecov][codecov-image]][codecov-url] [![Codacy Badge][codacy-image]][codacy-url] [![Maintenance][maintenance-image]][maintenance-url] [![Gitter][gitter-image]][gitter-url]
 
 > Jekyll + Google web-starter-kit = best of both worlds
 
@@ -71,8 +71,6 @@ Great! Here is how you can install the local generator to test changes.
 [license-url]: https://github.com/nirgn975/generator-jekyll-starter-kit/blob/master/LICENSE
 [npm-image]: https://badge.fury.io/js/generator-jekyll-starter-kit.svg
 [npm-url]: https://npmjs.org/package/generator-jekyll-starter-kit
-[travis-image]: https://travis-ci.org/nirgn975/generator-jekyll-starter-kit.svg?branch=master
-[travis-url]: https://travis-ci.org/nirgn975/generator-jekyll-starter-kit
 [dependencyci-image]: https://dependencyci.com/github/nirgn975/generator-jekyll-starter-kit/badge
 [dependencyci-url]: https://dependencyci.com/github/nirgn975/generator-jekyll-starter-kit
 [codecov-image]: https://codecov.io/gh/nirgn975/generator-jekyll-starter-kit/branch/master/graph/badge.svg
@@ -83,6 +81,7 @@ Great! Here is how you can install the local generator to test changes.
 [maintenance-url]: https://github.com/nirgn975
 [gitter-image]: https://img.shields.io/badge/Gitter-Join_the_chat_%E2%86%92-00d06f.svg
 [gitter-url]: https://gitter.im/jekyll_starter_kit/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+
 [downloads-image]: https://img.shields.io/npm/dt/generator-jekyll-starter-kit.svg
 [downloads-url]: https://www.npmjs.com/package/generator-jekyll-starter-kit
 [donate-image]: https://img.shields.io/badge/PayPal-Donate-lightgrey.svg

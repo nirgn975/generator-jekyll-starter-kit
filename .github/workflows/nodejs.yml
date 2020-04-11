@@ -30,7 +30,14 @@ jobs:
       run: |
         npm run test
 
-    - name: run coverage
-      run: |
-        npm install -g codecov
-        codecov
+    # - name: run coverage
+    #   run: |
+    #     npm install -g codecov
+    #     codecov -t "$CODECOV_TOKEN"
+    #   env:
+    #     CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+    - uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+        fail_ci_if_error: true # optional (default = false)
