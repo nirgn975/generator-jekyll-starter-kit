@@ -71,8 +71,8 @@ Great! Here is how you can install the local generator to test changes.
 [license-url]: https://github.com/nirgn975/generator-jekyll-starter-kit/blob/master/LICENSE
 [npm-image]: https://badge.fury.io/js/generator-jekyll-starter-kit.svg
 [npm-url]: https://npmjs.org/package/generator-jekyll-starter-kit
-[dependencyci-image]: https://dependencyci.com/github/nirgn975/generator-jekyll-starter-kit/badge
-[dependencyci-url]: https://dependencyci.com/github/nirgn975/generator-jekyll-starter-kit
+[dependencyci-image]: https://badgen.net/dependabot/nirgn975/generator-jekyll-starter-kit?icon=dependabot
+[dependencyci-url]: https://dependabot.com/
 [codecov-image]: https://codecov.io/gh/nirgn975/generator-jekyll-starter-kit/branch/master/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/nirgn975/generator-jekyll-starter-kit
 [codacy-image]: https://api.codacy.com/project/badge/Grade/6dfa47fa71b64497a313cb1ddfcf26f4
