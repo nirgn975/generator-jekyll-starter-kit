@@ -34,3 +34,10 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         fail_ci_if_error: true
+
+    - name: generate project
+      run: |
+        npm install -g yo
+        npm link
+        mkdir app
+        yo jekyll-starter-kit
