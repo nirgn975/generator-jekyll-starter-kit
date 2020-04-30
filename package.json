@@ -51,7 +51,8 @@
     "yosay": "^2.0.1"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "collectCoverage": true
   },
   "scripts": {
     "prepublishOnly": "npm audit --audit-level high",
