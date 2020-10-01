@@ -60,8 +60,8 @@ Great! Here is how you can install the local generator to test changes.
 
 ## Contributors
 
-  * [Nir Galon](http://nirgn.com)
-  * [Roy Segall](http://twitter.com/roysegall)
+  * [Nir Galon](http://nir.galon.io)
+  * [Roy Segall](http://twitter.com/roysegalll)
   * [Yotam Emergy](http://ydesign.webflow.io/)
   * [Carol Ng](https://www.carolkng.com/)
 
