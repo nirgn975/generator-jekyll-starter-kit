@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/nirgn975/generator-jekyll-starter-kit/master/images/jekyll-starter-kit.png" />
 
 
-[![license][license-image]][license-url] [![NPM version][npm-image]][npm-url] ![Continuous Deployment](https://github.com/nirgn975/generator-jekyll-starter-kit/workflows/Continuous%20Deployment/badge.svg) [![Dependency Status][dependencyci-image]][dependencyci-url] [![codecov][codecov-image]][codecov-url] [![Codacy Badge][codacy-image]][codacy-url] [![Maintenance][maintenance-image]][maintenance-url] [![Gitter][gitter-image]][gitter-url]
+[![license][license-image]][license-url] ![Continuous Deployment](https://github.com/nirgn975/generator-jekyll-starter-kit/workflows/Continuous%20Deployment/badge.svg) [![Dependency Status][dependencyci-image]][dependencyci-url] [![codecov][codecov-image]][codecov-url] [![Codacy Badge][codacy-image]][codacy-url] [![Maintenance][maintenance-image]][maintenance-url]
 
 > Jekyll + Google web-starter-kit = best of both worlds
 
@@ -65,12 +65,10 @@ Great! Here is how you can install the local generator to test changes.
   * [Yotam Emergy](http://ydesign.webflow.io)
   * [Carol Ng](https://www.carolkng.com)
 
-[![npm][downloads-image]][downloads-url] [![Donate][donate-image]][donate-url]
+[![npm][downloads-image]][downloads-url]
 
 [license-image]: https://img.shields.io/badge/license-ISC-blue.svg
 [license-url]: https://github.com/nirgn975/generator-jekyll-starter-kit/blob/master/LICENSE
-[npm-image]: https://badge.fury.io/js/generator-jekyll-starter-kit.svg
-[npm-url]: https://npmjs.org/package/generator-jekyll-starter-kit
 [dependencyci-image]: https://badgen.net/dependabot/nirgn975/generator-jekyll-starter-kit?icon=dependabot
 [dependencyci-url]: https://dependabot.com/
 [codecov-image]: https://codecov.io/gh/nirgn975/generator-jekyll-starter-kit/branch/master/graph/badge.svg
@@ -79,8 +77,6 @@ Great! Here is how you can install the local generator to test changes.
 [codacy-url]: https://www.codacy.com/app/nirgn975/generator-jekyll-starter-kit?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nirgn975/generator-jekyll-starter-kit&amp;utm_campaign=Badge_Grade
 [maintenance-image]: https://img.shields.io/maintenance/yes/2020.svg
 [maintenance-url]: https://github.com/nirgn975
-[gitter-image]: https://img.shields.io/badge/Gitter-Join_the_chat_%E2%86%92-00d06f.svg
-[gitter-url]: https://gitter.im/jekyll_starter_kit/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
 [downloads-image]: https://img.shields.io/npm/dt/generator-jekyll-starter-kit.svg
 [downloads-url]: https://www.npmjs.com/package/generator-jekyll-starter-kit
