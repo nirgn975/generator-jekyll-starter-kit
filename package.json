@@ -1,6 +1,6 @@
 {
   "name": "generator-jekyll-starter-kit",
-  "version": "3.0.3",
+  "version": "3.0.5",
   "description": "Combine Jekyll and Google web-starter-kit to enjoy the best of both worlds",
   "homepage": "https://github.com/nirgn975/generator-jekyll-starter-kit",
   "author": {
@@ -88,9 +88,6 @@
   },
   "repository": "nirgn975/generator-jekyll-starter-kit",
   "license": "ISC",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@nirgn975"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

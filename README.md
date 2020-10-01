@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/nirgn975/generator-jekyll-starter-kit/master/images/jekyll-starter-kit.png" />
 
 
-[![license][license-image]][license-url] [![NPM version][npm-image]][npm-url] ![Node CI](https://github.com/nirgn975/generator-jekyll-starter-kit/workflows/Node%20CI/badge.svg) [![Dependency Status][dependencyci-image]][dependencyci-url] [![codecov][codecov-image]][codecov-url] [![Codacy Badge][codacy-image]][codacy-url] [![Maintenance][maintenance-image]][maintenance-url] [![Gitter][gitter-image]][gitter-url]
+[![license][license-image]][license-url] [![NPM version][npm-image]][npm-url] ![Continuous Deployment](https://github.com/nirgn975/generator-jekyll-starter-kit/workflows/Continuous%20Deployment/badge.svg) [![Dependency Status][dependencyci-image]][dependencyci-url] [![codecov][codecov-image]][codecov-url] [![Codacy Badge][codacy-image]][codacy-url] [![Maintenance][maintenance-image]][maintenance-url] [![Gitter][gitter-image]][gitter-url]
 
 > Jekyll + Google web-starter-kit = best of both worlds
 
@@ -62,8 +62,8 @@ Great! Here is how you can install the local generator to test changes.
 
   * [Nir Galon](http://nir.galon.io)
   * [Roy Segall](http://twitter.com/roysegalll)
-  * [Yotam Emergy](http://ydesign.webflow.io/)
-  * [Carol Ng](https://www.carolkng.com/)
+  * [Yotam Emergy](http://ydesign.webflow.io)
+  * [Carol Ng](https://www.carolkng.com)
 
 [![npm][downloads-image]][downloads-url] [![Donate][donate-image]][donate-url]
 
@@ -84,5 +84,3 @@ Great! Here is how you can install the local generator to test changes.
 
 [downloads-image]: https://img.shields.io/npm/dt/generator-jekyll-starter-kit.svg
 [downloads-url]: https://www.npmjs.com/package/generator-jekyll-starter-kit
-[donate-image]: https://img.shields.io/badge/PayPal-Donate-lightgrey.svg
-[donate-url]: https://www.paypal.me/nirgn/2
