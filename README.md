@@ -75,7 +75,7 @@ Great! Here is how you can install the local generator to test changes.
 [codecov-url]: https://codecov.io/gh/nirgn975/generator-jekyll-starter-kit
 [codacy-image]: https://api.codacy.com/project/badge/Grade/6dfa47fa71b64497a313cb1ddfcf26f4
 [codacy-url]: https://www.codacy.com/app/nirgn975/generator-jekyll-starter-kit?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nirgn975/generator-jekyll-starter-kit&amp;utm_campaign=Badge_Grade
-[maintenance-image]: https://img.shields.io/maintenance/yes/2020.svg
+[maintenance-image]: https://img.shields.io/maintenance/yes/2021.svg
 [maintenance-url]: https://github.com/nirgn975
 
 [downloads-image]: https://img.shields.io/npm/dt/generator-jekyll-starter-kit.svg
