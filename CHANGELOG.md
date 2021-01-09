@@ -1,3 +1,9 @@
+## [3.1.6](https://github.com/nirgn975/generator-jekyll-starter-kit/compare/v3.1.5...v3.1.6) (2021-01-09)
+
+### Continuous Integration
+
+- use PAT token in cd action to create a release ([19bb1d8](https://github.com/nirgn975/generator-jekyll-starter-kit/commit/19bb1d8a925e579c2c3bb241dd39ca60d548db20))
+
 ## [3.1.5](https://github.com/nirgn975/generator-jekyll-starter-kit/compare/v3.1.4...v3.1.5) (2021-01-09)
 
 ### Continuous Integration
