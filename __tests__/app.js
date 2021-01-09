@@ -17,7 +17,7 @@ describe("generator-html-css-es2015-sw-travis", () => {
         es: true,
         sw: true,
         travis: true,
-        deploy: "github"
+        deploy: "github",
       })
       .toPromise();
   });
@@ -44,7 +44,7 @@ describe("generator-html-css-es2015-sw-travis", () => {
       "package.json",
       "README.md",
       "robots.txt",
-      ".travis.yml"
+      ".travis.yml",
     ]);
   });
 
@@ -54,7 +54,7 @@ describe("generator-html-css-es2015-sw-travis", () => {
       "scss",
       "sass",
       ".firebaserc",
-      "firebase.json"
+      "firebase.json",
     ]);
   });
 
@@ -64,8 +64,8 @@ describe("generator-html-css-es2015-sw-travis", () => {
       description: "description",
       author: "username",
       repository: {
-        url: "url"
-      }
+        url: "url",
+      },
     });
   });
 
@@ -98,7 +98,7 @@ describe("generator-pug-scss-travis", () => {
         es: false,
         sw: false,
         travis: true,
-        deploy: "firebase"
+        deploy: "firebase",
       })
       .toPromise();
   });
@@ -109,7 +109,7 @@ describe("generator-pug-scss-travis", () => {
       "scss",
       ".travis.yml",
       ".firebaserc",
-      "firebase.json"
+      "firebase.json",
     ]);
   });
 
@@ -137,7 +137,7 @@ describe("generator-pug-sass-no_travis", () => {
         es: true,
         sw: true,
         travis: false,
-        deploy: "firebase"
+        deploy: "firebase",
       })
       .toPromise();
   });
