@@ -1,3 +1,9 @@
+## [3.1.7](https://github.com/nirgn975/generator-jekyll-starter-kit/compare/v3.1.6...v3.1.7) (2021-01-09)
+
+### Continuous Integration
+
+- fix gpr publish workflow ([ea1498d](https://github.com/nirgn975/generator-jekyll-starter-kit/commit/ea1498d3b9a70d7f2bb0af3eb6e1dc66560e3ddb))
+
 ## [3.1.6](https://github.com/nirgn975/generator-jekyll-starter-kit/compare/v3.1.5...v3.1.6) (2021-01-09)
 
 ### Continuous Integration
