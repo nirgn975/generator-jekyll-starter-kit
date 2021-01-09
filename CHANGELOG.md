@@ -1,3 +1,9 @@
+## [3.1.1](https://github.com/nirgn975/generator-jekyll-starter-kit/compare/v3.1.0...v3.1.1) (2021-01-09)
+
+### Continuous Integration
+
+- fix npm version bump ([1321af2](https://github.com/nirgn975/generator-jekyll-starter-kit/commit/1321af2682a80ea7f95c577615dbf1077ee2159f))
+
 # [3.1.0](https://github.com/nirgn975/generator-jekyll-starter-kit/compare/v3.0.6...v3.1.0) (2021-01-09)
 
 ### Chores
