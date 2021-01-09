@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/nirgn975/generator-jekyll-starter-kit/master/images/jekyll-starter-kit.png" />
 
 
-[![license][license-image]][license-url] ![Continuous Deployment](https://github.com/nirgn975/generator-jekyll-starter-kit/workflows/Continuous%20Deployment/badge.svg) [![Dependency Status][dependencyci-image]][dependencyci-url] [![codecov][codecov-image]][codecov-url] [![Codacy Badge][codacy-image]][codacy-url] [![Maintenance][maintenance-image]][maintenance-url]
+[![license][license-image]][license-url] [![GitHub release (latest by date)](https://img.shields.io/github/v/release/nirgn975/generator-jekyll-starter-kit)](https://github.com/nirgn975/generator-jekyll-starter-kit/releases) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release) ![Continuous Deployment](https://github.com/nirgn975/generator-jekyll-starter-kit/workflows/Continuous%20Deployment/badge.svg) [![Dependency Status][dependencyci-image]][dependencyci-url] [![codecov][codecov-image]][codecov-url] [![Codacy Badge][codacy-image]][codacy-url] [![Maintenance][maintenance-image]][maintenance-url]
 
 > Jekyll + Google web-starter-kit = best of both worlds
 
@@ -75,7 +75,7 @@ Great! Here is how you can install the local generator to test changes.
 [codecov-url]: https://codecov.io/gh/nirgn975/generator-jekyll-starter-kit
 [codacy-image]: https://api.codacy.com/project/badge/Grade/6dfa47fa71b64497a313cb1ddfcf26f4
 [codacy-url]: https://www.codacy.com/app/nirgn975/generator-jekyll-starter-kit?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nirgn975/generator-jekyll-starter-kit&amp;utm_campaign=Badge_Grade
-[maintenance-image]: https://img.shields.io/maintenance/yes/2021.svg
+[maintenance-image]: https://img.shields.io/maintenance/yes/2022.svg
 [maintenance-url]: https://github.com/nirgn975
 
 [downloads-image]: https://img.shields.io/npm/dt/generator-jekyll-starter-kit.svg
