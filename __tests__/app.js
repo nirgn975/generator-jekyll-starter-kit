@@ -3,7 +3,7 @@ const path = require("path");
 const assert = require("yeoman-assert");
 const helpers = require("yeoman-test");
 
-describe("generator-html-css-es2015-sw-travis", () => {
+describe("generator-html-css-es2015-sw-githubactions", () => {
   beforeAll(() => {
     return helpers
       .run(path.join(__dirname, "../generators/app"))
@@ -16,7 +16,7 @@ describe("generator-html-css-es2015-sw-travis", () => {
         css: "stylesheets",
         es: true,
         sw: true,
-        travis: true,
+        githubactions: true,
         deploy: "github",
       })
       .toPromise();
@@ -44,7 +44,7 @@ describe("generator-html-css-es2015-sw-travis", () => {
       "package.json",
       "README.md",
       "robots.txt",
-      ".travis.yml",
+      ".github/workflows/continuous-integration.yml",
     ]);
   });
 
@@ -84,7 +84,7 @@ describe("generator-html-css-es2015-sw-travis", () => {
   });
 });
 
-describe("generator-pug-scss-travis", () => {
+describe("generator-pug-scss-githubactions", () => {
   beforeAll(() => {
     return helpers
       .run(path.join(__dirname, "../generators/app"))
@@ -97,7 +97,7 @@ describe("generator-pug-scss-travis", () => {
         css: "scss",
         es: false,
         sw: false,
-        travis: true,
+        githubactions: true,
         deploy: "firebase",
       })
       .toPromise();
@@ -107,7 +107,7 @@ describe("generator-pug-scss-travis", () => {
     assert.file([
       "_includes-pug",
       "scss",
-      ".travis.yml",
+      ".github",
       ".firebaserc",
       "firebase.json",
     ]);
@@ -123,7 +123,7 @@ describe("generator-pug-scss-travis", () => {
   });
 });
 
-describe("generator-pug-sass-no_travis", () => {
+describe("generator-pug-sass-no_githubactions", () => {
   beforeAll(() => {
     return helpers
       .run(path.join(__dirname, "../generators/app"))
@@ -136,7 +136,7 @@ describe("generator-pug-sass-no_travis", () => {
         css: "sass",
         es: true,
         sw: true,
-        travis: false,
+        githubactions: false,
         deploy: "firebase",
       })
       .toPromise();
@@ -147,7 +147,7 @@ describe("generator-pug-sass-no_travis", () => {
   });
 
   it("not created files", () => {
-    assert.noFile(["css", "scss", ".travis.yml"]);
+    assert.noFile(["css", "scss", ".github"]);
   });
 
   it("humans.txt content", () => {

@@ -73,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-  color: #2a7ae2;
+  color: #2873d6;
   text-decoration: none;
 }
 a:visited {
@@ -88,7 +88,7 @@ a:hover {
  * Blockquotes
  */
 blockquote {
-  color: #828282;
+  color: #757474;
   border-left: 4px solid #e8e8e8;
   padding-left: 15px;
   font-size: 18px;
@@ -163,7 +163,7 @@ pre > code {
   vertical-align: middle;
 }
 .icon > svg path {
-  fill: #828282;
+  fill: #757474;
 }
 
 /**
@@ -262,7 +262,7 @@ pre > code {
 
 .footer-col-wrapper {
   font-size: 15px;
-  color: #828282;
+  color: #757474;
   margin-left: -15px;
 }
 
@@ -327,7 +327,7 @@ pre > code {
 
 .post-meta {
   font-size: 14px;
-  color: #828282;
+  color: #757474;
 }
 
 .post-link {

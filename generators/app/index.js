@@ -101,9 +101,9 @@ module.exports = class extends Generator {
       {
         // Prompts the user to decide if he want to validate his build.
         type: "confirm",
-        name: "travis",
+        name: "githubactions",
         message:
-          "(9/10) Would you like to enable HTMLProofer to validate your Jekyll output on Travis-CI?",
+          "(9/10) Would you like to enable HTMLProofer and lighthouse to validate your Jekyll output on GitHub Actions?",
         default: true,
       },
       {
@@ -144,7 +144,7 @@ module.exports = class extends Generator {
       this.includeSass = hasFeature(props.css, "sass");
       this.includeScss = hasFeature(props.css, "scss");
       this.includeSW = props.sw;
-      this.includeTravis = props.travis;
+      this.includeGitHubActions = props.githubactions;
       this.includeES = props.es;
       this.includeGithub = hasFeature(props.deploy, "github");
       this.includeFirebase = hasFeature(props.deploy, "firebase");
@@ -234,7 +234,7 @@ module.exports = class extends Generator {
         projectName: this.projectName,
         githubUsername: this.githubUsername,
         projectDescription: this.projectDescription,
-        includeTravis: this.includeTravis,
+        includeGitHubActions: this.includeGitHubActions,
         includeFirebase: this.includeFirebase,
       }
     );
@@ -268,7 +268,7 @@ module.exports = class extends Generator {
         includeSW: this.includeSW,
         includeGithub: this.includeGithub,
         includeFirebase: this.includeFirebase,
-        includeTravis: this.includeTravis,
+        includeGitHubActions: this.includeGitHubActions,
       }
     );
 
@@ -381,17 +381,19 @@ module.exports = class extends Generator {
       }
     );
 
-    // Copy travis file according to user choice.
-    if (this.includeTravis) {
+    // Copy github actions file according to user choice.
+    if (this.includeGitHubActions) {
       this.fs.copy(
-        this.templatePath("my-awesome-site/travis"),
-        this.destinationPath(".travis.yml")
+        this.templatePath(
+          "my-awesome-site/github/workflows/continuous-integration.yml"
+        ),
+        this.destinationPath(".github/workflows/continuous-integration.yml")
       );
 
       // Copy validate checklog file for lighthouse.
       this.fs.copy(
-        this.templatePath("my-awesome-site/validate/checklog"),
-        this.destinationPath("validate/checklog.js")
+        this.templatePath("my-awesome-site/lighthouserc.json"),
+        this.destinationPath("lighthouserc.json")
       );
     }
 
@@ -435,13 +437,6 @@ module.exports = class extends Generator {
       );
     }
 
-    console.log(
-      chalk
-        .keyword("red")
-        .bold(
-          "\n\t- Please visit https://travis-ci.org and enable it for this project."
-        )
-    );
     console.log(
       chalk
         .keyword("red")
