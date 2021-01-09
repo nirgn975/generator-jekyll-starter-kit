@@ -16,7 +16,6 @@ jobs:
 
       - name: check lint errors ⁉️
         run: |
-          npm run prepublishOnly
           npm run pretest
           npm run precommit
 
