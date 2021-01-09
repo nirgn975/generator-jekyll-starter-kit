@@ -2,7 +2,6 @@
 
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
-import runSequence from 'run-sequence';
 import browserSync from 'browser-sync';
 <% if (includeSW) { -%>
 import swPrecache from 'sw-precache';
@@ -34,7 +33,7 @@ gulp.task('minify-html', () => {
 
 // Optimize images.
 gulp.task('minify-images', () => {
-  gulp.src('images/**/*')
+  return gulp.src('images/**/*')
     .pipe($.imagemin({
       progressive: true,
       interlaced: true
@@ -44,7 +43,7 @@ gulp.task('minify-images', () => {
 
 // Concatenate<% if (includeES) { -%>, transpiles ES2015 code to ES5<% } -%> and minify JavaScript.
 gulp.task('scripts', () => {
-  gulp.src([
+  return gulp.src([
     // Note: You need to explicitly list your scripts here in the right order
     //       to be correctly concatenated
     './_scripts/main.js'
@@ -84,13 +83,13 @@ gulp.task('scss', () => {
     return gulp.src('sass/main.sass')
 <% } -%>
 <% if (includeScss) { -%>
-    return gulp.src('scss/main.scss')
+  return gulp.src('scss/main.scss')
 <% } -%>
-        .pipe($.sass({
-            includePaths: ['css'],
-            onError: browserSync.notify
-        }))
-        .pipe(gulp.dest('css'));
+    .pipe($.sass({
+        includePaths: ['css'],
+        onError: browserSync.notify
+    }))
+    .pipe(gulp.dest('css'));
 });
 
 <% } -%>
@@ -105,9 +104,11 @@ gulp.task('pug', () => {
   .pipe(gulp.dest('_includes'));
 });
 
+gulp.task('jekyll-build', $.shell.task(['bundle exec jekyll build']));
+
 <% } -%>
 // Watch change in files.
-gulp.task('serve', ['jekyll-build'], () => {
+gulp.task('serve', gulp.series(<% if (includePug) { -%>'pug',<% } -%>'scripts', 'scss','jekyll-build', (done) => {
   browserSync.init({
     notify: false,
     // Run as an https by uncommenting 'https: true'
@@ -126,26 +127,29 @@ gulp.task('serve', ['jekyll-build'], () => {
     '_layouts/**/*.html',
     '_posts/**/*.markdown',
     'index.html'
-  ], ['jekyll-build', browserSync.reload]);
+  ], gulp.series(<% if (includePug) { -%>'pug',<% } -%>'scripts', 'scss','jekyll-build', () => {
+    return browserSync.reload;
+  }));
 
 <% if (includePug) { -%>
   // Watch Pug (Jade) changes.
-  gulp.watch('_includes-pug/**/*.pug', ['pug']);
+  gulp.watch('_includes-pug/**/*.pug', gulp.series('pug'));
 
 <% } -%>
 <% if (includeSass) { -%>
   // Watch sass changes.
-  gulp.watch('sass/**/*.sass', ['scss']);
+  gulp.watch('sass/**/*.sass', gulp.series('scss'));
 
 <% } -%>
 <% if (includeScss) { -%>
   // Watch scss changes.
-  gulp.watch('scss/**/*.scss', ['scss']);
+  gulp.watch('scss/**/*.scss', gulp.series('scss'));
 
 <% } -%>
   // Watch JavaScript changes.
-  gulp.watch('_scripts/**/*.js', ['scripts']);
-});
+  gulp.watch('_scripts/**/*.js', gulp.series('scripts'));
+  return done();
+}));
 
 <% if (includeSW) { -%>
 gulp.task('generate-service-worker', (callback) => {
@@ -167,52 +171,50 @@ gulp.task('generate-service-worker', (callback) => {
 <% if (includeGithub) { -%>
 
   gulp.task('fix-config', () => {
-    gulp.src('_config.yml')
+    return gulp.src('_config.yml')
       .pipe($.replace('baseurl: ""', 'baseurl: "<%= projectName %>"'))
       .pipe($.clean())
       .pipe(gulp.dest('.'));
   });
 
   gulp.task('revert-config', () => {
-    gulp.src('_config.yml')
+    return gulp.src('_config.yml')
         .pipe($.replace('baseurl: "<%= projectName %>"', 'baseurl: ""'))
         .pipe($.clean())
         .pipe(gulp.dest('.'));
   });
 <% } -%>
 
-gulp.task('jekyll-build', [<% if (includePug) { -%>'pug',<% } -%>'scripts', 'scss'], $.shell.task(['jekyll build']));
-
-gulp.task('jekyll-build-for-deploy', $.shell.task(['jekyll build']));
+gulp.task('jekyll-build-for-deploy', $.shell.task(['bundle exec jekyll build']));
 
 // Default task.
-gulp.task('build', () =>
-  runSequence(
+gulp.task('build', gulp.series(
 <% if (includeGithub) { -%>
-    'fix-config',
+  'fix-config',
 <% } -%>
-    'cleanup-build',
+  'cleanup-build',
 <% if (includePug) { -%>
-    'pug',
+  'pug',
 <% } -%>
 <% if (includeSass | includeScss) { -%>
-    'scss',
+  'scss',
 <% } -%>
-    'scripts',
-    'jekyll-build-for-deploy',
-    'minify-html',
-    'css',
+  'scripts',
+  'jekyll-build-for-deploy',
+  'minify-html',
+  'css',
 <% if (includeSW) { -%>
-    'generate-service-worker',
+  'generate-service-worker',
 <% } -%>
 <% if (includeGithub) { -%>
-    'minify-images',
-    'revert-config'
+  'minify-images',
+  'revert-config',
 <% } else { -%>
-    'minify-images'
+  'minify-images',
 <% } -%>
-  )
-);
+function (done) {
+  done();
+}));
 
 <% if (includeGithub) { -%>
 // Depoly website to gh-pages.
@@ -221,30 +223,30 @@ gulp.task('gh-pages', () => {
     .pipe($.ghPages());
 });
 
-gulp.task('deploy', () => {
-  runSequence(
+gulp.task('deploy', gulp.series(
 <% if (includeGithub) { -%>
-    'fix-config',
+  'fix-config',
 <% } -%>
-    'cleanup-build',
+  'cleanup-build',
 <% if (includePug) { -%>
-    'pug',
+  'pug',
 <% } -%>
 <% if (includeSass || includeScss) { -%>
-    'scss',
+  'scss',
 <% } -%>
-    'scripts',
-    'jekyll-build-for-deploy',
-    'minify-html',
-    'css',
+  'scripts',
+  'jekyll-build-for-deploy',
+  'minify-html',
+  'css',
 <% if (includeSW) { -%>
-    'generate-service-worker',
+  'generate-service-worker',
 <% } -%>
-    'minify-images',
-    'gh-pages',
-    'revert-config'
-  )
-});
+  'minify-images',
+  'gh-pages',
+  'revert-config',
+  function (done) {
+    done();
+}));
 <% } -%>
 
 <% if (includeFirebase) { -%>
@@ -258,25 +260,25 @@ gulp.task('cleanup-sw-deploy', () => {
 
 gulp.task('firebase', $.shell.task(['firebase deploy']));
 
-gulp.task('deploy', () => {
-  runSequence(
-    'cleanup-build',
+gulp.task('deploy', gulp.series(
+  'cleanup-build',
 <% if (includePug) { -%>
-    'pug',
+  'pug',
 <% } -%>
 <% if (includeSass || includeScss) { -%>
-    'scss',
+  'scss',
 <% } -%>
-    'scripts',
-    'jekyll-build-for-deploy',
-    'minify-html',
-    'css',
+  'scripts',
+  'jekyll-build-for-deploy',
+  'minify-html',
+  'css',
 <% if (includeSW) { -%>
-    'generate-service-worker',
-    'cleanup-sw-deploy',
+  'generate-service-worker',
+  'cleanup-sw-deploy',
 <% } -%>
-    'minify-images',
-    'firebase'
-  );
-});
+  'minify-images',
+  'firebase',
+  function (done) {
+    done();
+}));
 <% } -%>

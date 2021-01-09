@@ -1,0 +1,34 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/checkout@v2
+      - name: Set up Ruby 2.6
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+
+      - name: Setup wesite 🚧
+        run: |
+          npm install
+          bundle install
+          npm run build
+
+      - name: Run HTMLProofer 📚
+        run: |
+          gem install html-proofer
+          htmlproofer _site --check-html --allow-hash-href --empty-alt-ignore --disable-external
+
+      - name: Run Lighthouse 💡
+        uses: treosh/lighthouse-ci-action@v3
+        with:
+          configPath: './lighthouserc.json'
