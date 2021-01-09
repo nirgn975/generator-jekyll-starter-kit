@@ -104,9 +104,9 @@ gulp.task('pug', () => {
   .pipe(gulp.dest('_includes'));
 });
 
+<% } -%>
 gulp.task('jekyll-build', $.shell.task(['bundle exec jekyll build']));
 
-<% } -%>
 // Watch change in files.
 gulp.task('serve', gulp.series(<% if (includePug) { -%>'pug',<% } -%>'scripts', 'scss','jekyll-build', (done) => {
   browserSync.init({
