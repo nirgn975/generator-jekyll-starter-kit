@@ -17,13 +17,13 @@
 <% if (includeFirebase) { -%>
     "firebase-tools": "^3.16.0",
 <% } -%>
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.3",
-    "gulp-replace": "^0.6.1",
+    "gulp-replace": "^1.0.0",
 <% if (includeGithub) { -%>
     "gulp-gh-pages": "^0.5.4",
 <% } -%>
@@ -42,7 +42,7 @@
     "gulp-shell": "^0.7.1",
     "gulp-uglify": "^3.0.2",
 <% if (includeTravis) { -%>
-    "lighthouse": "^5.5.0",
+    "lighthouse": "^7.0.0",
 <% } -%>
 <% if (includeSW) { -%>
     "sw-precache": "^5.2.1",
