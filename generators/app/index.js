@@ -18,28 +18,28 @@ module.exports = class extends Generator {
         type: "input",
         name: "projectName",
         message: "(1/10) What will be your project name?",
-        required: "false"
+        required: "false",
       },
       {
         // Prompts the user for the URL of the project"s GitHub repo.
         type: "input",
         name: "githubUrl",
         message: "(2/10) What is the GitHub repository URL?",
-        required: "false"
+        required: "false",
       },
       {
         // Prompts the user for his GitHub username.
         type: "input",
         name: "githubUsername",
         message: "(3/10) What is your GitHub username?",
-        required: "false"
+        required: "false",
       },
       {
         // Prompts the user for his GitHub username.
         type: "input",
         name: "projectDescription",
         message: "(4/10) What is your project description?",
-        required: "false"
+        required: "false",
       },
       {
         // Prompts the user to pick a templating engine.
@@ -50,14 +50,14 @@ module.exports = class extends Generator {
           {
             name: " HTML",
             value: "html",
-            checked: true
+            checked: true,
           },
           {
             name: " Pug (Jade) [just for the _includes directory]",
             value: "pug",
-            checked: false
-          }
-        ]
+            checked: false,
+          },
+        ],
       },
       {
         // Prompts the user to choose stylesheets.
@@ -68,19 +68,19 @@ module.exports = class extends Generator {
           {
             name: " CSS",
             value: "stylesheets",
-            checked: false
+            checked: false,
           },
           {
             name: " SASS",
             value: "sass",
-            checked: false
+            checked: false,
           },
           {
             name: " SCSS",
             value: "scss",
-            checked: false
-          }
-        ]
+            checked: false,
+          },
+        ],
       },
       {
         // Prompts the user to decide if he want ES2015 support.
@@ -88,7 +88,7 @@ module.exports = class extends Generator {
         name: "es",
         message:
           "(7/10) Would you like to write ES2015? (ES2015 will be support using Babel and will automatically transpiled to ES5 for wide browser support).",
-        default: true
+        default: true,
       },
       {
         // Prompts the user to decide if he want offline support.
@@ -96,7 +96,7 @@ module.exports = class extends Generator {
         name: "sw",
         message:
           "(8/10) Would you like to enable Service Worker for offline use?",
-        default: true
+        default: true,
       },
       {
         // Prompts the user to decide if he want to validate his build.
@@ -104,7 +104,7 @@ module.exports = class extends Generator {
         name: "travis",
         message:
           "(9/10) Would you like to enable HTMLProofer to validate your Jekyll output on Travis-CI?",
-        default: true
+        default: true,
       },
       {
         // Prompts the user to choose deploy method.
@@ -115,18 +115,18 @@ module.exports = class extends Generator {
           {
             name: " GitHub pages",
             value: "github",
-            checked: false
+            checked: false,
           },
           {
             name: " Firebase",
             value: "firebase",
-            checked: false
-          }
-        ]
-      }
+            checked: false,
+          },
+        ],
+      },
     ];
 
-    return this.prompt(prompts).then(props => {
+    return this.prompt(prompts).then((props) => {
       // To access props later use this.props.someAnswer;
       this.projectName = props.projectName;
       this.githubUsername = props.githubUsername;
@@ -191,7 +191,7 @@ module.exports = class extends Generator {
         githubUsername: this.githubUsername,
         projectDescription: this.projectDescription,
         includeGithub: this.includeGithub,
-        includeFirebase: this.includeFirebase
+        includeFirebase: this.includeFirebase,
       }
     );
 
@@ -212,7 +212,7 @@ module.exports = class extends Generator {
       this.templatePath("my-awesome-site/.babelrc"),
       this.destinationPath(".babelrc"),
       {
-        includeES: !this.includeES
+        includeES: !this.includeES,
       }
     );
 
@@ -222,7 +222,7 @@ module.exports = class extends Generator {
       this.destinationPath(".gitignore"),
       {
         includeSass: this.includeSass,
-        includeScss: this.includeScss
+        includeScss: this.includeScss,
       }
     );
 
@@ -235,7 +235,7 @@ module.exports = class extends Generator {
         githubUsername: this.githubUsername,
         projectDescription: this.projectDescription,
         includeTravis: this.includeTravis,
-        includeFirebase: this.includeFirebase
+        includeFirebase: this.includeFirebase,
       }
     );
 
@@ -268,7 +268,7 @@ module.exports = class extends Generator {
         includeSW: this.includeSW,
         includeGithub: this.includeGithub,
         includeFirebase: this.includeFirebase,
-        includeTravis: this.includeTravis
+        includeTravis: this.includeTravis,
       }
     );
 
@@ -277,7 +277,7 @@ module.exports = class extends Generator {
       this.templatePath("my-awesome-site/manifest.json"),
       this.destinationPath("manifest.json"),
       {
-        projectName: this.projectName
+        projectName: this.projectName,
       }
     );
 
@@ -287,7 +287,7 @@ module.exports = class extends Generator {
       this.destinationPath("manifest.webapp"),
       {
         projectName: this.projectName,
-        projectDescription: this.projectDescription
+        projectDescription: this.projectDescription,
       }
     );
 
@@ -296,7 +296,7 @@ module.exports = class extends Generator {
       this.templatePath("my-awesome-site/LICENSE"),
       this.destinationPath("LICENSE"),
       {
-        githubUsername: this.githubUsername
+        githubUsername: this.githubUsername,
       }
     );
 
@@ -323,7 +323,7 @@ module.exports = class extends Generator {
       this.templatePath("my-awesome-site/index.html"),
       this.destinationPath("index.html"),
       {
-        includePug: this.includePug
+        includePug: this.includePug,
       }
     );
 
@@ -377,7 +377,7 @@ module.exports = class extends Generator {
         includeES: this.includeES,
         includeGithub: this.includeGithub,
         includeFirebase: this.includeFirebase,
-        includeSW: this.includeSW
+        includeSW: this.includeSW,
       }
     );
 
@@ -400,7 +400,7 @@ module.exports = class extends Generator {
       this.templatePath("my-awesome-site/humans.txt"),
       this.destinationPath("humans.txt"),
       {
-        githubUsername: this.githubUsername
+        githubUsername: this.githubUsername,
       }
     );
 
@@ -411,7 +411,7 @@ module.exports = class extends Generator {
       {
         includeGithub: this.includeGithub,
         includeFirebase: this.includeFirebase,
-        includeSW: this.includeSW
+        includeSW: this.includeSW,
       }
     );
 
@@ -421,7 +421,7 @@ module.exports = class extends Generator {
       this.destinationPath("_includes/head.html"),
       {
         includeGithub: this.includeGithub,
-        includeFirebase: this.includeFirebase
+        includeFirebase: this.includeFirebase,
       }
     );
   }
@@ -451,7 +451,7 @@ module.exports = class extends Generator {
     );
 
     this.installDependencies({
-      bower: false
+      bower: false,
     });
   }
 };
