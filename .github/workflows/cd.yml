@@ -1,8 +1,8 @@
 name: Continuous Deployment
 
 on:
-  release:
-    types: [created]
+  milestone:
+    types: [closed]
 
 jobs:
   build:
@@ -14,13 +14,13 @@ jobs:
           node-version: 12
       - run: npm ci
 
-      - name: check lint errors
+      - name: check lint errors ⁉️
         run: |
           npm run prepublishOnly
           npm run pretest
           npm run precommit
 
-      - name: run tests
+      - name: run tests 💉
         run: |
           npm run test
 
@@ -29,7 +29,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
 
-      - name: generate project
+      - name: generate project 🚧
         run: |
           npm install -g yo
           npm link
