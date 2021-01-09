@@ -85,7 +85,10 @@
       "prettier"
     ]
   },
-  "repository": "nirgn975/generator-jekyll-starter-kit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nirgn975/generator-jekyll-starter-kit.git"
+  },
   "license": "ISC",
   "husky": {
     "hooks": {
