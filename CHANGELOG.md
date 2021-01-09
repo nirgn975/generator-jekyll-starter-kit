@@ -1,3 +1,13 @@
+## [3.1.4](https://github.com/nirgn975/generator-jekyll-starter-kit/compare/v3.1.3...v3.1.4) (2021-01-09)
+
+### Continuous Integration
+
+- change publish workflow to run on released event ([d4ba5a8](https://github.com/nirgn975/generator-jekyll-starter-kit/commit/d4ba5a866f927b805dc4387d0b6f70b33a131449))
+
+### Other
+
+- Merge branch 'main' of github.com:nirgn975/generator-jekyll-starter-kit into main ([7dd3a82](https://github.com/nirgn975/generator-jekyll-starter-kit/commit/7dd3a82fcdaa1ffc1a63e4e95db7ad46c48949d7))
+
 ## [3.1.3](https://github.com/nirgn975/generator-jekyll-starter-kit/compare/v3.1.2...v3.1.3) (2021-01-09)
 
 ### Continuous Integration
