@@ -44,7 +44,7 @@ jobs:
       - name: Create Release 🚀
         uses: ridedott/release-me-action@master
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.ACTIONS_PAT }}
         with:
           node-module: true
           release-branches: '["main"]'
