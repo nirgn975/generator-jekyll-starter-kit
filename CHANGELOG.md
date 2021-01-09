@@ -1,3 +1,9 @@
+## [3.1.2](https://github.com/nirgn975/generator-jekyll-starter-kit/compare/v3.1.1...v3.1.2) (2021-01-09)
+
+### Continuous Integration
+
+- separate publish to a new github workflow ([250c657](https://github.com/nirgn975/generator-jekyll-starter-kit/commit/250c6577ee807dccf094fd682848e65aebeeb2db))
+
 ## [3.1.1](https://github.com/nirgn975/generator-jekyll-starter-kit/compare/v3.1.0...v3.1.1) (2021-01-09)
 
 ### Continuous Integration
