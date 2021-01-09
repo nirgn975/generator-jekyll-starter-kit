@@ -15,7 +15,7 @@
     "@babel/register": "^7.6.2",
     "browser-sync": "^2.26.7",
 <% if (includeFirebase) { -%>
-    "firebase-tools": "^3.16.0",
+    "firebase-tools": "^9.1.2",
 <% } -%>
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.0",
@@ -40,15 +40,14 @@
     "gulp-sass": "^4.0.2",
 <% } -%>
     "gulp-shell": "^0.7.1",
-    "gulp-uglify": "^3.0.2",
-<% if (includeTravis) { -%>
+<% if (includeGitHubActions) { -%>
     "lighthouse": "^7.0.0",
 <% } -%>
 <% if (includeSW) { -%>
     "sw-precache": "^5.2.1",
     "sw-toolbox": "^3.6.0",
 <% } -%>
-    "run-sequence": "^2.2.1"
+    "gulp-uglify": "^3.0.2"
   },
   "repository": {
     "type": "git",

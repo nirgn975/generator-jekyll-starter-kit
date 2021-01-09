@@ -34,10 +34,10 @@ yo jekyll-starter-kit
   * Enable ES2015 features using Babel
   * Concatenate and minify JavaScript
   * Built-in preview server with BrowserSync
-  * Automagically create a service worker file
+  * Automagically create a service worker file for offline caching
   * Deploy the project to GitHub pages or Firebase with only one command
-  * Automagically test your project output on Travis-CI
-  * Test your project against [lighthouse](https://github.com/GoogleChrome/lighthouse) and fail Travis-CI with score below 80
+  * Automagically test your project output on GitHub Actions with [html-proofer](https://github.com/gjtorikian/html-proofer)
+  * Test your project against [lighthouse](https://github.com/GoogleChrome/lighthouse) and fail GitHub Action with score below 80/100
   * Awesome README file with all instructions and badges - like the pros :wink:
 
 ## Trouble with running the project?
