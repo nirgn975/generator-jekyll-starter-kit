@@ -1,3 +1,13 @@
+## [3.1.5](https://github.com/nirgn975/generator-jekyll-starter-kit/compare/v3.1.4...v3.1.5) (2021-01-09)
+
+### Continuous Integration
+
+- try to run workflow on all release events ([6700afd](https://github.com/nirgn975/generator-jekyll-starter-kit/commit/6700afd20215ef9728c89935b207548d520e43aa))
+
+### Other
+
+- Create npm-publish.yml ([98a0107](https://github.com/nirgn975/generator-jekyll-starter-kit/commit/98a0107603e61a7bffca0057e1b1e88f8a138cb8))
+
 ## [3.1.4](https://github.com/nirgn975/generator-jekyll-starter-kit/compare/v3.1.3...v3.1.4) (2021-01-09)
 
 ### Continuous Integration
