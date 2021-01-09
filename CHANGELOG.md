@@ -1,3 +1,9 @@
+## [3.1.3](https://github.com/nirgn975/generator-jekyll-starter-kit/compare/v3.1.2...v3.1.3) (2021-01-09)
+
+### Continuous Integration
+
+- change publish workflow running trigger ([d2af857](https://github.com/nirgn975/generator-jekyll-starter-kit/commit/d2af8576a6ca1a3b9056715114c166597035f57a))
+
 ## [3.1.2](https://github.com/nirgn975/generator-jekyll-starter-kit/compare/v3.1.1...v3.1.2) (2021-01-09)
 
 ### Continuous Integration
