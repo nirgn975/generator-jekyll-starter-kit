@@ -110,7 +110,7 @@ module.exports = class extends Generator {
         // Prompts the user to choose deploy method.
         type: "list",
         name: "deploy",
-        message: "(10/10) How you want to deploy your website?",
+        message: "(10/10) How do you want to deploy your website?",
         choices: [
           {
             name: " GitHub pages",
